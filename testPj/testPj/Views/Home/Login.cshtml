@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Login Policy";
+}
+<div class="container-fluid">
+    <div class=" col-md-4 col-sm-8 col-10 offset-md-4 offset-sm-2 offset-1 radius-form bg-white mb-5 " style="background: radial-gradient(circle, var(--indigo) 0%, rgb(232 62 140 / 32%) 100%); border-radius: 25px;">
+        <div class="row mt-5">
+            <h2 class="col-md-12 col-sm-12 col-12 mt-3" style="text-align:center">Đăng Nhập</h2>
+        </div>
+        @*Tài khoản*@
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 mt-2 mb-3 text-dark">
+                <input type="text" class="form-control inputLogin" style="border-radius:30px" id="txtUsernameLogin" placeholder="Tài khoản" name="" />
+                <i class="fa fa-user absolute-icon-calendar"></i>
+            </div>
+        </div>
+        @*Mật khẩu*@
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 mt-2 mb-2 mb-3 text-dark">
+                <input type="password" class="form-control inputLogin" style="border-radius:30px" placeholder="Mật khẩu" id="txtPasswordLogin" />
+                <i class="fa fa-unlock absolute-icon-calendar "></i>
+            </div>
+        </div>
+        @*Nút đăng nhập*@
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12 mt-2 mb-3">
+                <button class="btn btn-block btnLogin" id="btnLogin" onclick="Login()">Đăng nhập</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script src="~/js/jquery-3.6.0.min.js"></script>*@
+<script>
+    function Login() {
+        $.ajax({
+            url: '/Home/GetAll',
+            success: function (response) {
+                debugger;
+                alert(response);
+            },
+            error: function (result) {
+                debugger;
+            }
+        });
+    };
+</script>

@@ -1,0 +1,96 @@
+﻿
+@model DetailModel
+<div class="modal fade" id="DetailUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-fw fa-shopping-cart"></i>Sửa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form id="form_update_item" name="form_update_item">
+                    <div class=" row col-lg-12 col-md-12 col-12">
+                        <div class="col-lg-12 col-md-12 col-12 row">
+                            <div class="col-md-4 col-4 mt-3">
+                                <label class="text-dark">Tên người dùng</label>
+                            </div>
+                            <div class="col-md-8 col-8 mt-3">
+                                <input type="text" class="form-control" id="editName" name="title" placeholder="Tên người dùng" value="@Model.Name">
+                            </div>
+                            <div class="col-md-4 col-4 mt-3">
+                                <label class="text-dark">Mật khẩu</label>
+                            </div>
+                            <div class="col-md-8 col-8 mt-3">
+                                <input type="text" class="form-control" id="editPass" name="title" placeholder="Mật khẩu" value="@Model.Password">
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary px-3" onclick="SaveEdit(@Model.Id);">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function SaveEdit(Id) {
+        var editName = $('#editName').val()
+        var editPass = $('#editPass').val()
+        debugger;
+        if (editName == "" || editPass == "") {
+            swal({
+                title: "Thông báo",
+                text: "Vui lòng nhập đầy đủ thông tin!",
+                icon: "warning"
+            })
+            return;
+        } else {
+            $.ajax({
+                url: '/Home/Update',
+                type: "PUT",
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    Id: Id,
+                    Name: editName,
+                    Password: editPass,
+                }),
+                //data: {
+                //    Id: Id,
+                //    Name: editName,
+                //    Password: editPass,
+                //},
+                success: function (response) {
+                    if (response == true) {
+                        swal({
+                            title: "Thành công!",
+                            text: "",
+                            icon: "success"
+                        });
+                        $('#DetailUser').modal('hide');
+                        window.location = "/Home/listUser";
+                    }
+                    else {
+                        swal({
+                            title: "Có lỗi xảy ra!",
+                            text: "Không thể sửa.",
+                            icon: "warning"
+                        });
+                    }
+                },
+                error: function (result) {
+                }
+            });
+        }
+    };
+</script>
+
+
