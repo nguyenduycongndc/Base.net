@@ -18,6 +18,8 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
@@ -30,11 +32,6 @@ namespace testPj.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Login()
         {
             return View();
         }
@@ -62,17 +59,6 @@ namespace testPj.Controllers
                 return PartialView("DetailUser", new DetailModel());
             }
         }
-        //public async Task<bool> UpdateUser(UpdateModel input)
-        //{
-        //    try
-        //    {
-        //        return await loginService.UpdateUse(input);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
         [HttpGet]
         public DetailModel Detail(int id)
         {
@@ -80,6 +66,7 @@ namespace testPj.Controllers
             return testDetail;
         }
         [HttpPost]
+        [Route("CreateUser")]
         public async Task<bool> Create([FromBody] CreateModel add)
         {
             try

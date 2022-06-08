@@ -13,6 +13,8 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;
@@ -21,7 +23,6 @@ namespace testPj.Controllers
         public LoginController(ILogger<LoginController> logger, ILoginService loginServices)
         {
             _logger = logger;
-            _logger.LogError("test");
             this.loginServices = loginServices;
         }
 
@@ -29,15 +30,13 @@ namespace testPj.Controllers
         {
             return View();
         }
+
         [HttpPost]
+        [Route("LoginRevamp")]
         public LoginModel LoginRevamp([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
             return testList;
-        }
-        public static string EncodeServerName(string serverName)
-        {
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
     }
 }

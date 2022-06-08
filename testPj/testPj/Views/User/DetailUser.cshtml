@@ -18,7 +18,8 @@
                                 <label class="text-dark">Tên người dùng</label>
                             </div>
                             <div class="col-md-8 col-8 mt-3">
-                                <input type="text" class="form-control" id="editName" name="title" placeholder="Tên người dùng" value="@Model.Name">
+            services.AddScoped<IUserRepo, LoginRepo>();
+                                <input type="text" class="form-control" id="editName" name="title" placeholder="Tên người dùng" value="@Model.UserName">
                             </div>
                             <div class="col-md-4 col-4 mt-3">
                                 <label class="text-dark">Mật khẩu</label>

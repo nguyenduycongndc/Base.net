@@ -14,7 +14,6 @@ namespace testPj.Data
         }
 
         public DbSet<User> User { get; set; }
-        public DbSet<Role> Role { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

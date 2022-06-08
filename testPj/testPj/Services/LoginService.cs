@@ -17,9 +17,9 @@ namespace testPj.Services
     public class LoginService : ILoginService
     {
         private readonly ILogger<LoginService> _logger;
-        private readonly ILoginRepo loginRepo;
+        private readonly IUserRepo loginRepo;
 
-        public LoginService(ILogger<LoginService> logger, ILoginRepo loginRepo)
+        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo)
         {
             _logger = logger;
             this.loginRepo = loginRepo;
@@ -49,7 +49,7 @@ namespace testPj.Services
             }
         }
 
-        public string GenerateJwt(Role user)
+        public string GenerateJwt(User user)
         {
 
             var claims = new List<Claim>
