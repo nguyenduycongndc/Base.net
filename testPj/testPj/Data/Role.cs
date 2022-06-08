@@ -9,6 +9,6 @@ namespace testPj.Data
         public string UserName { get; set; }
         public string PassWord { get; set; }
         public string Token { get; set; }
-        public bool IsActive { get; set; }
+        public int IsActive { get; set; }
     }
 }

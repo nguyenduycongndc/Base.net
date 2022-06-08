@@ -53,7 +53,7 @@ namespace testPj.Repo
         {
             var updt = await context.Role.FindAsync(Role.Id);
             updt.Id = Role.Id;
-            updt.IsActive = false;
+            updt.IsActive = 0;
             await context.SaveChangesAsync();
             return true;
         }

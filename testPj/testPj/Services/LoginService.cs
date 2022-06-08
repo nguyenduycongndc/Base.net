@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,33 +11,40 @@ using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
 using testPj.Services.Interface;
- 
+
 namespace testPj.Services
 {
     public class LoginService : ILoginService
     {
+        private readonly ILogger<LoginService> _logger;
         private readonly ILoginRepo loginRepo;
-        public LoginService(ILoginRepo loginRepo)
+
+        public LoginService(ILogger<LoginService> logger, ILoginRepo loginRepo)
         {
+            _logger = logger;
             this.loginRepo = loginRepo;
         }
         public LoginModel Login(InputLoginModel inputModel)
         {
-            
+
             try
             {
-                var user = loginRepo.GetDetailByName(inputModel);
-
-                var detailUs = new LoginModel()
+                LoginModel userdetai = null;
+                if (inputModel.UserName != "" && inputModel.UserName != null && inputModel.PassWord != "" && inputModel.PassWord != null)
                 {
-                    UserName = user.UserName,
-                    Token = GenerateJwt(user),
-                };
+                    var user = loginRepo.GetDetailByName(inputModel);
 
-                return detailUs;
+                    userdetai = new LoginModel()
+                    {
+                        UserName = user.UserName,
+                        Token = GenerateJwt(user),
+                    };
+                }
+                return userdetai;
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return null;
             }
         }
@@ -66,5 +74,6 @@ namespace testPj.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

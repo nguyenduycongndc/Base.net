@@ -1,0 +1,34 @@
+2022-06-08 11:07:10.3151|ERROR|test
+2022-06-08 11:08:02.6315|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:09:28.8169|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:32.1790|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:36.2166|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:52.8909|ERROR|testPj.Services.LoginService|[null]
+2022-06-08 11:11:49.5672|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:11:50.5445|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:11:52.7583|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 11:12:21.8940|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:12:24.0638|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:12:26.7623|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 11:13:22.2050|ERROR|testPj.Controllers.LoginController|testPj.Controllers.LoginController..ctor(E:\Base.net\testPj\testPj\Controllers\LoginController.cs:24)|test
+2022-06-08 11:13:23.5766|ERROR|testPj.Controllers.LoginController|testPj.Controllers.LoginController..ctor(E:\Base.net\testPj\testPj\Controllers\LoginController.cs:24)|test
+2022-06-08 11:13:25.8641|ERROR|testPj.Services.LoginService|testPj.Services.LoginService.Login(E:\Base.net\testPj\testPj\Services\LoginService.cs:37)|Object reference not set to an instance of an object.
+2022-06-08 11:16:02.3167|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:16:07.9815|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:25:17.5848|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:27:53.4555|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:39:09.1123|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:31.1991|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:34.5975|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:35.6698|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:47.9938|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:52.0294|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:42:24.7028|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:42:47.7785|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:06.3818|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:14.1698|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:37.3576|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:05.9400|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:08.6749|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:21.1740|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:53:36.2371|ERROR|testPj.Controllers.LoginController|test

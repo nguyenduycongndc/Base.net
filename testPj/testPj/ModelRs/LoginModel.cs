@@ -7,5 +7,6 @@ namespace testPj.Models
         public string UserName { get; set; }
 
         public string Token { get; set; }
+        //public string Url { get; set; }
     }
 }
