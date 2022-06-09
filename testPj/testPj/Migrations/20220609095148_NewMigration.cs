@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace testPj.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,7 @@ namespace testPj.Migrations
                     user_name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     date_of_joining = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    role_id = table.Column<int>(type: "int", nullable: true),
                     is_active = table.Column<int>(type: "int", nullable: false),
                     is_deleted = table.Column<bool>(type: "tinyint(1)", nullable: true),
                     email = table.Column<string>(type: "longtext", nullable: true)

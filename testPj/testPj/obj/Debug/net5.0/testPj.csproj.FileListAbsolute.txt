@@ -798,3 +798,10 @@ E:\Base.net\testPj\testPj\bin\Debug\net5.0\WebMatrix.WebData.dll
 E:\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll
 E:\Base.net\testPj\testPj\bin\Debug\net5.0\MySqlConnector.dll
 E:\Base.net\testPj\testPj\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\StackExchange.Redis.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\StackExchange.Redis.Extensions.Core.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Base.net\testPj\testPj\bin\Debug\net5.0\System.IO.Pipelines.dll

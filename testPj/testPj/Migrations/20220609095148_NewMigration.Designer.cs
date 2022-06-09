@@ -9,8 +9,8 @@ using testPj.Data;
 namespace testPj.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20220609033655_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20220609095148_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,6 +121,10 @@ namespace testPj.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext")
                         .HasColumnName("password");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
 
                     b.Property<string>("SaltKey")
                         .HasColumnType("longtext")

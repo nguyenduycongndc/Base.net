@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using testPj.Configs;
 using testPj.Data;
 using testPj.Helpers.Module;
 using testPj.Repo;
@@ -32,7 +33,7 @@ namespace testPj
         {
             services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
-
+            GlobalSetting.Secret = jwtSettings.Secret;
 
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromDays(8);

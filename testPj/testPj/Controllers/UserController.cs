@@ -10,6 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -21,6 +22,7 @@ namespace testPj.Controllers
     //[Route("api/[controller]")]
     [Route("[controller]")]
     [ApiController]
+    [BaseAuthorize]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
@@ -66,6 +68,10 @@ namespace testPj.Controllers
         {
             try
             {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
                 var testDetail = loginService.GetDetailModels(id);
                 return testDetail;
             }
@@ -81,6 +87,10 @@ namespace testPj.Controllers
         {
             try
             {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
                 return await loginService.CreateUse(add);
             }
             catch (Exception ex)
@@ -95,6 +105,11 @@ namespace testPj.Controllers
         {
             try
             {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    //return Unauthorized();
+                    return false;
+                }
                 return await loginService.UpdateUse(update);
             }
             catch (Exception ex)

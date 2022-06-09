@@ -120,6 +120,10 @@ namespace testPj.Migrations
                         .HasColumnType("longtext")
                         .HasColumnName("password");
 
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
+
                     b.Property<string>("SaltKey")
                         .HasColumnType("longtext")
                         .HasColumnName("salt");

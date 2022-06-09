@@ -8,12 +8,14 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Models;
 using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class LoginController : Controller
     {

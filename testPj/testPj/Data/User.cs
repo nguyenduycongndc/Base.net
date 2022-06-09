@@ -32,6 +32,10 @@ namespace testPj.Data
         [JsonPropertyName("date_of_joining")]
         public DateTime? DateOfJoining { get; set; }
 
+        [Column("role_id")]
+        [JsonPropertyName("role_id")]
+        public int? RoleId { get; set; }
+
         [Column("is_active")]
         [JsonPropertyName("is_active")]
         public int IsActive { get; set; }

@@ -83,6 +83,7 @@ namespace testPj.Services
                     DateOfJoining = DateTime.Now,
                     CreatedAt = DateTime.Now,
                     SaltKey = salt,
+                    RoleId = input.RoleId,
                 };
                 var _userrole = new UsersRoles
                 {

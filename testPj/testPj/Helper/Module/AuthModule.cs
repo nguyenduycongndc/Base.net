@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.Net;
 using testPj.Services.Interface;
+using testPj.Configs;
 
 namespace testPj.Helpers.Module
 {
@@ -35,7 +36,7 @@ namespace testPj.Helpers.Module
                     {
                         ValidIssuer = jwtSettings.Issuer,
                         ValidAudience = jwtSettings.Issuer,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Secret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret)),
                         ClockSkew = TimeSpan.Zero
                     };
                     options.Events = new JwtBearerEvents

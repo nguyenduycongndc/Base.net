@@ -110,6 +110,10 @@
               "target": "Package",
               "version": "[5.0.4, )"
             },
+            "StackExchange.Redis.Extensions.Core": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.12.2, )"
