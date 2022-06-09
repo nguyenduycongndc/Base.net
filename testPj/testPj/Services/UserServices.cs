@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using testPj.Data;
 using testPj.Models;
@@ -28,7 +29,7 @@ namespace testPj.Services
             //var listUser = qr.Select(x => new LoginModel()  
             { 
                 Id = x.Id,
-                Name = x.Name,
+                Name = x.UserName,
                 Password = x.Password,
                 IsActive = x.IsActive,
             }).OrderBy(x=>x.Id).ToList();
@@ -44,7 +45,7 @@ namespace testPj.Services
                 var detailUs = new DetailModel()
                 {
                     Id = data.Id,
-                    Name = data.Name,
+                    UserName = data.UserName,
                     Password = data.Password,
                     IsActive = data.IsActive,
                 };
@@ -62,9 +63,10 @@ namespace testPj.Services
             {
                 User us = new User()
                 {
-                    Name = input.Name,
-                    Password = input.Password,
+                    UserName = input.UserName,
+                    Password = EncodeServerName(input.Password),
                     IsActive = 1,
+                    IsDeleted = 1,
                 };
                 
                 return await userRepo.CreateUs(us);
@@ -81,8 +83,8 @@ namespace testPj.Services
                 var data = userRepo.GetDetail(input.Id);
                 if (data == null) return false;
                 data.Id = input.Id;
-                data.Name = input.Name;
-                data.Password = input.Password;
+                data.UserName = input.UserName;
+                data.Password = EncodeServerName(input.Password);
                 return await userRepo.UpdateUs(data);
             }
             catch(Exception ex)
@@ -104,6 +106,10 @@ namespace testPj.Services
             {
                 return false;
             }
+        }
+        public static string EncodeServerName(string serverName)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
     }
 }

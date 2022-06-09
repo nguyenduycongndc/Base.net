@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\base .net\\newpj\\testPj\\testPj\\testPj.csproj": {}
+    "E:\\Base.net\\testPj\\testPj\\testPj.csproj": {}
   },
   "projects": {
-    "D:\\base .net\\newpj\\testPj\\testPj\\testPj.csproj": {
+    "E:\\Base.net\\testPj\\testPj\\testPj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\base .net\\newpj\\testPj\\testPj\\testPj.csproj",
+        "projectUniqueName": "E:\\Base.net\\testPj\\testPj\\testPj.csproj",
         "projectName": "testPj",
-        "projectPath": "D:\\base .net\\newpj\\testPj\\testPj\\testPj.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\base .net\\newpj\\testPj\\testPj\\obj\\",
+        "projectPath": "E:\\Base.net\\testPj\\testPj\\testPj.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\Base.net\\testPj\\testPj\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -46,13 +52,23 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.17, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
@@ -61,6 +77,18 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

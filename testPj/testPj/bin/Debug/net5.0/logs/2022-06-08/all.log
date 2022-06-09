@@ -1,0 +1,87 @@
+2022-06-08 11:07:10.3151|ERROR|test
+2022-06-08 11:08:02.6315|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:09:28.8169|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:32.1790|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:36.2166|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:10:52.8909|ERROR|testPj.Services.LoginService|[null]
+2022-06-08 11:11:49.5672|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:11:50.5445|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:11:52.7583|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 11:12:21.8940|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:12:24.0638|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:12:26.7623|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 11:13:22.2050|ERROR|testPj.Controllers.LoginController|testPj.Controllers.LoginController..ctor(E:\Base.net\testPj\testPj\Controllers\LoginController.cs:24)|test
+2022-06-08 11:13:23.5766|ERROR|testPj.Controllers.LoginController|testPj.Controllers.LoginController..ctor(E:\Base.net\testPj\testPj\Controllers\LoginController.cs:24)|test
+2022-06-08 11:13:25.8641|ERROR|testPj.Services.LoginService|testPj.Services.LoginService.Login(E:\Base.net\testPj\testPj\Services\LoginService.cs:37)|Object reference not set to an instance of an object.
+2022-06-08 11:16:02.3167|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:16:07.9815|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:25:17.5848|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:27:53.4555|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:39:09.1123|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:31.1991|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:34.5975|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:35.6698|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:47.9938|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:41:52.0294|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:42:24.7028|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:42:47.7785|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:06.3818|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:14.1698|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:44:37.3576|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:05.9400|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:08.6749|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:46:21.1740|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 11:53:36.2371|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 14:52:32.5202|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 14:52:38.3216|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 14:52:40.9548|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (12ms) [Parameters=[@__inputModel_UserName_0='?'], CommandType='Text', CommandTimeout='30']
+SELECT u.id AS "Id", u.user_name AS "UserName", u.password AS "Password", u.is_active AS "IsActive"
+FROM "User" AS u
+WHERE u.user_name = @__inputModel_UserName_0
+LIMIT 1
+2022-06-08 14:52:40.9742|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.PostgresContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "User" does not exist
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "User" does not exist
+    Position: 107
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+2022-06-08 14:52:46.9231|ERROR|testPj.Services.LoginService|42P01: relation "User" does not exist
+2022-06-08 15:00:07.3326|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:06:30.4641|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:09:26.6269|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:11:08.0515|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:13:53.1958|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:17:29.3188|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:18:14.2692|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:18:21.7888|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:19:38.3954|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:19:53.7515|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:29:08.7668|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:29:20.6982|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:29:37.2418|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 15:33:11.9603|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:35:54.7553|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:36:49.1182|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:37:17.6809|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:37:55.4617|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:37:58.6368|ERROR|testPj.Services.LoginService|Object reference not set to an instance of an object.
+2022-06-08 15:38:49.9091|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:44:45.9411|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:49:20.6570|ERROR|testPj.Controllers.LoginController|test
+2022-06-08 15:50:58.2751|ERROR|testPj.Controllers.LoginController|test

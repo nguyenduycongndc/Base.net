@@ -27,7 +27,7 @@ namespace testPj.Repo
                          select new User
                          {
                              Id = x.Id,
-                             Name = x.Name,
+                             UserName = x.UserName,
                              Password = x.Password,
                              IsActive = x.IsActive,
                          }).FirstOrDefault();
@@ -44,7 +44,7 @@ namespace testPj.Repo
         {
             var updt = await context.User.FindAsync(user.Id);
             updt.Id = user.Id;
-            updt.Name = user.Name;
+            updt.UserName = user.UserName;
             updt.Password = user.Password;
             await context.SaveChangesAsync();
             return true;
@@ -56,6 +56,20 @@ namespace testPj.Repo
             updt.IsActive = 0;
             await context.SaveChangesAsync();
             return true;
+        }
+        public User GetDetailByName(InputLoginModel inputModel)
+        {
+            var query = (from x in context.User
+                         where x.UserName.Equals(inputModel.UserName)
+                         select new User
+                         {
+                             Id = x.Id,
+                             UserName = x.UserName,
+                             Password = x.Password,
+                             IsActive = x.IsActive,
+                         }).FirstOrDefault();
+
+            return query;
         }
     }
 }

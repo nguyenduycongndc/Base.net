@@ -42,9 +42,9 @@ namespace testPj
             var sqlConnectionString = Configuration["ConnectionStrings:PostgreSqlConnectionString"];
 
             services.AddDbContext<PostgresContext>(options => options.UseNpgsql(sqlConnectionString));
-            
+            services.AddRouting(options => options.LowercaseUrls = true);
+
             services.AddScoped<IUserRepo, UserRepo>();
-            services.AddScoped<ILoginRepo, LoginRepo>();
             services.AddScoped<IUserService, UserServices>();
             services.AddScoped<ILoginService, LoginService>();
         }
