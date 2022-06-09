@@ -17,12 +17,12 @@ namespace testPj.Services
     public class LoginService : ILoginService
     {
         private readonly ILogger<LoginService> _logger;
-        private readonly IUserRepo loginRepo;
+        private readonly IUserRepo userRepo;
 
         public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo)
         {
             _logger = logger;
-            this.loginRepo = loginRepo;
+            this.userRepo = loginRepo;
         }
         public LoginModel Login(InputLoginModel inputModel)
         {
@@ -32,7 +32,7 @@ namespace testPj.Services
                 LoginModel userdetai = null;
                 if (inputModel.UserName != "" && inputModel.UserName != null && inputModel.PassWord != "" && inputModel.PassWord != null)
                 {
-                    var user = loginRepo.GetDetailByName(inputModel);
+                    var user = userRepo.GetDetailByName(inputModel);
 
                     userdetai = new LoginModel()
                     {

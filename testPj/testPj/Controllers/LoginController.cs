@@ -38,5 +38,12 @@ namespace testPj.Controllers
             var testList = loginServices.Login(inputModel);
             return testList;
         }
+        [HttpGet]
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return Redirect("/Login");
+        }
     }
 }

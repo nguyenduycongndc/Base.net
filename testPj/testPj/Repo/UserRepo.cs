@@ -47,6 +47,8 @@ namespace testPj.Repo
             updt.Id = user.Id;
             updt.UserName = user.UserName;
             updt.Password = user.Password;
+            updt.Email = user.Email;
+            updt.IsActive = user.IsActive;
             await context.SaveChangesAsync();
             return true;
         }
@@ -55,6 +57,7 @@ namespace testPj.Repo
             var updt = await context.Users.FindAsync(user.Id);
             updt.Id = user.Id;
             updt.IsActive = 0;
+            updt.DeletedAt = DateTime.Now;
             await context.SaveChangesAsync();
             return true;
         }

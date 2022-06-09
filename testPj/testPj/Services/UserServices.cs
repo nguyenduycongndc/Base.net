@@ -50,7 +50,6 @@ namespace testPj.Services
                 {
                     Id = data.Id,
                     UserName = data.UserName,
-                    Password = data.Password,
                     IsActive = data.IsActive,
                 };
 
@@ -58,6 +57,7 @@ namespace testPj.Services
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return null;
             }
         }
@@ -101,33 +101,25 @@ namespace testPj.Services
         {
             try
             {
-                string salt = "";
-                string hashedPassword = "";
-                if (input != null)
-                {
-                    var pass = input.Password;
-                    salt = Crypto.GenerateSalt(); // salt key
-                    var password = input.Password + salt;
-                    hashedPassword = Crypto.HashPassword(password);
-                }
                 var data = userRepo.GetDetail(input.Id);
                 if (data == null) return false;
                 data.Id = input.Id;
                 data.UserName = input.UserName.ToLower();
                 data.Email = input.Email.ToLower().Trim();
-                data.Password = hashedPassword;
+                data.IsActive = input.IsActive;
                 return await userRepo.UpdateUs(data);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
-        public async Task<bool> DeleteUse(int Id)
+        public async Task<bool> DeleteUse(int id)
         {
             try
             {
-                var data = userRepo.GetDetail(Id);
+                var data = userRepo.GetDetail(id);
                 if (data == null) return false;
                 return await userRepo.DeleteUs(data);
             }

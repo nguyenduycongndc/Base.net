@@ -18,7 +18,8 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : Controller
     {
@@ -60,10 +61,19 @@ namespace testPj.Controllers
             }
         }
         [HttpGet]
+        [Route("Detail")]
         public DetailModel Detail(int id)
         {
-            var testDetail = loginService.GetDetailModels(id);
-            return testDetail;
+            try
+            {
+                var testDetail = loginService.GetDetailModels(id);
+                return testDetail;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
         }
         [HttpPost]
         [Route("CreateUser")]
@@ -75,10 +85,12 @@ namespace testPj.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
         [HttpPut]
+        [Route("Update")]
         public async Task<bool> Update([FromBody] UpdateModel update)
         {
             try
@@ -87,18 +99,21 @@ namespace testPj.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
-        [HttpPost]
-        public async Task<bool> Delete([FromForm] int Id)
+        [HttpDelete]
+        [Route("Delete")]
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                return await loginService.DeleteUse(Id);
+                return await loginService.DeleteUse(id);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
