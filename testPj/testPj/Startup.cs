@@ -39,9 +39,10 @@ namespace testPj
             });
             services.AddControllersWithViews();
 
-            var sqlConnectionString = Configuration["ConnectionStrings:PostgreSqlConnectionString"];
+            //var sqlConnectionString = Configuration["ConnectionStrings:SqlDbConnectionString"];
 
-            services.AddDbContext<PostgresContext>(options => options.UseNpgsql(sqlConnectionString));
+            //services.AddDbContext<SqlDbContext>(options => options.UseNpgsql(sqlConnectionString));
+            services.AddDbContext<SqlDbContext>(options => options.UseMySql(Configuration.GetConnectionString("SqlDbConnectionString"), MySqlServerVersion.LatestSupportedServerVersion));
             services.AddRouting(options => options.LowercaseUrls = true);
 
             services.AddScoped<IUserRepo, UserRepo>();

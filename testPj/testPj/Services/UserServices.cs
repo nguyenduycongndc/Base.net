@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -15,10 +17,12 @@ namespace testPj.Services
 {
     public class UserServices : IUserService
     {
+        private readonly ILogger<UserServices> _logger;
         private readonly IUserRepo userRepo;
-        public UserServices(IUserRepo userRepo)
+        public UserServices(IUserRepo userRepo, ILogger<UserServices> logger)
         {
             this.userRepo = userRepo;
+            _logger = logger;
         }
 
         public List<UserModel> GetAllUser()
@@ -61,18 +65,35 @@ namespace testPj.Services
         {
             try
             {
-                User us = new User()
+                string salt = "";
+                string hashedPassword = "";
+                if (input != null)
                 {
-                    UserName = input.UserName,
-                    Password = EncodeServerName(input.Password),
+                    var pass = input.Password;
+                    salt = Crypto.GenerateSalt(); // salt key
+                    var password = input.Password + salt;
+                    hashedPassword = Crypto.HashPassword(password);
+                }
+                Users us = new Users()
+                {
+                    FullName = input.UserName.Trim(),
+                    UserName = input.UserName.ToLower(),
+                    Password = hashedPassword,
                     IsActive = 1,
-                    IsDeleted = 1,
+                    DateOfJoining = DateTime.Now,
+                    CreatedAt = DateTime.Now,
+                    SaltKey = salt,
                 };
-                
-                return await userRepo.CreateUs(us);
+                var _userrole = new UsersRoles
+                {
+                    roles_id = input.RoleId,
+                    Users = us
+                };
+                return await userRepo.CreateUs(us, _userrole);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
@@ -80,11 +101,21 @@ namespace testPj.Services
         {
             try
             {
+                string salt = "";
+                string hashedPassword = "";
+                if (input != null)
+                {
+                    var pass = input.Password;
+                    salt = Crypto.GenerateSalt(); // salt key
+                    var password = input.Password + salt;
+                    hashedPassword = Crypto.HashPassword(password);
+                }
                 var data = userRepo.GetDetail(input.Id);
                 if (data == null) return false;
                 data.Id = input.Id;
-                data.UserName = input.UserName;
-                data.Password = EncodeServerName(input.Password);
+                data.UserName = input.UserName.ToLower();
+                data.Email = input.Email.ToLower().Trim();
+                data.Password = hashedPassword;
                 return await userRepo.UpdateUs(data);
             }
             catch(Exception ex)
@@ -98,8 +129,6 @@ namespace testPj.Services
             {
                 var data = userRepo.GetDetail(Id);
                 if (data == null) return false;
-                //data.Id = Id;
-                //data.IsActive = 0;
                 return await userRepo.DeleteUs(data);
             }
             catch(Exception ex)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -6,8 +7,13 @@ using testPj.Models;
 
 namespace testPj.Data
 {
-    public class User
+    [Table("USERS")]
+    public class Users
     {
+        public Users()
+        {
+            this.UsersRoles = new HashSet<UsersRoles>();
+        }
         [Key]
         [Column("id")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,10 +28,6 @@ namespace testPj.Data
         [JsonPropertyName("user_name")]
         public string UserName { get; set; }
 
-        [Column("users_type")]
-        [JsonPropertyName("users_type")]
-        public int? UsersType { get; set; }
-
         [Column("date_of_joining")]
         [JsonPropertyName("date_of_joining")]
         public DateTime? DateOfJoining { get; set; }
@@ -36,7 +38,7 @@ namespace testPj.Data
 
         [Column("is_deleted")]
         [JsonPropertyName("is_deleted")]
-        public int IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
 
         [Column("email")]
         [JsonPropertyName("email")]
@@ -69,5 +71,6 @@ namespace testPj.Data
         [Column("deleted_at")]
         [JsonPropertyName("deleted_at")]
         public DateTime? DeletedAt { get; set; }
+        public virtual ICollection<UsersRoles> UsersRoles { get; set; }
     }
 }

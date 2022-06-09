@@ -49,7 +49,7 @@ namespace testPj.Services
             }
         }
 
-        public string GenerateJwt(User user)
+        public string GenerateJwt(Users user)
         {
 
             var claims = new List<Claim>
