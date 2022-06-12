@@ -30,6 +30,7 @@ namespace testPj.Repo
                              UserName = x.UserName,
                              Password = x.Password,
                              IsActive = x.IsActive,
+                             RoleId = x.RoleId,
                          }).FirstOrDefault();
 
             return query;

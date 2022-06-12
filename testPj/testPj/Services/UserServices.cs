@@ -30,7 +30,6 @@ namespace testPj.Services
             var qr = userRepo.GetAll();
             List<UserModel> lst = new List<UserModel>();
             var listUser = qr.Where(x => x.IsActive.Equals(1)).Select(x => new UserModel()
-            //var listUser = qr.Select(x => new LoginModel()  
             { 
                 Id = x.Id,
                 Name = x.UserName,
@@ -40,17 +39,19 @@ namespace testPj.Services
             lst = listUser;
             return lst;
         }
-        public DetailModel GetDetailModels(int Id)
+        public CurrentUserModel GetDetailModels(int Id)
         {
             try
             {
                 var data = userRepo.GetDetail(Id);
 
-                var detailUs = new DetailModel()
+                var detailUs = new CurrentUserModel()
                 {
                     Id = data.Id,
                     UserName = data.UserName,
+                    FullName = data.UserName,
                     IsActive = data.IsActive,
+                    RoleId = data.RoleId,
                 };
 
                 return detailUs;

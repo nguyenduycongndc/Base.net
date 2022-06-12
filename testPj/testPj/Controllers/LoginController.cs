@@ -34,8 +34,8 @@ namespace testPj.Controllers
         }
 
         [HttpPost]
-        [Route("LoginRevamp")]
-        public LoginModel LoginRevamp([FromBody] InputLoginModel inputModel)
+        [Route("LoginUser")]
+        public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
             return testList;

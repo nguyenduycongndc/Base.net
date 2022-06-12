@@ -1,5 +1,0 @@
-2022-06-08 14:52:40.9548|ERROR|Failed executing DbCommand (12ms) [Parameters=[@__inputModel_UserName_0='?'], CommandType='Text', CommandTimeout='30']
-SELECT u.id AS "Id", u.user_name AS "UserName", u.password AS "Password", u.is_active AS "IsActive"
-FROM "User" AS u
-WHERE u.user_name = @__inputModel_UserName_0
-LIMIT 1

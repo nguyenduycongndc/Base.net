@@ -19,6 +19,8 @@ using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using testPj.Models;
 using testPj.Configs;
+using testPj.Services;
+using testPj.Services.Interface;
 
 namespace testPj.Attributes
 {
@@ -27,10 +29,16 @@ namespace testPj.Attributes
         private string _role;
         private string _rule;
         private string _userInfoPrex = "Auth.UserInfo.{0}";
-        //private readonly IConfiguration _config;
+        private readonly IConfiguration _config;
         private readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
         public BaseAuthorize()
         {
+        }
+        public BaseAuthorize(IConfiguration config, string role, string rule)
+        {
+            _config = config;
+            _rule = rule;
+            _role = role;
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
@@ -72,7 +80,7 @@ namespace testPj.Attributes
                     context.Result = new JsonResult(new { message = "Unauthorized: token's invalid" }) { StatusCode = StatusCodes.Status401Unauthorized };
                     return;
                 }
-                var userId = jwtToken.Claims.First(x => x.Type == "id")?.Value;
+                var userId = jwtToken.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
                 if (userId == null)
                 {
                     _logger.Log(NLog.LogLevel.Error, $"{token}: UserId is null");
@@ -87,7 +95,8 @@ namespace testPj.Attributes
                 //    return;
                 //}
 
-                var user = JsonSerializer.Deserialize<CurrentUserModel>(String.Format(_userInfoPrex, userId));
+                var userServices = context.HttpContext.RequestServices.GetService(typeof(IUserService)) as UserServices;
+                var user = userServices.GetDetailModels(int.Parse(userId));
                 //var user = JsonSerializer.Deserialize<CurrentUserModel>(userInfoJson);
 
                 if (user == null)

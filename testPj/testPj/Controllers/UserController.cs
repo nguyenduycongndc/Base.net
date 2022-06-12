@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using PagedList;
@@ -47,6 +48,10 @@ namespace testPj.Controllers
         [HttpGet]
         public List<UserModel> GetAll()
         {
+            if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+            {
+                return null;
+            }
             var testList = loginService.GetAllUser();
             return testList;
         }
@@ -64,7 +69,7 @@ namespace testPj.Controllers
         }
         [HttpGet]
         [Route("Detail")]
-        public DetailModel Detail(int id)
+        public CurrentUserModel Detail(int id)
         {
             try
             {
@@ -107,7 +112,6 @@ namespace testPj.Controllers
             {
                 if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
                 {
-                    //return Unauthorized();
                     return false;
                 }
                 return await loginService.UpdateUse(update);

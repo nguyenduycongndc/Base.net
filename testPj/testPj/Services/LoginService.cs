@@ -12,6 +12,8 @@ using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
 using testPj.Services.Interface;
+using Microsoft.Extensions.Configuration;
+
 
 namespace testPj.Services
 {
@@ -19,11 +21,13 @@ namespace testPj.Services
     {
         private readonly ILogger<LoginService> _logger;
         private readonly IUserRepo userRepo;
+        private readonly IConfiguration _config;
 
-        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo)
+        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo, IConfiguration config)
         {
             _logger = logger;
             this.userRepo = loginRepo;
+            _config = config;
         }
         public LoginModel Login(InputLoginModel inputModel)
         {
@@ -61,7 +65,8 @@ namespace testPj.Services
             };
             DateTime jwtDate = DateTime.UtcNow;
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret));
+            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
             var expires = DateTime.UtcNow.AddHours(24);
 
