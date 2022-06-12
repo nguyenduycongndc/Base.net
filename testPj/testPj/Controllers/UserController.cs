@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using PagedList;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -18,8 +20,10 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
+    [BaseAuthorize]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
@@ -44,6 +48,10 @@ namespace testPj.Controllers
         [HttpGet]
         public List<UserModel> GetAll()
         {
+            if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+            {
+                return null;
+            }
             var testList = loginService.GetAllUser();
             return testList;
         }
@@ -60,10 +68,23 @@ namespace testPj.Controllers
             }
         }
         [HttpGet]
-        public DetailModel Detail(int id)
+        [Route("Detail")]
+        public CurrentUserModel Detail(int id)
         {
-            var testDetail = loginService.GetDetailModels(id);
-            return testDetail;
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                var testDetail = loginService.GetDetailModels(id);
+                return testDetail;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
         }
         [HttpPost]
         [Route("CreateUser")]
@@ -71,34 +92,47 @@ namespace testPj.Controllers
         {
             try
             {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
                 return await loginService.CreateUse(add);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
         [HttpPut]
+        [Route("Update")]
         public async Task<bool> Update([FromBody] UpdateModel update)
         {
             try
             {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
                 return await loginService.UpdateUse(update);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
-        [HttpPost]
-        public async Task<bool> Delete([FromForm] int Id)
+        [HttpDelete]
+        [Route("Delete")]
+        public async Task<bool> Delete(int id)
         {
             try
             {
-                return await loginService.DeleteUse(Id);
+                return await loginService.DeleteUse(id);
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }

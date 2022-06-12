@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -15,10 +17,12 @@ namespace testPj.Services
 {
     public class UserServices : IUserService
     {
+        private readonly ILogger<UserServices> _logger;
         private readonly IUserRepo userRepo;
-        public UserServices(IUserRepo userRepo)
+        public UserServices(IUserRepo userRepo, ILogger<UserServices> logger)
         {
             this.userRepo = userRepo;
+            _logger = logger;
         }
 
         public List<UserModel> GetAllUser()
@@ -26,7 +30,6 @@ namespace testPj.Services
             var qr = userRepo.GetAll();
             List<UserModel> lst = new List<UserModel>();
             var listUser = qr.Where(x => x.IsActive.Equals(1)).Select(x => new UserModel()
-            //var listUser = qr.Select(x => new LoginModel()  
             { 
                 Id = x.Id,
                 Name = x.UserName,
@@ -36,24 +39,26 @@ namespace testPj.Services
             lst = listUser;
             return lst;
         }
-        public DetailModel GetDetailModels(int Id)
+        public CurrentUserModel GetDetailModels(int Id)
         {
             try
             {
                 var data = userRepo.GetDetail(Id);
 
-                var detailUs = new DetailModel()
+                var detailUs = new CurrentUserModel()
                 {
                     Id = data.Id,
                     UserName = data.UserName,
-                    Password = data.Password,
+                    FullName = data.UserName,
                     IsActive = data.IsActive,
+                    RoleId = data.RoleId,
                 };
 
                 return detailUs;
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return null;
             }
         }
@@ -61,18 +66,36 @@ namespace testPj.Services
         {
             try
             {
-                User us = new User()
+                string salt = "";
+                string hashedPassword = "";
+                if (input != null)
                 {
-                    UserName = input.UserName,
-                    Password = EncodeServerName(input.Password),
+                    var pass = input.Password;
+                    salt = Crypto.GenerateSalt(); // salt key
+                    var password = input.Password + salt;
+                    hashedPassword = Crypto.HashPassword(password);
+                }
+                Users us = new Users()
+                {
+                    FullName = input.UserName.Trim(),
+                    UserName = input.UserName.ToLower(),
+                    Password = hashedPassword,
                     IsActive = 1,
-                    IsDeleted = 1,
+                    DateOfJoining = DateTime.Now,
+                    CreatedAt = DateTime.Now,
+                    SaltKey = salt,
+                    RoleId = input.RoleId,
                 };
-                
-                return await userRepo.CreateUs(us);
+                var _userrole = new UsersRoles
+                {
+                    roles_id = input.RoleId,
+                    Users = us
+                };
+                return await userRepo.CreateUs(us, _userrole);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
@@ -83,23 +106,23 @@ namespace testPj.Services
                 var data = userRepo.GetDetail(input.Id);
                 if (data == null) return false;
                 data.Id = input.Id;
-                data.UserName = input.UserName;
-                data.Password = EncodeServerName(input.Password);
+                data.UserName = input.UserName.ToLower();
+                data.Email = input.Email.ToLower().Trim();
+                data.IsActive = input.IsActive;
                 return await userRepo.UpdateUs(data);
             }
             catch(Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return false;
             }
         }
-        public async Task<bool> DeleteUse(int Id)
+        public async Task<bool> DeleteUse(int id)
         {
             try
             {
-                var data = userRepo.GetDetail(Id);
+                var data = userRepo.GetDetail(id);
                 if (data == null) return false;
-                //data.Id = Id;
-                //data.IsActive = 0;
                 return await userRepo.DeleteUs(data);
             }
             catch(Exception ex)

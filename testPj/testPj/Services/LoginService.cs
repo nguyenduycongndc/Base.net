@@ -7,38 +7,44 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using testPj.Configs;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
 using testPj.Services.Interface;
+using Microsoft.Extensions.Configuration;
+
 
 namespace testPj.Services
 {
     public class LoginService : ILoginService
     {
         private readonly ILogger<LoginService> _logger;
-        private readonly IUserRepo loginRepo;
+        private readonly IUserRepo userRepo;
+        private readonly IConfiguration _config;
 
-        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo)
+        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo, IConfiguration config)
         {
             _logger = logger;
-            this.loginRepo = loginRepo;
+            this.userRepo = loginRepo;
+            _config = config;
         }
         public LoginModel Login(InputLoginModel inputModel)
         {
-
             try
             {
                 LoginModel userdetai = null;
                 if (inputModel.UserName != "" && inputModel.UserName != null && inputModel.PassWord != "" && inputModel.PassWord != null)
                 {
-                    var user = loginRepo.GetDetailByName(inputModel);
+                    var user =  userRepo.GetDetailByName(inputModel);
 
                     userdetai = new LoginModel()
                     {
                         UserName = user.UserName,
                         Token = GenerateJwt(user),
                     };
+                    var Au = AuthenticateUser(inputModel);
+
                 }
                 return userdetai;
             }
@@ -49,7 +55,7 @@ namespace testPj.Services
             }
         }
 
-        public string GenerateJwt(User user)
+        public string GenerateJwt(Users user)
         {
 
             var claims = new List<Claim>
@@ -59,7 +65,8 @@ namespace testPj.Services
             };
             DateTime jwtDate = DateTime.UtcNow;
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Design By Congnd"));
+            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
             var expires = DateTime.UtcNow.AddHours(24);
 
@@ -74,6 +81,26 @@ namespace testPj.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
+        private CurrentUserModel AuthenticateUser(InputLoginModel inputModel)
+        {
+            CurrentUserModel user = null;
+            try
+            {
+                var data = userRepo.GetDetailByName(inputModel);
+                user = new CurrentUserModel()
+                {
+                    Id = data.Id,
+                    FullName = data.FullName,
+                    UserName = data.UserName,
+                    RoleId = data.RoleId,
+                };
+                return user;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"USER-LOGIN - {inputModel.UserName} : {ex.Message}!");
+                return user;
+            }
+        }
     }
 }

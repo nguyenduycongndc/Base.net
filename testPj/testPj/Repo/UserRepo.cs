@@ -10,63 +10,70 @@ namespace testPj.Repo
 {
     public class UserRepo : IUserRepo
     {
-        private readonly PostgresContext context;
+        private readonly SqlDbContext context;
 
-        public UserRepo(PostgresContext context)
+        public UserRepo(SqlDbContext context)
         {
             this.context = context;
         }
-        public List<User> GetAll()
+        public List<Users> GetAll()
         {
-            return context.User.ToList();
+            return context.Users.ToList();
         }
-        public User GetDetail(int id)
+        public Users GetDetail(int id)
         {
-            var query = (from x in context.User
+            var query = (from x in context.Users
                          where x.Id.Equals(id)
-                         select new User
+                         select new Users
                          {
                              Id = x.Id,
                              UserName = x.UserName,
                              Password = x.Password,
                              IsActive = x.IsActive,
+                             RoleId = x.RoleId,
                          }).FirstOrDefault();
 
             return query;
         }
-        public async Task<bool> CreateUs(User user)
+        public async Task<bool> CreateUs(Users user, UsersRoles usersRoles)
         {
-            await context.User.AddAsync(user);
+            await context.Users.AddAsync(user);
+            await context.UsersRoles.AddAsync(usersRoles);
             await context.SaveChangesAsync();
             return true;
         }
-        public async Task<bool> UpdateUs(User user)
+        public async Task<bool> UpdateUs(Users user)
         {
-            var updt = await context.User.FindAsync(user.Id);
+            var updt = await context.Users.FindAsync(user.Id);
             updt.Id = user.Id;
             updt.UserName = user.UserName;
             updt.Password = user.Password;
+            updt.Email = user.Email;
+            updt.IsActive = user.IsActive;
             await context.SaveChangesAsync();
             return true;
         }
-        public async Task<bool> DeleteUs(User user)
+        public async Task<bool> DeleteUs(Users user)
         {
-            var updt = await context.User.FindAsync(user.Id);
+            var updt = await context.Users.FindAsync(user.Id);
             updt.Id = user.Id;
             updt.IsActive = 0;
+            updt.DeletedAt = DateTime.Now;
             await context.SaveChangesAsync();
             return true;
         }
-        public User GetDetailByName(InputLoginModel inputModel)
+        public Users GetDetailByName(InputLoginModel inputModel)
         {
-            var query = (from x in context.User
+            var query = (from x in context.Users
                          where x.UserName.Equals(inputModel.UserName)
-                         select new User
+                         select new Users
                          {
                              Id = x.Id,
                              UserName = x.UserName,
+                             FullName = x.FullName,
                              Password = x.Password,
                              IsActive = x.IsActive,
+                             RoleId = x.RoleId,
                          }).FirstOrDefault();
 
             return query;

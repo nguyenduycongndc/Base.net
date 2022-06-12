@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using testPj.Configs;
 using testPj.Data;
 using testPj.Helpers.Module;
 using testPj.Repo;
@@ -32,17 +34,19 @@ namespace testPj
         {
             services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
-
+            //GlobalSetting.Secret = jwtSettings.Secret;
 
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromDays(8);
             });
             services.AddControllersWithViews();
 
-            var sqlConnectionString = Configuration["ConnectionStrings:PostgreSqlConnectionString"];
+            //var sqlConnectionString = Configuration["ConnectionStrings:SqlDbConnectionString"];
+            //services.AddDbContext<SqlDbContext>(options => options.UseNpgsql(sqlConnectionString));
 
-            services.AddDbContext<PostgresContext>(options => options.UseNpgsql(sqlConnectionString));
+            services.AddDbContext<SqlDbContext>(options => options.UseMySql(Configuration.GetConnectionString("SqlDbConnectionString"), MySqlServerVersion.LatestSupportedServerVersion));
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserServices>();

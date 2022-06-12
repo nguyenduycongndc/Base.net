@@ -8,12 +8,14 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Models;
 using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class LoginController : Controller
     {
@@ -32,11 +34,18 @@ namespace testPj.Controllers
         }
 
         [HttpPost]
-        [Route("LoginRevamp")]
-        public LoginModel LoginRevamp([FromBody] InputLoginModel inputModel)
+        [Route("LoginUser")]
+        public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
             return testList;
+        }
+        [HttpGet]
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return Redirect("/Login");
         }
     }
 }
