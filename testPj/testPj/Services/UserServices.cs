@@ -66,15 +66,20 @@ namespace testPj.Services
         {
             try
             {
+                //string salt = "";
+                //string hashedPassword = "";
+                //if (input != null)
+                //{
+                //    var pass = input.Password;
+                //    salt = Crypto.GenerateSalt(); // salt key
+                //    var password = input.Password + salt;
+                //    hashedPassword = Crypto.HashPassword(password);
+                //}
                 string salt = "";
                 string hashedPassword = "";
-                if (input != null)
-                {
-                    var pass = input.Password;
-                    salt = Crypto.GenerateSalt(); // salt key
-                    var password = input.Password + salt;
-                    hashedPassword = Crypto.HashPassword(password);
-                }
+                salt = Crypto.GenerateSalt(); // salt key
+                var password = input.Password/* + salt*/;
+                hashedPassword = EncodeServerName(password);
                 Users us = new Users()
                 {
                     FullName = input.UserName.Trim(),

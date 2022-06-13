@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -65,7 +67,7 @@ namespace testPj.Repo
         public Users GetDetailByName(InputLoginModel inputModel)
         {
             var query = (from x in context.Users
-                         where x.UserName.Equals(inputModel.UserName)
+                         where x.UserName.Equals(inputModel.UserName) && x.Password.Equals(EncodeServerName(inputModel.PassWord))
                          select new Users
                          {
                              Id = x.Id,
@@ -77,6 +79,10 @@ namespace testPj.Repo
                          }).FirstOrDefault();
 
             return query;
+        }
+        public static string EncodeServerName(string serverName)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
     }
 }
