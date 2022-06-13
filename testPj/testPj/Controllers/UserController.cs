@@ -27,12 +27,12 @@ namespace testPj.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IUserService loginService;
+        private readonly IUserService _loginService;
 
         public UserController(ILogger<UserController> logger, IUserService loginService)
         {
             _logger = logger;
-            this.loginService = loginService;
+            _loginService = loginService;
         }
 
         public IActionResult Index()
@@ -41,7 +41,7 @@ namespace testPj.Controllers
         }
         public PartialViewResult listUser()
         {
-            List<UserModel> lst = loginService.GetAllUser();
+            List<UserModel> lst = _loginService.GetAllUser();
             return PartialView("listUser", lst.ToPagedList(1, 10));
         }
         
@@ -52,14 +52,14 @@ namespace testPj.Controllers
             {
                 return null;
             }
-            var testList = loginService.GetAllUser();
+            var testList = _loginService.GetAllUser();
             return testList;
         }
         public PartialViewResult LoadUser(int id)
         {
             try
             {
-                var edt = loginService.GetDetailModels(id);
+                var edt = _loginService.GetDetailModels(id);
                 return PartialView("DetailUser", edt);
             }
             catch
@@ -77,7 +77,7 @@ namespace testPj.Controllers
                 {
                     return null;
                 }
-                var testDetail = loginService.GetDetailModels(id);
+                var testDetail = _loginService.GetDetailModels(id);
                 return testDetail;
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
-                return await loginService.CreateUse(add);
+                return await _loginService.CreateUse(add, _userInfo);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
-                return await loginService.UpdateUse(update);
+                return await _loginService.UpdateUse(update, _userInfo);
             }
             catch (Exception ex)
             {
@@ -128,7 +128,11 @@ namespace testPj.Controllers
         {
             try
             {
-                return await loginService.DeleteUse(id);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
+                return await _loginService.DeleteUse(id, _userInfo);
             }
             catch (Exception ex)
             {
@@ -141,6 +145,11 @@ namespace testPj.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        
+        protected CurrentUserModel GetUser()
+        {
+            var userModel = HttpContext.Items["UserInfo"];
+
+            return (CurrentUserModel)userModel;
+        }
     }
 }

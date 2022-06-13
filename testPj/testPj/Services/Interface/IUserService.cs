@@ -10,8 +10,8 @@ namespace testPj.Services.Interface
     {
         List<UserModel> GetAllUser();
         public CurrentUserModel GetDetailModels(int id);
-        public Task<bool> CreateUse(CreateModel input);
-        public Task<bool> UpdateUse(UpdateModel input);
-        public Task<bool> DeleteUse(int Id);
+        public Task<bool> CreateUse(CreateModel input, CurrentUserModel _userInfo);
+        public Task<bool> UpdateUse(UpdateModel input, CurrentUserModel _userInfo);
+        public Task<bool> DeleteUse(int Id, CurrentUserModel _userInfo);
     }
 }

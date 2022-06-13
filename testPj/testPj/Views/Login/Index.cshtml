@@ -73,6 +73,7 @@
                     hideLoading();
                 } else {
                     sessionStorage['SessionToken'] = result.token;
+                    sessionStorage['UserName'] = result.userName;
                     hideLoading();
                     window.location.href = "/Home";
                 }

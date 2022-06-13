@@ -52,6 +52,8 @@ namespace testPj.Repo
             updt.Password = user.Password;
             updt.Email = user.Email;
             updt.IsActive = user.IsActive;
+            updt.ModifiedAt = user.ModifiedAt;
+            updt.ModifiedBy = user.ModifiedBy;
             await context.SaveChangesAsync();
             return true;
         }
@@ -60,7 +62,9 @@ namespace testPj.Repo
             var updt = await context.Users.FindAsync(user.Id);
             updt.Id = user.Id;
             updt.IsActive = 0;
-            updt.DeletedAt = DateTime.Now;
+            updt.DeletedAt = user.DeletedAt;
+            updt.DeletedBy = user.DeletedBy;
+            updt.IsDeleted = 0;
             await context.SaveChangesAsync();
             return true;
         }
@@ -77,6 +81,21 @@ namespace testPj.Repo
                              IsActive = x.IsActive,
                              RoleId = x.RoleId,
                          }).FirstOrDefault();
+
+            return query;
+        }
+        public List<Users> CheckUser(string userName)
+        {
+            var query = (from x in context.Users
+                         where x.UserName.Equals(userName)
+                         select new Users
+                         {
+                             Id = x.Id,
+                             UserName = x.UserName,
+                             FullName = x.FullName,
+                             IsActive = x.IsActive,
+                             RoleId = x.RoleId,
+                         }).ToList();
 
             return query;
         }

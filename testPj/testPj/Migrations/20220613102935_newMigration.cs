@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace testPj.Migrations
 {
-    public partial class test : Migration
+    public partial class newMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,7 +49,7 @@ namespace testPj.Migrations
                     date_of_joining = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     role_id = table.Column<int>(type: "int", nullable: true),
                     is_active = table.Column<int>(type: "int", nullable: false),
-                    is_deleted = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    is_deleted = table.Column<int>(type: "int", nullable: true),
                     email = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     password = table.Column<string>(type: "longtext", nullable: true)
@@ -60,7 +60,8 @@ namespace testPj.Migrations
                     created_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     modified_by = table.Column<int>(type: "int", nullable: true),
                     modified_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    deleted_at = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                    deleted_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    deleted_by = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

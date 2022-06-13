@@ -42,7 +42,7 @@ namespace testPj.Data
 
         [Column("is_deleted")]
         [JsonPropertyName("is_deleted")]
-        public bool? IsDeleted { get; set; }
+        public int? IsDeleted { get; set; }
 
         [Column("email")]
         [JsonPropertyName("email")]
@@ -75,6 +75,10 @@ namespace testPj.Data
         [Column("deleted_at")]
         [JsonPropertyName("deleted_at")]
         public DateTime? DeletedAt { get; set; }
+
+        [Column("deleted_by")]
+        [JsonPropertyName("deleted_by")]
+        public int? DeletedBy { get; set; }
         public virtual ICollection<UsersRoles> UsersRoles { get; set; }
     }
 }
