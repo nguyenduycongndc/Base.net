@@ -7,7 +7,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using testPj.Configs;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;

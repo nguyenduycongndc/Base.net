@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "_LayoutLogin";
 
 }
 <link rel="stylesheet" type="text/css" href="~/css/login.css">
@@ -61,7 +61,7 @@
             'Password': $('#Password').val(),
         }
         $.ajax({
-            url: 'Login/LoginRevamp',
+            url: 'Login/LoginUser',
             type: 'POST',
             dataType: 'json',
             contentType: "application/json; charset=utf-8",

@@ -18,7 +18,6 @@ using testPj.DataAccess;
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using testPj.Models;
-using testPj.Configs;
 using testPj.Services;
 using testPj.Services.Interface;
 
@@ -28,7 +27,6 @@ namespace testPj.Attributes
     {
         private string _role;
         private string _rule;
-        private string _userInfoPrex = "Auth.UserInfo.{0}";
         private readonly IConfiguration _config;
         private readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
         public BaseAuthorize()
@@ -60,17 +58,7 @@ namespace testPj.Attributes
             {
                 var Secret = ((IConfiguration)context.HttpContext.RequestServices
                     .GetService(typeof(IConfiguration)))["Jwt:Key"];
-                //var iCache = ((IConnectionMultiplexer)context.HttpContext.RequestServices
-                //       .GetService(typeof(IConnectionMultiplexer)));
-
-                ////var iLogger = ((ILoggerManager)context.HttpContext.RequestServices
-                ////       .GetService(typeof(ILoggerManager)));
-
-                //if (!iCache.IsConnected)
-                //    context.Result = new JsonResult(new { message = "Unable to connect to redis server." }) { StatusCode = StatusCodes.Status500InternalServerError };
-
-                //var redisDb = iCache.GetDatabase();
-
+             
                 var token = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
                 var jwtToken = JwtTokenCm.GetTokenInfo(token, Secret);
@@ -87,18 +75,8 @@ namespace testPj.Attributes
                     context.Result = new JsonResult(new { message = "UserId is null" }) { StatusCode = StatusCodes.Status401Unauthorized };
                     return;
                 }
-
-                //string userInfoJson = redisDb.StringGet(String.Format(_userInfoPrex, userId));
-                //if (string.IsNullOrEmpty(userInfoJson))
-                //{
-                //    context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
-                //    return;
-                //}
-
                 var userServices = context.HttpContext.RequestServices.GetService(typeof(IUserService)) as UserServices;
                 var user = userServices.GetDetailModels(int.Parse(userId));
-                //var user = JsonSerializer.Deserialize<CurrentUserModel>(userInfoJson);
-
                 if (user == null)
                 {
                     //iLogger.LogError($"{userId}: Unauthorized: Access denied!");

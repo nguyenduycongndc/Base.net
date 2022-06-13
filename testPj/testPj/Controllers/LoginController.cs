@@ -14,9 +14,9 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]")]
-    [ApiController]
+    ////[Route("api/[controller]")]
+    //[Route("[controller]")]
+    //[ApiController]
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;
@@ -34,14 +34,14 @@ namespace testPj.Controllers
         }
 
         [HttpPost]
-        [Route("LoginUser")]
+        //[Route("LoginUser")]
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
             return testList;
         }
         [HttpGet]
-        [Route("Logout")]
+        //[Route("Logout")]
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
