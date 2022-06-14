@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "_LayoutLogin";
 
 }
 <link rel="stylesheet" type="text/css" href="~/css/login.css">
@@ -15,7 +15,7 @@
         </div>
         @*Mật khẩu*@
         <div class="input-icons" id="input-container">
-            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" placeholder="Mật khẩu" id="Password" />
+            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" onchange="SubmitLogin();" placeholder="Mật khẩu" id="Password" />
             <i class="fa fa-unlock absolute-icon-calendar "></i>
         </div>
         @*Nút đăng nhập*@
@@ -61,7 +61,7 @@
             'Password': $('#Password').val(),
         }
         $.ajax({
-            url: 'Login/LoginRevamp',
+            url: 'Login/LoginUser',
             type: 'POST',
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
@@ -73,6 +73,7 @@
                     hideLoading();
                 } else {
                     sessionStorage['SessionToken'] = result.token;
+                    sessionStorage['UserName'] = result.userName;
                     hideLoading();
                     window.location.href = "/Home";
                 }

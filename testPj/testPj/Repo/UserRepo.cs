@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -50,6 +52,8 @@ namespace testPj.Repo
             updt.Password = user.Password;
             updt.Email = user.Email;
             updt.IsActive = user.IsActive;
+            updt.ModifiedAt = user.ModifiedAt;
+            updt.ModifiedBy = user.ModifiedBy;
             await context.SaveChangesAsync();
             return true;
         }
@@ -58,14 +62,16 @@ namespace testPj.Repo
             var updt = await context.Users.FindAsync(user.Id);
             updt.Id = user.Id;
             updt.IsActive = 0;
-            updt.DeletedAt = DateTime.Now;
+            updt.DeletedAt = user.DeletedAt;
+            updt.DeletedBy = user.DeletedBy;
+            updt.IsDeleted = 0;
             await context.SaveChangesAsync();
             return true;
         }
         public Users GetDetailByName(InputLoginModel inputModel)
         {
             var query = (from x in context.Users
-                         where x.UserName.Equals(inputModel.UserName)
+                         where x.UserName.Equals(inputModel.UserName) && x.Password.Equals(EncodeServerName(inputModel.PassWord))
                          select new Users
                          {
                              Id = x.Id,
@@ -77,6 +83,25 @@ namespace testPj.Repo
                          }).FirstOrDefault();
 
             return query;
+        }
+        public List<Users> CheckUser(string userName)
+        {
+            var query = (from x in context.Users
+                         where x.UserName.Equals(userName)
+                         select new Users
+                         {
+                             Id = x.Id,
+                             UserName = x.UserName,
+                             FullName = x.FullName,
+                             IsActive = x.IsActive,
+                             RoleId = x.RoleId,
+                         }).ToList();
+
+            return query;
+        }
+        public static string EncodeServerName(string serverName)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
     }
 }

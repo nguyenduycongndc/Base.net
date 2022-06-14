@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,9 +15,9 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]")]
-    [ApiController]
+    ////[Route("api/[controller]")]
+    //[Route("[controller]")]
+    //[ApiController]
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;
@@ -33,18 +34,20 @@ namespace testPj.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
-        [Route("LoginUser")]
+        //[Route("LoginUser")]
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
             return testList;
         }
+        [AllowAnonymous]
         [HttpGet]
-        [Route("Logout")]
+        //[Route("Logout")]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
+            //HttpContext.Session.Clear();
             return Redirect("/Login");
         }
     }
