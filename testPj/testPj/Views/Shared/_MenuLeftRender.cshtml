@@ -62,9 +62,14 @@
         window.location.href = "/Home";
     }
     function openViewIndex(menu) {
-        debugger;
         if (menu === 12) {
-            window.location.href = "/User";
+            $.ajax({
+                method: "GET",
+                url: "api/User",
+                success: function (result) {
+                    $("#body-root").html(result);
+                }
+            });
             //localStorage.removeItem("id");
             //localStorage.removeItem("type");
             //index.show();

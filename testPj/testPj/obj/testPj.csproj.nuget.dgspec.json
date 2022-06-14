@@ -1,27 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\Base.net\\testPj\\testPj\\testPj.csproj": {}
+    "D:\\Base.net\\testPj\\testPj\\testPj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\Base.net\\testPj\\testPj\\testPj.csproj": {
+    "D:\\Base.net\\testPj\\testPj\\testPj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Base.net\\testPj\\testPj\\testPj.csproj",
+        "projectUniqueName": "D:\\Base.net\\testPj\\testPj\\testPj.csproj",
         "projectName": "testPj",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\Base.net\\testPj\\testPj\\testPj.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\Base.net\\testPj\\testPj\\obj\\",
+        "projectPath": "D:\\Base.net\\testPj\\testPj\\testPj.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Base.net\\testPj\\testPj\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

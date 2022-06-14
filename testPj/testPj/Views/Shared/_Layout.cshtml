@@ -63,7 +63,7 @@
     <div class="nk-sidebar" style="flex-direction: column; position: fixed; background: #544f90; max-height: 100%; display: flex;">
         @{await Html.RenderPartialAsync("_MenuLeftRender.cshtml");}
     </div>
-    <div class="header-white sidebar-dark">
+    <div class="header-white sidebar-dark" id="body-root">
         @RenderBody()
     </div>
     @*<div class="container">
@@ -103,7 +103,45 @@
 <script src="~/src/plugins/datatables/js/vfs_fonts.js" asp-append-version="true"></script>
 <!-- Datatable Setting js -->
 <script src="~/vendors/scripts/datatable-setting.js" asp-append-version="true"></script>
+<script src="~/js/api.js" asp-append-version="true"></script>
 <script>
+    $(function () {
+        $.ajaxSetup({
+            beforeSend: function (xhr) {
+                var rd = Math.floor((Math.random() * 9999999) + 1);
+                xhr.setRequestHeader('Authorization', getSessionToken());
+                xhr.setRequestHeader('Accept-Language', 'vi-VN');
+                xhr.setRequestHeader('Loading-Id', rd);
+            },
+            complete: function (xhr, status, error) {
+                if (xhr.status == 401)
+                    swal("Unauthorized!", "Bạn cần phải đăng nhập vào hệ thống!", "warning");
+                //toastr.error("Dữ liệu đầu vào hoặc thông tin tài khoản không hợp lệ!", "Lỗi!", { progressBar: true });
+                else if (xhr.status == 404)
+                    //swal("Not found!", "Không tìm thấy đối tượng để xử lý!", "warning");
+                    toastr.error("Không tìm thấy đối tượng để xử lý!", "Lỗi!", { progressBar: true });
+                else if (xhr.status == 500)
+                    //swal("Internal Server Error!", "Có lỗi xảy ra trong quá trình xử lý!", "warning");
+                    toastr.error("Có lỗi xảy ra trong quá trình xử lý!", "Lỗi!", { progressBar: true });
+                else if (xhr.status == 400)
+                    //swal("Lỗi dữ liệu!", "Dữ liệu đầu vào hoặc thông tin tài khoản không hợp lệ!", "warning");
+                    toastr.error("Dữ liệu đầu vào hoặc thông tin tài khoản không hợp lệ!", "Lỗi!", { progressBar: true });
+                //else if (xhr.status != 200)
+                //    swal(error + "!", "Có lỗi trong quá trình xử lý!", "error");
+            }
+        });
+
+        $(document).ajaxStop(function () {
+        });
+    })
+    function getSessionToken() {
+        debugger;
+
+        if (sessionStorage['SessionToken'] != undefined)
+            return sessionStorage['SessionToken'];
+        return null;
+    }
+
     function logout() {
         $.ajax({
             method: "GET",
@@ -115,4 +153,5 @@
             }
         });
     }
+
 </script>

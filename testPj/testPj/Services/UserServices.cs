@@ -68,7 +68,7 @@ namespace testPj.Services
             try
             {
                 var checkUser = userRepo.CheckUser(input.UserName);
-                if (checkUser != null)
+                if (checkUser.Count() > 0)
                 {
                     _logger.LogError("Tài khoản đã tồn tại");
                     return false;

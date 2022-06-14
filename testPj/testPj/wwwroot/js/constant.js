@@ -1,18 +1,9 @@
 /////// <reference path="customer.js" />
-/// <reference path="host.js" />
+//<reference path="host.js" />
 var apiConfig = {
     "api": {
         //"host_user_service": "https://localhost:5001",
         "host_user_service": hostApi.host_user_service,
-        //"authen": {
-        //    "controller": "/GenToken",
-        //    'action': {
-        //        'token': {
-        //            'method': 'POST',
-        //            'path': ''
-        //        }
-        //    }
-        //},
         "user": {
             "controller": "/User",
             "action": {

@@ -26,3 +26,102 @@
 2022-06-14 17:31:29.8011|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
 2022-06-14 17:31:47.6155|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
 2022-06-14 17:37:04.6338|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 21:32:34.2003|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 21:33:08.6461|ERROR|testPj.Services.UserServices|Tài khoản đã tồn tại
+2022-06-14 21:34:49.2323|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (15ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (Size = 4000), @p14='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `USERS` (`created_at`, `created_by`, `date_of_joining`, `deleted_at`, `deleted_by`, `email`, `full_name`, `is_active`, `is_deleted`, `modified_at`, `modified_by`, `password`, `role_id`, `salt`, `user_name`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+SELECT `id`
+FROM `USERS`
+WHERE ROW_COUNT() = 1 AND `id` = LAST_INSERT_ID();
+2022-06-14 21:34:49.3413|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'testPj.Data.SqlDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'deleted_by' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 888
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 319
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 312
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-06-14 21:34:49.5074|ERROR|testPj.Services.UserServices|An error occurred while updating the entries. See the inner exception for details.
+2022-06-14 21:35:28.3367|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = DateTime), @p10='?' (DbType = Int32), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (Size = 4000), @p14='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `USERS` (`created_at`, `created_by`, `date_of_joining`, `deleted_at`, `deleted_by`, `email`, `full_name`, `is_active`, `is_deleted`, `modified_at`, `modified_by`, `password`, `role_id`, `salt`, `user_name`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+SELECT `id`
+FROM `USERS`
+WHERE ROW_COUNT() = 1 AND `id` = LAST_INSERT_ID();
+2022-06-14 21:35:28.3367|ERROR|Microsoft.EntityFrameworkCore.Update|An exception occurred in the database while saving changes for context type 'testPj.Data.SqlDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Unknown column 'deleted_by' in 'field list'
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsyncAwaited(ValueTask`1 task) in /_/src/MySqlConnector/Core/ServerSession.cs:line 888
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 50
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 135
+   at MySqlConnector.MySqlDataReader.CreateAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 444
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(IReadOnlyList`1 commands, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 60
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 319
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 312
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2022-06-14 21:36:07.0098|ERROR|testPj.Services.UserServices|An error occurred while updating the entries. See the inner exception for details.
+2022-06-14 21:39:26.9543|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 21:45:22.4308|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 21:45:32.0760|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 21:46:42.2057|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 21:48:12.2461|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 21:49:09.9930|FATAL|Microsoft.AspNetCore.Hosting.Diagnostics|Application startup exception
+2022-06-14 21:49:53.9796|FATAL|Microsoft.AspNetCore.Hosting.Diagnostics|Application startup exception
+2022-06-14 21:51:59.7343|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 21:59:57.6863|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:00:17.7309|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:04:12.0719|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:04:19.0011|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:06:29.7328|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:18:34.0898|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 22:39:18.5416|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 22:52:29.4789|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:53:23.0542|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:53:52.4445|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:55:20.9186|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:56:06.2406|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 22:57:22.6447|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:01:17.3590|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:04:23.9941|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:22:44.6122|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:30:49.7588|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 23:30:59.0357|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:32:41.2719|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:38:16.9253|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:47:26.9566|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:47:36.4450|ERROR|testPj.Attributes.BaseAuthorize|: Unauthorized: Access denied!
+2022-06-14 23:48:49.6840|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 23:52:14.9354|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 23:54:38.7426|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 23:54:50.3980|ERROR|testPj.Services.UserServices|Object reference not set to an instance of an object.
+2022-06-14 23:55:00.1529|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-14 23:56:16.2609|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 23:57:34.7941|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 23:57:48.5416|ERROR|Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware|An unhandled exception has occurred while executing the request.
+2022-06-14 23:59:01.0405|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!

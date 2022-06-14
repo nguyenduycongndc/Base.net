@@ -20,8 +20,8 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+    //[Route("[controller]")]
     [ApiController]
     [BaseAuthorize]
     public class UserController : Controller
@@ -34,39 +34,11 @@ namespace testPj.Controllers
             _logger = logger;
             _userService = loginService;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        //public PartialViewResult listUser()
-        //{
-        //    List<UserModel> lst = _userService.GetAllUser();
-        //    return PartialView("listUser", lst.ToPagedList(1, 10));
-        //}
-
-        //[HttpGet]
-        //public List<UserModel> GetAll()
-        //{
-        //    //if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
-        //    //{
-        //    //    return null;
-        //    //}
-        //    var testList = _userService.GetAllUser();
-        //    return testList;
-        //}
-        //public PartialViewResult LoadUser(int id)
-        //{
-        //    try
-        //    {
-        //        var edt = _userService.GetDetailModels(id);
-        //        return PartialView("DetailUser", edt);
-        //    }
-        //    catch
-        //    {
-        //        return PartialView("DetailUser", new DetailModel());
-        //    }
-        //}
         [HttpPost]
         [Route("Search")]
         public List<UserModel> Search([FromBody] SearchUserModel searchUserModel)
@@ -105,7 +77,7 @@ namespace testPj.Controllers
             }
         }
         [HttpPost]
-        //[Route("Create")]
+        [Route("Create")]
         public async Task<bool> Create([FromBody] CreateModel add)
         {
             try
