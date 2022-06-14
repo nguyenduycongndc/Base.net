@@ -25,18 +25,19 @@ namespace testPj.Services
             _logger = logger;
         }
 
-        public List<UserModel> GetAllUser()
+        public List<UserModel> GetAllUser(SearchUserModel searchUserModel)
         {
             var qr = userRepo.GetAll();
             List<UserModel> lst = new List<UserModel>();
-            var listUser = qr.Where(x => x.IsActive.Equals(1)).Select(x => new UserModel()
+            var listUser = qr.Where(x => (x.UserName.ToLower().Contains(searchUserModel.UserName.ToLower()) || string.IsNullOrEmpty(searchUserModel.UserName))
+                                          && (searchUserModel.IsActive == -1 || (searchUserModel.IsActive == 1 ? x.IsActive == 1 : x.IsActive == 0))).Select(x => new UserModel()
             {
                 Id = x.Id,
-                Name = x.UserName,
-                //Password = x.Password,
+                UserName = x.UserName,
+                FullName = x.FullName,
                 IsActive = x.IsActive,
-            }).OrderBy(x => x.Id).ToList();
-            lst = listUser;
+            }).OrderBy(x => x.Id).Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
+            lst =  listUser;
             return lst;
         }
         public CurrentUserModel GetDetailModels(int Id)

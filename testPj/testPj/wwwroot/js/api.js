@@ -1,4 +1,5 @@
 ﻿function callApi_userservice(controller, action, method, data, callbackSuccess, callbackError) {
+    debugger;
     $.ajax({
         type: method,
         url: apiConfig.api.host_user_service + controller + action,

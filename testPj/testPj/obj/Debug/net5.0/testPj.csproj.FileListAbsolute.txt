@@ -173,7 +173,6 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Share
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\User\DetailUser.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\User\Index.cshtml.g.cs
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\User\listUser.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.RazorTargetAssemblyInfo.cache
