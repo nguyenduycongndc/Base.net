@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using PagedList;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -18,55 +20,54 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+    //[Route("[controller]")]
     [ApiController]
+    [BaseAuthorize]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IUserService loginService;
+        private readonly IUserService _userService;
 
         public UserController(ILogger<UserController> logger, IUserService loginService)
         {
             _logger = logger;
-            this.loginService = loginService;
+            _userService = loginService;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        public PartialViewResult listUser()
-        {
-            List<UserModel> lst = loginService.GetAllUser();
-            return PartialView("listUser", lst.ToPagedList(1, 10));
-        }
-        
-        [HttpGet]
-        public List<UserModel> GetAll()
-        {
-            var testList = loginService.GetAllUser();
-            return testList;
-        }
-        public PartialViewResult LoadUser(int id)
+        [HttpPost]
+        [Route("Search")]
+        public List<UserModel> Search([FromBody] SearchUserModel searchUserModel)
         {
             try
             {
-                var edt = loginService.GetDetailModels(id);
-                return PartialView("DetailUser", edt);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                return _userService.GetAllUser(searchUserModel);
             }
-            catch
+            catch (Exception ex)
             {
-                return PartialView("DetailUser", new DetailModel());
+                _logger.LogError(ex.Message);
+                return null;
             }
         }
         [HttpGet]
         [Route("Detail")]
-        public DetailModel Detail(int id)
+        public CurrentUserModel Detail(int id)
         {
             try
             {
-                var testDetail = loginService.GetDetailModels(id);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                var testDetail = _userService.GetDetailModels(id);
                 return testDetail;
             }
             catch (Exception ex)
@@ -76,12 +77,16 @@ namespace testPj.Controllers
             }
         }
         [HttpPost]
-        [Route("CreateUser")]
+        [Route("Create")]
         public async Task<bool> Create([FromBody] CreateModel add)
         {
             try
             {
-                return await loginService.CreateUse(add);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
+                return await _userService.CreateUse(add, _userInfo);
             }
             catch (Exception ex)
             {
@@ -95,7 +100,11 @@ namespace testPj.Controllers
         {
             try
             {
-                return await loginService.UpdateUse(update);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
+                return await _userService.UpdateUse(update, _userInfo);
             }
             catch (Exception ex)
             {
@@ -109,7 +118,11 @@ namespace testPj.Controllers
         {
             try
             {
-                return await loginService.DeleteUse(id);
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
+                return await _userService.DeleteUse(id, _userInfo);
             }
             catch (Exception ex)
             {

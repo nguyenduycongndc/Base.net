@@ -92,6 +92,10 @@ namespace testPj.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("deleted_at");
 
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
+
                     b.Property<string>("Email")
                         .HasColumnType("longtext")
                         .HasColumnName("email");
@@ -104,8 +108,8 @@ namespace testPj.Migrations
                         .HasColumnType("int")
                         .HasColumnName("is_active");
 
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("tinyint(1)")
+                    b.Property<int?>("IsDeleted")
+                        .HasColumnType("int")
                         .HasColumnName("is_deleted");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -119,6 +123,10 @@ namespace testPj.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("longtext")
                         .HasColumnName("password");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("role_id");
 
                     b.Property<string>("SaltKey")
                         .HasColumnType("longtext")

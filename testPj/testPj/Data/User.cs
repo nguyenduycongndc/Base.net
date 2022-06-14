@@ -32,13 +32,17 @@ namespace testPj.Data
         [JsonPropertyName("date_of_joining")]
         public DateTime? DateOfJoining { get; set; }
 
+        [Column("role_id")]
+        [JsonPropertyName("role_id")]
+        public int? RoleId { get; set; }
+
         [Column("is_active")]
         [JsonPropertyName("is_active")]
         public int IsActive { get; set; }
 
         [Column("is_deleted")]
         [JsonPropertyName("is_deleted")]
-        public bool? IsDeleted { get; set; }
+        public int? IsDeleted { get; set; }
 
         [Column("email")]
         [JsonPropertyName("email")]
@@ -71,6 +75,10 @@ namespace testPj.Data
         [Column("deleted_at")]
         [JsonPropertyName("deleted_at")]
         public DateTime? DeletedAt { get; set; }
+
+        [Column("deleted_by")]
+        [JsonPropertyName("deleted_by")]
+        public int? DeletedBy { get; set; }
         public virtual ICollection<UsersRoles> UsersRoles { get; set; }
     }
 }

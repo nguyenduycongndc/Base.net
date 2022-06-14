@@ -15,5 +15,6 @@ namespace testPj.Repo.Interface
         Task<bool> UpdateUs(Users user);
         Task<bool> DeleteUs(Users user);
         Users GetDetailByName(InputLoginModel inputModel);
+        List<Users> CheckUser(string userName);
     }
 }

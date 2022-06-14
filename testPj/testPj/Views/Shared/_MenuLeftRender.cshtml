@@ -1,0 +1,88 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+<div class="left-side-bar">
+    <div class="brand-logo">
+        <a href="javascript:void(0);" onclick="home()">
+            <img src="vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+            <img src="vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+        </a>
+        <div class="close-sidebar" data-toggle="left-sidebar-close">
+            <i class="ion-close-round"></i>
+        </div>
+    </div>
+    <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+            <ul id="accordion-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle">
+                        <span class="micon dw dw-analytics-21"></span><span class="mtext">Chỉ số</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(1)">Revenus</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(2)">DAU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(3)">NRU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(4)">ARPD</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(5)">ARPU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(6)">DEVICE</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(7)">LOCATION</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle">
+                        <span class="micon dw dw-gamepad"></span><span class="mtext">Game</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(8)">CCU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(9)">ACCOUNT</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openViewIndex(10)" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-book"></span><span class="mtext">Kế toán</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openViewIndex(11)" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-shop"></span><span class="mtext">MM</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openViewIndex(12)" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-user-1"></span><span class="mtext">Quản lý tài khoản</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function home() {
+        window.location.href = "/Home";
+    }
+    function openViewIndex(menu) {
+        if (menu === 12) {
+            $.ajax({
+                method: "GET",
+                url: "api/User",
+                success: function (result) {
+                    $("#body-root").html(result);
+                }
+            });
+            //localStorage.removeItem("id");
+            //localStorage.removeItem("type");
+            //index.show();
+            //create.hide();
+            //edit.hide();
+            //detail.hide();
+            //censorship.hide();
+            //sendBrowse.hide();
+            //historyLog.hide();
+            //setTimeout(function () {
+            //    onSearch();
+            //}, 100);
+            //loadYearDefault();
+        }
+    }
+</script>
