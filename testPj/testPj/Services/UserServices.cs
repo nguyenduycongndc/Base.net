@@ -33,7 +33,7 @@ namespace testPj.Services
             {
                 Id = x.Id,
                 Name = x.UserName,
-                Password = x.Password,
+                //Password = x.Password,
                 IsActive = x.IsActive,
             }).OrderBy(x => x.Id).ToList();
             lst = listUser;

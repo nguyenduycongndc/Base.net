@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -33,6 +34,7 @@ namespace testPj.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         //[Route("LoginUser")]
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
@@ -40,11 +42,12 @@ namespace testPj.Controllers
             var testList = loginServices.Login(inputModel);
             return testList;
         }
+        [AllowAnonymous]
         [HttpGet]
         //[Route("Logout")]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
+            //HttpContext.Session.Clear();
             return Redirect("/Login");
         }
     }

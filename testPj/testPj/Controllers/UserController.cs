@@ -39,34 +39,34 @@ namespace testPj.Controllers
         {
             return View();
         }
-        public PartialViewResult listUser()
-        {
-            List<UserModel> lst = _loginService.GetAllUser();
-            return PartialView("listUser", lst.ToPagedList(1, 10));
-        }
-        
-        [HttpGet]
-        public List<UserModel> GetAll()
-        {
-            if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
-            {
-                return null;
-            }
-            var testList = _loginService.GetAllUser();
-            return testList;
-        }
-        public PartialViewResult LoadUser(int id)
-        {
-            try
-            {
-                var edt = _loginService.GetDetailModels(id);
-                return PartialView("DetailUser", edt);
-            }
-            catch
-            {
-                return PartialView("DetailUser", new DetailModel());
-            }
-        }
+        //public PartialViewResult listUser()
+        //{
+        //    List<UserModel> lst = _loginService.GetAllUser();
+        //    return PartialView("listUser", lst.ToPagedList(1, 10));
+        //}
+
+        //[HttpGet]
+        //public List<UserModel> GetAll()
+        //{
+        //    //if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+        //    //{
+        //    //    return null;
+        //    //}
+        //    var testList = _loginService.GetAllUser();
+        //    return testList;
+        //}
+        //public PartialViewResult LoadUser(int id)
+        //{
+        //    try
+        //    {
+        //        var edt = _loginService.GetDetailModels(id);
+        //        return PartialView("DetailUser", edt);
+        //    }
+        //    catch
+        //    {
+        //        return PartialView("DetailUser", new DetailModel());
+        //    }
+        //}
         [HttpGet]
         [Route("Detail")]
         public CurrentUserModel Detail(int id)
@@ -145,11 +145,6 @@ namespace testPj.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        protected CurrentUserModel GetUser()
-        {
-            var userModel = HttpContext.Items["UserInfo"];
-
-            return (CurrentUserModel)userModel;
-        }
+        
     }
 }

@@ -63,11 +63,14 @@
     <div class="nk-sidebar" style="flex-direction: column; position: fixed; background: #544f90; max-height: 100%; display: flex;">
         @{await Html.RenderPartialAsync("_MenuLeftRender.cshtml");}
     </div>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="header-white sidebar-dark">
+        @RenderBody()
     </div>
+    @*<div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>*@
 
     @*<footer class="border-top footer text-muted">
             <div class="container">
@@ -100,3 +103,16 @@
 <script src="~/src/plugins/datatables/js/vfs_fonts.js" asp-append-version="true"></script>
 <!-- Datatable Setting js -->
 <script src="~/vendors/scripts/datatable-setting.js" asp-append-version="true"></script>
+<script>
+    function logout() {
+        $.ajax({
+            method: "GET",
+            url: "/Login/Logout",
+            success: function (result) {
+                sessionStorage.clear();
+                localStorage.clear();
+                window.location.href = "/Login";
+            }
+        });
+    }
+</script>
