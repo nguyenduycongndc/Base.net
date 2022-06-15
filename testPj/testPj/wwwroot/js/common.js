@@ -81,7 +81,7 @@ function validateRequired(parent) {
 
             var val = eleWork.val();
 
-            if (val == undefined || val == null || val.isBlank()) {
+            if (val == undefined || val == null/* || val.isBlank()*/) {
                 itemFocus = itemFocus == null ? $(allRequired[i]) : itemFocus;
                 eleWork.addClass('is-invalid');
                 $(eleWork).parent().append('<div class="invalid-feedback">' + msg + '</div>')

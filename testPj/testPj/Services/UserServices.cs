@@ -36,8 +36,10 @@ namespace testPj.Services
                 UserName = x.UserName,
                 FullName = x.FullName,
                 IsActive = x.IsActive,
-            }).OrderBy(x => x.Id).Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
-            lst =  listUser;
+            }).OrderBy(x => x.Id).ToList();
+            var count = listUser.Count();
+            lst =  listUser.Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
+            var data = new List<object>();
             return lst;
         }
         public CurrentUserModel GetDetailModels(int Id)
@@ -71,6 +73,10 @@ namespace testPj.Services
                 if (checkUser.Count() > 0)
                 {
                     _logger.LogError("Tài khoản đã tồn tại");
+                    return false;
+                }
+                if (input.UserName == "" || input.UserName == null || input.Password == "" || input.Password == null)
+                {
                     return false;
                 }
                 //string salt = "";

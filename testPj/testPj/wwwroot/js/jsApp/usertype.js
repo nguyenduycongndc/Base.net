@@ -82,19 +82,21 @@ function updateUnitTypeSuccess(data) {
         setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 70);
     }
 }
-function createUnitTypeSuccess(data) {
-    if (data.code === '1') {
-        createdLog("Loại đơn vị", "Thêm mới loại đơn vị");
-        //swal("Thông báo!", "Thêm mới dữ liệu thành công!", "success");
-        toastr.success(localizationResources.CreateSuccess, { progressBar: true })
-        localStorage.removeItem("id");
-        localStorage.removeItem("type");
+function createUserSuccess(data) {
+    debugger;
+    if (data !== false) {
+        /*createdLog("Loại đơn vị", "Thêm mới loại đơn vị");*/
+        toastr.success("Thêm mới thành công")
+        //localStorage.removeItem("id");
+        //localStorage.removeItem("type");
         setTimeout(function () {
-            window.location.href = "/UnitType"
+            openView(0,0)
         }, 2000);
     } 
     else {
-        setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 50);
+        debugger;
+        toastr.error("Thêm mới thất bại")
+        //setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 50);
     }
 }
 function updateFail(request, status, error) {
@@ -159,7 +161,7 @@ function openView(type, value) {
         localStorage.setItem("type", "1");
         index.hide();
         create.show();
-        document.getElementById("nameCreate").focus();
+        document.getElementById("userNameCreate").focus();
         edit.hide();
         detail.hide();
         document.getElementById("formCreate").reset();
@@ -221,7 +223,7 @@ function fnSearchSuccess(rspn) {
                 ////mở lại comment khi có quyền
 
                 '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(2,' + obj.id + ')"><i data-toggle="tooltip" title="Chi tiết" class="fa fa-eye" aria-hidden="true"></i></a>' +
-                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')"><i data-toggle="tooltip" title="Cập nhật" class="fas fa-pencil-alt" aria-hidden="true"></i></a>' +
+                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')"><i data-toggle="tooltip" title="Cập nhật" class="micon dw dw-edit2" aria-hidden="true"></i></a>' +
                 '<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
                 '</td>' +
                 '</tr>';
@@ -287,6 +289,7 @@ function fnSearchSuccess(rspn) {
         //        $('[data-toggle="tooltip"]').tooltip();
         //    },
         //});
+        debugger;
         reCalculatPagesCustom(rspn.length);
         viewBtnActionPage();
         hideLoading();
@@ -393,16 +396,16 @@ function fnActive(id, status) {
 }
 function submitCreate() {
     var obj = {
-        'name': $('#nameCreate').val().trim(),
-        'status': $('#statusCreate').val() == 1 ? true : false,
-        'description': $('#descriptionCreate').val() != '' ? $('#descriptionCreate').val().trim() : '',
+        'UserName': $('#userNameCreate').val().trim(),
+        'RoleId': $('#roleCreate').val(),
+        'Password': $('#passwordCreate').val() != '' ? $('#passwordCreate').val().trim() : '',
     }
     if (validateRequired('#formCreate')) {
         callApi_userservice(
             apiConfig.api.user.controller,
             apiConfig.api.user.action.add.path,
             apiConfig.api.user.action.add.method,
-            obj, 'createUnitTypeSuccess', 'msgError');
+            obj, 'createUserSuccess', 'msgError');
     }
 }
 
@@ -560,18 +563,18 @@ $.getScript('/plugins/jquery-validation/jquery.validate.min.js', function () {
     });
 });
 
-function createdLog(_module, _perform_tasks) {
+//function createdLog(_module, _perform_tasks) {
 
-    var obj = {
-        'module': _module,
-        'perform_tasks': _perform_tasks,
-    }
-    callApi_userservice(
-        apiConfig.api.systemlog.controller,
-        apiConfig.api.systemlog.action.add.path,
-        apiConfig.api.systemlog.action.add.method,
-        obj, '', '');
-}
+//    var obj = {
+//        'module': _module,
+//        'perform_tasks': _perform_tasks,
+//    }
+//    callApi_userservice(
+//        apiConfig.api.systemlog.controller,
+//        apiConfig.api.systemlog.action.add.path,
+//        apiConfig.api.systemlog.action.add.method,
+//        obj, '', '');
+//}
 
 window.onload = function () {
     //let checkLocalStatus = localStorage.getItem('status');

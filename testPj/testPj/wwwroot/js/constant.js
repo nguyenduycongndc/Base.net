@@ -19,7 +19,7 @@ var apiConfig = {
                 "add": {
                     //function support to add item
                     "method": "POST",
-                    "path": ""
+                    "path": "/Create"
                 },
                 "delete": {
                     //function support to delete item
