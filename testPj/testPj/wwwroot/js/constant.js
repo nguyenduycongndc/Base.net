@@ -5,10 +5,10 @@ var apiConfig = {
         //"host_user_service": "https://localhost:5001",
         "host_user_service": hostApi.host_user_service,
         "user": {
-            "controller": "/User",
+            "controller": "/api/User",
             "action": {
                 "getItem": {
-                    "method": "GET",
+                    "method": "POST",
                     "path": ""
                 },
                 "search": {

@@ -185,22 +185,19 @@ function openView(type, value) {
 }
 
 function fnSearchSuccess(rspn) {
-    showLoading();
-    if (rspn !== undefined && rspn !== null && rspn.code === '1' && rspn.total > 0) {
-        var data = rspn.data;
+    //showLoading();
+    if (rspn !== undefined && rspn !== null && rspn.length > 0) {
         var tbBody = $('#userTypeTable tbody');
         $("#userTypeTable").dataTable().fnDestroy();
         tbBody.html('');
-        for (var i = 0; i < data.length; i++) {
-            var obj = data[i];
-
+        for (var i = 0; i < rspn.length; i++) {
+            var obj = rspn[i];
+            var TT = obj.isActive == 1 ? "Hoạt động" : "Dừng hoạt động"
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.name + '</td>' +
-                '<td>' + obj.name + '</td>' +
-                '<td>' + obj.name + '</td>' +
-                '<td>' + obj.name + '</td>' +
-
+                '<td>' + obj.fullName + '</td>' +
+                '<td>' + obj.userName + '</td>' +
+                '<td>' + TT + '</td>' +
                 '<td class="text-center">' +
                 //mở lại comment khi có quyền
                 //(IsCheckPemission('M_UT', 'PER_STATUS') === true && obj.roleId !== 1 ? '<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" id="customSwitch' + obj.id + '" ' + (obj.status === true ? 'checked' : '') + ' onclick="UnitTypeActive(' + obj.id + ',this)"> <label class="custom-control-label" for="customSwitch' + obj.id + '"> <a hidden>' + obj.status + '<a></label> </div>' : '<div class="custom-control custom-switch"> <input type="checkbox" class="custom-control-input" id="customSwitch' + obj.id + '" ' + (obj.status === true ? 'checked' : '') + ' disabled ><label class="custom-control-label" for="customSwitch' + obj.id + '"></label> </div>')
@@ -290,10 +287,10 @@ function fnSearchSuccess(rspn) {
         //        $('[data-toggle="tooltip"]').tooltip();
         //    },
         //});
-        reCalculatPagesCustom(rspn.total);
+        reCalculatPagesCustom(rspn.length);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn.data == "") {
+    } else if (rspn == "") {
         var tbBody = $('#userTypeTable tbody');
         $("#userTypeTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -362,39 +359,17 @@ function fnSearchSuccess(rspn) {
     }
 }
 function onSearch() {
-    showLoading();
-    if (localStorage.type && localStorage.dataObj) {
-        callApi_userservice(
-            apiConfig.api.user.controller,
-            apiConfig.api.user.action.search.path,
-            apiConfig.api.user.action.search.method,
-            dataObj, 'fnSearchSuccess', 'msgError');
-    } else if (!localStorage.type) {
         var obj = {
             'UserName': $('#UserName').val().trim(),
             'IsActive': $('#IsActive').val(),
-            'page_size': 10,
-            'start_number': 0
-            //'page_size': parseInt($("#cbPageSize").val()),
-            //'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
+            'page_size': parseInt($("#cbPageSize").val()),
+            'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
-        localStorage.setItem('dataObj', JSON.stringify(obj));
         callApi_userservice(
             apiConfig.api.user.controller,
             apiConfig.api.user.action.search.path,
             apiConfig.api.user.action.search.method,
             obj, 'fnSearchSuccess', 'msgError');
-    } else if (!localStorage.type && localStorage.dataObj) {
-        //frmView.find("#IsActive").val(localStorage.status == "-1" ? -1 : localStorage.status == "1" ? 1 : 0);
-        //frmView.find("#UserName").val(localStorage.name);
-        callApi_userservice(
-            apiConfig.api.user.controller,
-            apiConfig.api.user.action.search.path,
-            apiConfig.api.user.action.search.method,
-            obj, 'fnSearchSuccess', 'msgError');
-    }
-    localStorage.removeItem("id");
-    localStorage.removeItem("type");
 }
 
 

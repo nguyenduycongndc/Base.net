@@ -11,13 +11,6 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\testPj.pdb
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\testPj.Views.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\testPj.Views.pdb
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Humanizer.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.BusinessLogic.EF.EF5.Net45.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.BusinessLogic.Net45.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.ComponentModel.DataAnnotations.Net45.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.Core.Net451.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.DirectoryServices.Net45.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Lw.EntityFramework.EF5.Net45.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\latticework.cs.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\System.Web.Razor.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Web.Helpers.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\System.Web.Helpers.dll
@@ -64,8 +57,6 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\NLog.Extensions.L
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Npgsql.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\PagedList.dll
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\PagedList.Mvc.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\StackExchange.Redis.dll
