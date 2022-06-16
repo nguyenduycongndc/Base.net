@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using PagedList;
+//using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,53 +20,43 @@ using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
-    //[Route("api/[controller]")]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+    //[Route("[controller]")]
     [ApiController]
     [BaseAuthorize]
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IUserService _loginService;
+        private readonly IUserService _userService;
 
         public UserController(ILogger<UserController> logger, IUserService loginService)
         {
             _logger = logger;
-            _loginService = loginService;
+            _userService = loginService;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-        //public PartialViewResult listUser()
-        //{
-        //    List<UserModel> lst = _loginService.GetAllUser();
-        //    return PartialView("listUser", lst.ToPagedList(1, 10));
-        //}
-
-        //[HttpGet]
-        //public List<UserModel> GetAll()
-        //{
-        //    //if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
-        //    //{
-        //    //    return null;
-        //    //}
-        //    var testList = _loginService.GetAllUser();
-        //    return testList;
-        //}
-        //public PartialViewResult LoadUser(int id)
-        //{
-        //    try
-        //    {
-        //        var edt = _loginService.GetDetailModels(id);
-        //        return PartialView("DetailUser", edt);
-        //    }
-        //    catch
-        //    {
-        //        return PartialView("DetailUser", new DetailModel());
-        //    }
-        //}
+        [HttpPost]
+        [Route("Search")]
+        public List<Object> Search([FromBody] SearchUserModel searchUserModel)
+        {
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                return _userService.GetAllUser(searchUserModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
+        }
         [HttpGet]
         [Route("Detail")]
         public CurrentUserModel Detail(int id)
@@ -77,7 +67,7 @@ namespace testPj.Controllers
                 {
                     return null;
                 }
-                var testDetail = _loginService.GetDetailModels(id);
+                var testDetail = _userService.GetDetailModels(id);
                 return testDetail;
             }
             catch (Exception ex)
@@ -87,7 +77,7 @@ namespace testPj.Controllers
             }
         }
         [HttpPost]
-        [Route("CreateUser")]
+        [Route("Create")]
         public async Task<bool> Create([FromBody] CreateModel add)
         {
             try
@@ -96,7 +86,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
-                return await _loginService.CreateUse(add, _userInfo);
+                return await _userService.CreateUse(add, _userInfo);
             }
             catch (Exception ex)
             {
@@ -114,7 +104,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
-                return await _loginService.UpdateUse(update, _userInfo);
+                return await _userService.UpdateUse(update, _userInfo);
             }
             catch (Exception ex)
             {
@@ -132,7 +122,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
-                return await _loginService.DeleteUse(id, _userInfo);
+                return await _userService.DeleteUse(id, _userInfo);
             }
             catch (Exception ex)
             {

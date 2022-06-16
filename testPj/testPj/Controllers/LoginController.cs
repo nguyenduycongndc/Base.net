@@ -40,6 +40,7 @@ namespace testPj.Controllers
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
             var testList = loginServices.Login(inputModel);
+            HttpContext.Session.SetString("SessionToken", testList.Token);
             return testList;
         }
         [AllowAnonymous]
@@ -47,7 +48,7 @@ namespace testPj.Controllers
         //[Route("Logout")]
         public IActionResult Logout()
         {
-            //HttpContext.Session.Clear();
+            HttpContext.Session.Clear();
             return Redirect("/Login");
         }
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -33,6 +32,8 @@ namespace testPj.Repo
                              Password = x.Password,
                              IsActive = x.IsActive,
                              RoleId = x.RoleId,
+                             FullName = x.FullName,
+                             Email = x.Email,
                          }).FirstOrDefault();
 
             return query;

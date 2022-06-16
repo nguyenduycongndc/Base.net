@@ -1,10 +1,8 @@
-﻿@using Microsoft.AspNetCore.Http
-@using System.Collections.Generic;
-@{
+﻿@{
     var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
-    var currentUser = (CurrentUserModel)Context.Items["UserInfo"];
-    var UserName = "";
 }
+
+@*@model CurrentUserModel*@
 <div class="nav-control">
     <div class="hamburger">
         <span class="toggle-icon"><i class="fas fa-angle-double-left" style="font-size: 25px; color: #544f90;"></i></span>
@@ -23,15 +21,68 @@
                         <img src="~/vendors/images/user.png" alt="" />
                     </span>
                     @*<span class="user-name">Ross C. Lopez</span>*@
-                    <span class="user-name">@UserName</span>
+                <span class="user-name">@currentuser.FullName</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
-                    <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-                    <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-                    <a class="dropdown-item" href="javascript:void(0)" onclick="logout()"><i class="dw dw-logout"></i> Log Out</a>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#modalSelectAuditObserve"><i class="fa fa-pencil-square"></i>Thay đổi mật khẩu</a>
+                    <a class="dropdown-item" href="javascript:void(0)" onclick="logout()"><i class="dw dw-logout"></i>Thoát</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="modal hide fade" id="modalSelectAuditObserve" role="dialog" aria-labelledby="modalSelectAuditObserveLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalSelectAuditObserve">Thay đổi mật khẩu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group row">
+                            <label for="PassWordOld" class="col-sm-3 col-form-label">Mật khẩu cũ</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="PassWordOld" aria-label="PassWordOld" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group row">
+                            <label for="PassWordNew" class="col-sm-3 col-form-label">Mật khẩu mới</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="PassWordNew" aria-label="PassWordNew" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" for="ConfirmPassWordNew">
+                                Xác nhận mật khẩu
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="ConfirmPassWordNew" aria-label="ConfirmPassWordNew" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="btn btn-info" onclick="SaveClick()">Lưu</a>
+                <a href="javascript:void(0);" class="btn btn-info" data-dismiss="modal">Trở lại</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".modal").on("shown.bs.modal", function () {
+        if ($(".modal-backdrop").length > 1) {
+            $(".modal-backdrop").remove();
+        }
+    })
+</script>

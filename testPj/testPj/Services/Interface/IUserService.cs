@@ -8,7 +8,7 @@ namespace testPj.Services.Interface
 {
     public interface IUserService
     {
-        List<UserModel> GetAllUser();
+        List<Object> GetAllUser(SearchUserModel searchUserModel);
         public CurrentUserModel GetDetailModels(int id);
         public Task<bool> CreateUse(CreateModel input, CurrentUserModel _userInfo);
         public Task<bool> UpdateUse(UpdateModel input, CurrentUserModel _userInfo);
