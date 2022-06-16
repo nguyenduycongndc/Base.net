@@ -15,7 +15,7 @@
         </div>
         @*Mật khẩu*@
         <div class="input-icons" id="input-container">
-            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" onchange="SubmitLogin();" placeholder="Mật khẩu" id="Password" />
+            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" @*onchange="SubmitLogin();"*@ placeholder="Mật khẩu" id="Password" />
             <i class="fa fa-unlock absolute-icon-calendar "></i>
         </div>
         @*Nút đăng nhập*@
@@ -67,6 +67,7 @@
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(formdata),
             success: function (result) {
+                debugger;
                 if (!result) {
                     swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
                     hideLoading();
@@ -75,6 +76,8 @@
                     sessionStorage['UserName'] = result.userName;
                     hideLoading();
                     window.location.href = "/Home";
+                    //window.location.href = "api/Home";
+                    //HomeData();
                 }
             },
             error: function (ex) {

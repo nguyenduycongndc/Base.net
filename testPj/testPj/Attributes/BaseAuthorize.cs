@@ -60,6 +60,8 @@ namespace testPj.Attributes
                     .GetService(typeof(IConfiguration)))["Jwt:Key"];
              
                 var token = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+                //var token = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+                if (string.IsNullOrEmpty(token)) token = context.HttpContext.Session.GetString("SessionToken");
 
                 var jwtToken = JwtTokenCm.GetTokenInfo(token, Secret);
                 if (jwtToken == null)
