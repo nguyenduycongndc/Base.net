@@ -41,7 +41,7 @@ namespace testPj.Controllers
         }
         [HttpPost]
         [Route("Search")]
-        public List<UserModel> Search([FromBody] SearchUserModel searchUserModel)
+        public List<Object> Search([FromBody] SearchUserModel searchUserModel)
         {
             try
             {

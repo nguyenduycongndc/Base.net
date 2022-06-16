@@ -8,8 +8,8 @@ var apiConfig = {
             "controller": "/api/User",
             "action": {
                 "getItem": {
-                    "method": "POST",
-                    "path": ""
+                    "method": "GET",
+                    "path": "/Detail"
                 },
                 "search": {
                     //function support get items by search condition
@@ -23,13 +23,13 @@ var apiConfig = {
                 },
                 "delete": {
                     //function support to delete item
-                    "method": "POST",
-                    "path": ""
+                    "method": "DELETE",
+                    "path": "/Delete"
                 },
                 "update": {
                     //function support to update item
                     "method": "PUT",
-                    "path": ""
+                    "path": "/Update"
                 }
             }
         },

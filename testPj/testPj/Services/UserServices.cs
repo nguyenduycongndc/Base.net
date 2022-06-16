@@ -7,7 +7,6 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -25,7 +24,7 @@ namespace testPj.Services
             _logger = logger;
         }
 
-        public List<UserModel> GetAllUser(SearchUserModel searchUserModel)
+        public List<Object> GetAllUser(SearchUserModel searchUserModel)
         {
             var qr = userRepo.GetAll();
             List<UserModel> lst = new List<UserModel>();
@@ -39,8 +38,8 @@ namespace testPj.Services
             }).OrderBy(x => x.Id).ToList();
             var count = listUser.Count();
             lst =  listUser.Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
-            var data = new List<object>();
-            return lst;
+            var data = new List<Object> { lst, listUser.Count() };
+            return data;
         }
         public CurrentUserModel GetDetailModels(int Id)
         {
@@ -52,8 +51,9 @@ namespace testPj.Services
                 {
                     Id = data.Id,
                     UserName = data.UserName,
-                    FullName = data.UserName,
+                    FullName = data.FullName,
                     IsActive = data.IsActive,
+                    Email = data.Email,
                     RoleId = data.RoleId,
                 };
 
@@ -90,7 +90,7 @@ namespace testPj.Services
                 //}
                 string salt = "";
                 string hashedPassword = "";
-                salt = Crypto.GenerateSalt(); // salt key
+                //salt = Crypto.GenerateSalt(); // salt key
                 var password = input.Password/* + salt*/;
                 hashedPassword = EncodeServerName(password);
                 Users us = new Users()
@@ -132,8 +132,9 @@ namespace testPj.Services
                 if (data == null) return false;
                 data.Id = input.Id;
                 data.UserName = input.UserName.ToLower();
+                data.FullName = input.Name.Trim().ToLower();
                 data.Email = input.Email.ToLower().Trim();
-                data.IsActive = input.IsActive;
+                //data.IsActive = input.IsActive;
                 data.ModifiedAt = DateTime.Now;
                 data.ModifiedBy = _userInfo.Id;
                 return await userRepo.UpdateUs(data);

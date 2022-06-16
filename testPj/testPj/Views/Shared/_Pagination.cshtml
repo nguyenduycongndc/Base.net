@@ -50,7 +50,6 @@
     var maxPages = 1;
 
     function reCalculatPagesCustom(total) {
-        debugger;
         dataList.Total = total;
         var size = parseInt($("#cbPageSize").val());
         var byBlock = parseInt(dataList.Total / size);
@@ -60,7 +59,6 @@
         $("#rqSumValue").text(formatNumberByLocate(dataList.Sum));
     }
     function reCalculatPagesCustomNull() {
-        debugger;
         document.getElementById("btnViewTopPage").disabled = true;
         document.getElementById("btnViewPriPage").disabled = true;
         document.getElementById("btnViewNextPage").disabled = true;
@@ -68,7 +66,6 @@
     }
 
     function reCalculatPages() {
-        debugger;
         var size = parseInt($("#cbPageSize").val());
         var byBlock = parseInt(dataList.Total / size);
         var byAdd = dataList.Total % size > 0 ? 1 : 0;
@@ -78,7 +75,6 @@
     }
 
     function btnNextPages(isAdd) {
-        debugger;
         var currentPage = parseInt($("#txtCurrentPage").val());
         currentPage += isAdd;
         if (currentPage <= 1)
@@ -89,7 +85,6 @@
         btnViewPages(currentPage)
     }
     function btnViewPages(page) {
-        debugger;
         $("#txtCurrentPage").val(page)
         onSearch();
     }
@@ -98,19 +93,16 @@
         onSearch();
     }
     function viewBtnActionPage() {
-        debugger;
         var currentPage = parseInt($("#txtCurrentPage").val());
         document.getElementById("btnViewTopPage").disabled = false;
         document.getElementById("btnViewPriPage").disabled = false;
         document.getElementById("btnViewNextPage").disabled = false;
         document.getElementById("btnViewLastPage").disabled = false;
         if (currentPage == 1) {
-            debugger;
             document.getElementById("btnViewTopPage").disabled = true;
             document.getElementById("btnViewPriPage").disabled = true;
         }
         if (currentPage == maxPages) {
-            debugger;
             document.getElementById("btnViewNextPage").disabled = true;
             document.getElementById("btnViewLastPage").disabled = true;
         }

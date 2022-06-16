@@ -8,5 +8,6 @@ namespace testPj.Models
         public string UserName { get; set; }
         public string Email { get; set; }
         public int IsActive { get; set; }
+        public string Name { get; set; }
     }
 }

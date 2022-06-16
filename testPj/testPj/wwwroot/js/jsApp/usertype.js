@@ -32,18 +32,21 @@
 
 
 function fnDeleteSuccess(rspn) {
-    var data = rspn.data;
     swal({
         title: "Thông báo",
-        text: 'Bạn có chắc chắn muốn xoá bản ghi' + ' ' + '"' + data.name + '"',
+        text: 'Bạn có chắc chắn muốn xoá bản ghi' + ' ' + '"' + rspn.fullName + '"',
         type: 'warning',
         showCancelButton: !0,
-    }, function (isConfirm) {
+    //}, function (isConfirm) {
+    //    if (isConfirm) {
+    //        fnDeleteUser(rspn.id);
+    //    }
+    }).then((isConfirm) => {
         if (isConfirm) {
-            fnDeleteUnitType(data.id);
-            createdLog("Loại đơn vị", "Xóa loại đơn vị");
+            fnDeleteUser(rspn.id);
         }
-    });
+        return false;
+    });;
 }
 function Delete(id) {
     fnGetDetail(null, id);
@@ -68,39 +71,41 @@ function UnitTypeActive(id, input) {
     fnActive(id, status);
 }
 function updateUnitTypeSuccess(data) {
-    if (data.code === '1') {
-        createdLog("Loại đơn vị", "Chỉnh sửa loại đơn vị");
-        //swal("Thông báo!", "Cập nhật dữ liệu thành công!", "success");
-        toastr.success(localizationResources.Successfully, { progressBar: true })
-        localStorage.removeItem("id");
-        localStorage.removeItem("type");
+    if (data != false) {
+        toastr.success("Thêm mới thành công");
+        //createdLog("Loại đơn vị", "Chỉnh sửa loại đơn vị");
+        //toastr.success(localizationResources.Successfully, { progressBar: true })
+        //localStorage.removeItem("id");
+        //localStorage.removeItem("type");
+        //setTimeout(function () {
+        //    window.location.href = "/UnitType"
+        //}, 2000);
         setTimeout(function () {
-            window.location.href = "/UnitType"
+            openView(0, 0)
         }, 2000);
     }
     else {
-        setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 70);
+        toastr.error("Thêm mới thất bại");
+        //setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 70);
     }
 }
 function createUserSuccess(data) {
-    debugger;
     if (data !== false) {
         /*createdLog("Loại đơn vị", "Thêm mới loại đơn vị");*/
-        toastr.success("Thêm mới thành công")
+        toastr.success("Thêm mới thành công");
         //localStorage.removeItem("id");
         //localStorage.removeItem("type");
         setTimeout(function () {
-            openView(0,0)
+            openView(0, 0)
         }, 2000);
-    } 
+    }
     else {
-        debugger;
         toastr.error("Thêm mới thất bại")
         //setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 50);
     }
 }
 function updateFail(request, status, error) {
-    swal("Error!", "Lưu dữ liệu thất bại!", "error");
+    toastr.error("Lưu dữ liệu thất bại!")
 }
 
 function validateObj(obj) {
@@ -111,28 +116,28 @@ function validateObj(obj) {
 
     return true;
 }
-function fnDeleteUnitTypeSuccess(rspn) {
-    if (rspn.code === '1') {
-        toastr.success(localizationResources.Deleted, null, { progressBar: true });
+function fnDeleteUserSuccess(rspn) {
+    if (rspn === true) {
+        toastr.success("Xóa dữ liệu thành công");
         onSearch();
     }
     else {
-        setTimeout(function () { toastr.error(getStatusCode(rspn.code), 'Error', { progressBar: true }) }, 90);
+        toastr.error("Xóa dữ liệu thất bại");
     }
 
 }
-function fnActiveSuccess(rspn) {
-    if (rspn.code === '1' && rspn.data.status == true) {
-        toastr.success(localizationResources.Active, null, { progressBar: true });
-        onSearch();
-    } else if (rspn.code === '1' && rspn.data.status == false) {
-        toastr.success(localizationResources.InActive, null, { progressBar: true });
-        onSearch();
-    }
-    else {
-        setTimeout(function () { toastr.error(getStatusCode(rspn.code), 'Error', { progressBar: true }) }, 100);
-    }
-}
+//function fnActiveSuccess(rspn) {
+//    if (rspn.code === '1' && rspn.data.status == true) {
+//        toastr.success(localizationResources.Active, null, { progressBar: true });
+//        onSearch();
+//    } else if (rspn.code === '1' && rspn.data.status == false) {
+//        toastr.success(localizationResources.InActive, null, { progressBar: true });
+//        onSearch();
+//    }
+//    else {
+//        setTimeout(function () { toastr.error(getStatusCode(rspn.code), 'Error', { progressBar: true }) }, 100);
+//    }
+//}
 
 function clickMenu() {
     openView(0, 0);
@@ -180,7 +185,7 @@ function openView(type, value) {
         index.hide();
         create.hide();
         edit.show();
-        document.getElementById("nameEdit").focus();
+        document.getElementById("userNameEdit").focus();
         detail.hide();
         fnGetDetail(type, value);
     }
@@ -188,12 +193,12 @@ function openView(type, value) {
 
 function fnSearchSuccess(rspn) {
     //showLoading();
-    if (rspn !== undefined && rspn !== null && rspn.length > 0) {
+    if (rspn !== undefined && rspn !== null && rspn[0].length > 0) {
         var tbBody = $('#userTypeTable tbody');
         $("#userTypeTable").dataTable().fnDestroy();
         tbBody.html('');
-        for (var i = 0; i < rspn.length; i++) {
-            var obj = rspn[i];
+        for (var i = 0; i < rspn[0].length; i++) {
+            var obj = rspn[0][i];
             var TT = obj.isActive == 1 ? "Hoạt động" : "Dừng hoạt động"
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
@@ -289,11 +294,10 @@ function fnSearchSuccess(rspn) {
         //        $('[data-toggle="tooltip"]').tooltip();
         //    },
         //});
-        debugger;
-        reCalculatPagesCustom(rspn.length);
+        reCalculatPagesCustom(rspn[1]);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "") {
+    } else if (rspn[0] == "" || rspn[0] == null || rspn[0] == undefined) {
         var tbBody = $('#userTypeTable tbody');
         $("#userTypeTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -362,26 +366,26 @@ function fnSearchSuccess(rspn) {
     }
 }
 function onSearch() {
-        var obj = {
-            'UserName': $('#UserName').val().trim(),
-            'IsActive': $('#IsActive').val(),
-            'page_size': parseInt($("#cbPageSize").val()),
-            'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
-        }
-        callApi_userservice(
-            apiConfig.api.user.controller,
-            apiConfig.api.user.action.search.path,
-            apiConfig.api.user.action.search.method,
-            obj, 'fnSearchSuccess', 'msgError');
+    var obj = {
+        'UserName': $('#UserName').val().trim(),
+        'IsActive': $('#IsActive').val(),
+        'page_size': parseInt($("#cbPageSize").val()),
+        'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
+    }
+    callApi_userservice(
+        apiConfig.api.user.controller,
+        apiConfig.api.user.action.search.path,
+        apiConfig.api.user.action.search.method,
+        obj, 'fnSearchSuccess', 'msgError');
 }
 
 
-function fnDeleteUnitType(id) {
+function fnDeleteUser(id) {
     callApi_userservice(
         apiConfig.api.user.controller,
-        apiConfig.api.user.action.delete.path + "/" + id,
+        apiConfig.api.user.action.delete.path + "?id=" + id,
         apiConfig.api.user.action.delete.method,
-        null, 'fnDeleteUnitTypeSuccess', 'msgError');
+        null, 'fnDeleteUserSuccess', 'msgError');
 }
 function fnActive(id, status) {
     var obj = {
@@ -411,10 +415,11 @@ function submitCreate() {
 
 function submitEdit() {
     var obj = {
-        'id': $('#IdEdit').val(),
-        'name': $('#nameEdit').val().trim(),
-        'status': $('#StatusEdit').val() == 1 ? true : false,
-        'description': $('#DescriptionEdit').val() != '' ? $('#DescriptionEdit').val() : '',
+        'id': parseInt($('#IdEdit').val()),
+        'UserName': $('#userNameEdit').val().trim(),
+        'Name': $('#NameEdit').val().trim(),
+        //'Role': parseInt($('#roleEdit').val()),
+        'Email': $('#emailEdit').val() != "" ? $('#emailEdit').val().trim() : "",
     }
     if (validateRequired('#formEdit')) {
         callApi_userservice(
@@ -439,32 +444,27 @@ function fnGetDetail(type, param) {
     localStorage.removeItem("type");
     callApi_userservice(
         apiConfig.api.user.controller,
-        apiConfig.api.user.action.getItem.path + "/" + param,
+        apiConfig.api.user.action.getItem.path + "?id=" + param,
         apiConfig.api.user.action.getItem.method,
         null, call_back, 'msgError');
 }
 
 function fnGetDetailSuccess(rspn) {
-    localStorage.removeItem("id");
-    localStorage.removeItem("type");
+    debugger
     var frmModify = $("#formDetail");
-    if (rspn !== undefined && rspn !== null && rspn.code === '1') {
-        var data = rspn.data;
+    if (rspn !== undefined && rspn !== null) {
 
-        frmModify.find("#IdDetail").val(data.id);
-        frmModify.find("#nameUnitTypeDetail").val(data.name);
+        frmModify.find("#IdDetail").val(rspn.id);
+        frmModify.find("#userNameDetail").val(rspn.userName);
 
-        frmModify.find("#CreatorNameDetail").val(data.creatorName);
-        frmModify.find("#CreatedAtDetail").val(data.createdAt);
+        frmModify.find("#NameDetail").val(rspn.fullName);
+        frmModify.find("#isActiveDetail").val(rspn.isActive);
 
-        frmModify.find("#EditorNameDetail").val(data.editorName);
-        frmModify.find("#ModifiedAtDetail").val(data.modifiedAt);
+        frmModify.find("#roleDetail").val(rspn.roleId);
+        frmModify.find("#emailDetail").val(rspn.email);
 
-        frmModify.find("#StatusDetail").val(data.status == true ? 1 : 0);
-        frmModify.find("#DescriptionDetail").val(data.description);
+        //frmModify.find("#StatusDetail").val(data.status == true ? 1 : 0);
 
-        localStorage.setItem("id", $('#IdDetail').val());
-        localStorage.setItem("type", "2");
     }
 }
 function fnEditSuccess(rspn) {
@@ -472,96 +472,19 @@ function fnEditSuccess(rspn) {
     localStorage.removeItem("type");
     var frmModify = $("#formEdit");
 
-    if (rspn !== undefined && rspn !== null && rspn.code === '1') {
-        var data = rspn.data;
+    if (rspn !== undefined && rspn !== null) {
 
-        frmModify.find("#IdEdit").val(data.id);
-        frmModify.find("#nameEdit").val(data.name);
-        frmModify.find("#StatusEdit").val(data.status == true ? 1 : 0);
-        frmModify.find("#DescriptionEdit").val(data.description);
+        frmModify.find("#IdEdit").val(rspn.id);
+        frmModify.find("#userNameEdit").val(rspn.userName);
+        frmModify.find("#isActiveEdit").val(rspn.isActive);
+        frmModify.find("#NameEdit").val(rspn.fullName);
+        frmModify.find("#roleEdit").val(rspn.roleId);
+        frmModify.find("#emailEdit").val(rspn.email);
 
-        localStorage.setItem("id", $('#IdEdit').val());
-        //localStorage.setItem("name", $('#nameEdit').val());
-        //localStorage.setItem("status", $('#StatusEdit').val());
-        //localStorage.setItem("description", $('#DescriptionEdit').val());
-        localStorage.setItem("type", "3");
+        //localStorage.setItem("id", $('#IdEdit').val());
+        //localStorage.setItem("type", "3");
     }
 }
-$.getScript('/plugins/jquery-validation/jquery.validate.min.js', function () {
-
-    $('#modalUnitTypeDetail').on('show.bs.modal', function (event) {
-        validator.resetForm();
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var name = button.data('name');
-        var status = button.data('status');
-        var description = button.data('description');
-        var modal = $(this);
-        modal.find('#idUnitType').val(id);
-        modal.find('#nameUnitTypeDetail').val(name);
-        modal.find('#StatusDetail').val(status == true ? 1 : 2);
-        modal.find('#DescriptionDetail').val(description);
-
-    });
-    var validator = $("#modalUnitTypeDetail").validate({
-        rules: {
-            Name: { required: true },
-            Description: { required: true },
-        },
-        submitHandler: function () {
-            var id = $("#frmUnitTypeDetail").find("#idUnitType").val();
-            var name = $("#frmUnitTypeDetail").find("#nameUnitTypeDetail").val();
-            var status = $("#frmUnitTypeDetail").find("#StatusDetail").val() == true ? 1 : 2;
-            var description = $("#frmUnitTypeDetail").find("#DescriptionDetail").val();
-            var obj = {
-                'id': id,
-                'name': name,
-                'status': status,
-                'description': description,
-            }
-            callApi_userservice(
-                apiConfig.api.user.controller,
-                apiConfig.api.user.action.getItem.path,
-                apiConfig.api.user.action.getItem.method);
-        }
-    });
-    $('#modalUnitTypeEdit').on('show.bs.modal', function (event) {
-        validator.resetForm();
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var name = button.data('name');
-        var status = button.data('status');
-        var description = button.data('description');
-        var modal = $(this);
-        modal.find('#idUnitTypeEdit').val(id);
-        modal.find('#nameUnitTypeEdit').val(name);
-        modal.find('#StatusEdit').val(status == true ? 1 : 2);
-        modal.find('#DescriptionEdit').val(description);
-
-    });
-    var validator = $("#modalUnitTypeEdit").validate({
-        rules: {
-            Name: { required: true },
-            Description: { required: true },
-        },
-        submitHandler: function () {
-            var id = $("#frmUnitTypeEdit").find("#idUnitTypeEdit").val();
-            var name = $("#frmUnitTypeEdit").find("#nameUnitTypeEdit").val();
-            var status = $("#frmUnitTypeEdit").find("#StatusEdit").val() == true ? 1 : 2;
-            var description = $("#frmUnitTypeEdit").find("#DescriptionEdit").val();
-            var obj = {
-                'id': id,
-                'name': name,
-                'status': status,
-                'description': description,
-            }
-            callApi_userservice(
-                apiConfig.api.user.controller,
-                apiConfig.api.user.action.update.path,
-                apiConfig.api.user.action.update.method);
-        }
-    });
-});
 
 //function createdLog(_module, _perform_tasks) {
 
