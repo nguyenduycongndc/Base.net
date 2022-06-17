@@ -104,5 +104,13 @@ namespace testPj.Repo
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
+        public async Task<bool> ChangePassWordRepo(Users user)
+        {
+            var updt = await context.Users.FindAsync(user.Id);
+            updt.Id = user.Id;
+            updt.Password = EncodeServerName(user.Password);
+            await context.SaveChangesAsync();
+            return true;
+        }
     }
 }

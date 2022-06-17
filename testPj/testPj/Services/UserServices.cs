@@ -165,5 +165,31 @@ namespace testPj.Services
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
         }
+        public async Task<bool> ChangePassWordService(ChangePassWordModel input, int id)
+        {
+            try
+            {
+                var data = userRepo.GetDetail(id);
+                if (data == null) return false;
+                if (EncodeServerName(input.PassWordOld) != data.Password)
+                {
+                    _logger.LogError("Mật khẩu cũ không chính xác");
+                    return false;
+                }
+                if (input.PassWordNew != input.ConfirmPassWordNew)
+                {
+                    _logger.LogError("Xác nhận mật khẩu không chính xác");
+                    return false;
+                }
+                data.Id = input.Id;
+                data.Password = input.PassWordNew;
+                return await userRepo.ChangePassWordRepo(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+        }
     }
 }

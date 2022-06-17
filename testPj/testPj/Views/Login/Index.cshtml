@@ -21,7 +21,7 @@
         @*Nút đăng nhập*@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-12 mt-2 mb-3">
-                <button class="btn btn-block btnLogin" style="background-color: red" id="btnLogin" @*onclick="Login()"*@>Đăng nhập</button>
+                <button class="btn btn-block btnLogin btn btn-primary" id="btnLogin" @*onclick="Login()"*@>Đăng nhập</button>
             </div>
         </div>
     </div>
@@ -60,6 +60,7 @@
             'UserName': $('#UserName').val(),
             'Password': $('#Password').val(),
         }
+        debugger;
         $.ajax({
             url: 'Login/LoginUser',
             type: 'POST',
@@ -83,7 +84,7 @@
             error: function (ex) {
                 /*AlertLogin(ex.responseText);*/
                 //console.error('Error:', error);
-                //swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
+                swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
                 hideLoading();
             }
         });

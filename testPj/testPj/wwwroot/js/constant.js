@@ -30,6 +30,11 @@ var apiConfig = {
                     //function support to update item
                     "method": "PUT",
                     "path": "/Update"
+                },
+                "changepassword": {
+                    //function support to update item
+                    "method": "PUT",
+                    "path": "/ChangePassWord"
                 }
             }
         },

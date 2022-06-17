@@ -16,17 +16,17 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
                         <span class="micon dw dw-analytics-21"></span><span class="mtext">Chỉ số</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(1)">Revenus</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(2)">DAU</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(3)">NRU</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(4)">ARPD</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(5)">ARPU</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(6)">DEVICE</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(7)">LOCATION</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">Revenus</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">DAU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">NRU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ARPD</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ARPU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">DEVICE</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">LOCATION</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -34,22 +34,29 @@
                         <span class="micon dw dw-gamepad"></span><span class="mtext">Game</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(8)">CCU</a></li>
-                        <li><a href="javascript:void(0);" onclick="openViewIndex(9)">ACCOUNT</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">CCU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ACCOUNT</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="openViewIndex(10)" class="dropdown-toggle no-arrow">
+                    <a href="javascript:void(0);" onclick="openViewIndex()" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-book"></span><span class="mtext">Kế toán</span>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" onclick="openViewIndex(11)" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-shop"></span><span class="mtext">MM</span>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
+                        <span class="micon dw dw-analytics-21"></span><span class="mtext">MM</span>
                     </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(2)">Quản lý ví</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(3)">Mua</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(4)">Bán</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(5)">Thống kê</a></li>
+                    </ul>
+                </li>a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" onclick="openViewIndex(12)" class="dropdown-toggle no-arrow">
+                    <a href="javascript:void(0);" onclick="openViewIndex(1)" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-user-1"></span><span class="mtext">Quản lý tài khoản</span>
                     </a>
                 </li>
@@ -62,7 +69,7 @@
         window.location.href = "/Home";
     }
     function openViewIndex(menu) {
-        if (menu === 12) {
+        if (menu === 1) {
             window.location.href = "/api/User";
             //$.ajax({
             //    method: "GET",

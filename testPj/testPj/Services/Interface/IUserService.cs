@@ -13,5 +13,6 @@ namespace testPj.Services.Interface
         public Task<bool> CreateUse(CreateModel input, CurrentUserModel _userInfo);
         public Task<bool> UpdateUse(UpdateModel input, CurrentUserModel _userInfo);
         public Task<bool> DeleteUse(int Id, CurrentUserModel _userInfo);
+        public Task<bool> ChangePassWordService(ChangePassWordModel input, int id);
     }
 }

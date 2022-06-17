@@ -36,7 +36,10 @@ namespace testPj.Services
                 if (inputModel.UserName != "" && inputModel.UserName != null && inputModel.PassWord != "" && inputModel.PassWord != null)
                 {
                     var user =  userRepo.GetDetailByName(inputModel);
-
+                    if (user == null)
+                    {
+                        return null;
+                    }
                     userdetai = new LoginModel()
                     {
                         UserName = user.UserName,
