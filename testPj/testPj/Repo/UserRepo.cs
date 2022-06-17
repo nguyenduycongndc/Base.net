@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -33,6 +32,8 @@ namespace testPj.Repo
                              Password = x.Password,
                              IsActive = x.IsActive,
                              RoleId = x.RoleId,
+                             FullName = x.FullName,
+                             Email = x.Email,
                          }).FirstOrDefault();
 
             return query;
@@ -102,6 +103,14 @@ namespace testPj.Repo
         public static string EncodeServerName(string serverName)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
+        }
+        public async Task<bool> ChangePassWordRepo(Users user)
+        {
+            var updt = await context.Users.FindAsync(user.Id);
+            updt.Id = user.Id;
+            updt.Password = EncodeServerName(user.Password);
+            await context.SaveChangesAsync();
+            return true;
         }
     }
 }

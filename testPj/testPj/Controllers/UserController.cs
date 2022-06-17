@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using PagedList;
+//using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,7 +41,7 @@ namespace testPj.Controllers
         }
         [HttpPost]
         [Route("Search")]
-        public List<UserModel> Search([FromBody] SearchUserModel searchUserModel)
+        public List<Object> Search([FromBody] SearchUserModel searchUserModel)
         {
             try
             {
@@ -130,6 +130,26 @@ namespace testPj.Controllers
                 return false;
             }
         }
+
+        [HttpPut]
+        [Route("ChangePassWord")]
+        public async Task<bool> ChangePassWord([FromBody] ChangePassWordModel input)
+        {
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return false;
+                }
+                return await _userService.ChangePassWordService(input, _userInfo.Id);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

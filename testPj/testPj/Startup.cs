@@ -50,6 +50,8 @@ namespace testPj
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserServices>();
             services.AddScoped<ILoginService, LoginService>();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +74,7 @@ namespace testPj
 
             app.UseAuthorization();
             app.UseAuthentication();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

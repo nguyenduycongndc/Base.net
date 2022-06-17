@@ -3723,8 +3723,12 @@
     <None Include="wwwroot\plugins\tinymce\themes\modern\theme.js" />
     <None Include="wwwroot\plugins\tinymce\themes\modern\theme.min.js" />
     <None Include="wwwroot\plugins\tinymce\tinymce.min.js" />
-    <None Include="wwwroot\plugins\toastr\js\toastr.init.js" />
-    <None Include="wwwroot\plugins\toastr\js\toastr.min.js" />
+    <None Include="wwwroot\plugins\toastr\js\toastr.init.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\plugins\toastr\js\toastr.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="wwwroot\plugins\topojson\topojson.min.js" />
     <None Include="wwwroot\plugins\typeahead.js\dist\bloodhound.min.js" />
     <None Include="wwwroot\plugins\typeahead.js\dist\typeahead.bundle.min.js" />
@@ -4013,7 +4017,9 @@
     <None Include="wwwroot\src\plugins\datatables\js\dataTables.bootstrap4.min.js" />
     <None Include="wwwroot\src\plugins\datatables\js\dataTables.buttons.min.js" />
     <None Include="wwwroot\src\plugins\datatables\js\dataTables.responsive.min.js" />
-    <None Include="wwwroot\src\plugins\datatables\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\src\plugins\datatables\js\jquery.dataTables.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="wwwroot\src\plugins\datatables\js\jszip.min.js" />
     <None Include="wwwroot\src\plugins\datatables\js\pdfmake.min.js" />
     <None Include="wwwroot\src\plugins\datatables\js\responsive.bootstrap4.min.js" />
@@ -4129,7 +4135,9 @@
     <None Include="wwwroot\vendors\images\cancel.svg" />
     <None Include="wwwroot\vendors\images\demo.svg" />
     <None Include="wwwroot\vendors\images\deskapp-logo-white.svg" />
-    <None Include="wwwroot\vendors\images\deskapp-logo.svg" />
+    <None Include="wwwroot\vendors\images\deskapp-logo.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="wwwroot\vendors\images\github.svg" />
     <None Include="wwwroot\vendors\images\menu-icon.svg" />
     <None Include="wwwroot\vendors\images\page-icon.svg" />
@@ -4157,9 +4165,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="latticework.cs" Version="1.0.16" />
-    <PackageReference Include="Microsoft.AspNet.WebHelpers" Version="3.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
@@ -4177,10 +4184,49 @@
     <PackageReference Include="NLog.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
-    <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.4" />
     <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="8.0.5" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.2" />
+    <PackageReference Include="toastr" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\plugins\toastr\css\toastr.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

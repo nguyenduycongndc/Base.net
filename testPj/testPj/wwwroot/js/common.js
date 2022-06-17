@@ -1,10 +1,13 @@
 ﻿function msgError(respon, status, error) {
     if (respon.status == 401)
-        swal("Unauthorized!", "Bạn phải đăng nhập vào hệ thống trước khi thao tác!", "warning");
+        toastr.warning("Bạn phải đăng nhập vào hệ thống trước khi thao tác")
+        //swal("Unauthorized!", "Bạn phải đăng nhập vào hệ thống trước khi thao tác!", "warning");
     else if (respon.status == 404)
-        swal("Not found!", "Không tìm thấy đối tượng để xử lý!", "warning");
+        toastr.warning("Không tìm thấy đối tượng để xử lý!")
+    //swal("Not found!", "Không tìm thấy đối tượng để xử lý!", "warning");
     else
-        swal(error + "!", "Có lỗi xảy ra trong quá trình xử lý!", "error");
+        toastr.error("Có lỗi xảy ra trong quá trình xử lý!")
+    //swal(error + "!", "Có lỗi xảy ra trong quá trình xử lý!", "error");
 }
 
 function formatNumberByLocate(value) {
@@ -81,7 +84,7 @@ function validateRequired(parent) {
 
             var val = eleWork.val();
 
-            if (val == undefined || val == null || val.isBlank()) {
+            if (val == undefined || val == null/* || val.isBlank()*/) {
                 itemFocus = itemFocus == null ? $(allRequired[i]) : itemFocus;
                 eleWork.addClass('is-invalid');
                 $(eleWork).parent().append('<div class="invalid-feedback">' + msg + '</div>')

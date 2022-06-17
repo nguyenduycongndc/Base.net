@@ -7,7 +7,6 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
@@ -25,7 +24,7 @@ namespace testPj.Services
             _logger = logger;
         }
 
-        public List<UserModel> GetAllUser(SearchUserModel searchUserModel)
+        public List<Object> GetAllUser(SearchUserModel searchUserModel)
         {
             var qr = userRepo.GetAll();
             List<UserModel> lst = new List<UserModel>();
@@ -36,9 +35,11 @@ namespace testPj.Services
                 UserName = x.UserName,
                 FullName = x.FullName,
                 IsActive = x.IsActive,
-            }).OrderBy(x => x.Id).Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
-            lst =  listUser;
-            return lst;
+            }).OrderBy(x => x.Id).ToList();
+            var count = listUser.Count();
+            lst =  listUser.Skip(searchUserModel.StartNumber).Take(searchUserModel.PageSize).ToList();
+            var data = new List<Object> { lst, listUser.Count() };
+            return data;
         }
         public CurrentUserModel GetDetailModels(int Id)
         {
@@ -50,8 +51,9 @@ namespace testPj.Services
                 {
                     Id = data.Id,
                     UserName = data.UserName,
-                    FullName = data.UserName,
+                    FullName = data.FullName,
                     IsActive = data.IsActive,
+                    Email = data.Email,
                     RoleId = data.RoleId,
                 };
 
@@ -73,6 +75,10 @@ namespace testPj.Services
                     _logger.LogError("Tài khoản đã tồn tại");
                     return false;
                 }
+                if (input.UserName == "" || input.UserName == null || input.Password == "" || input.Password == null)
+                {
+                    return false;
+                }
                 //string salt = "";
                 //string hashedPassword = "";
                 //if (input != null)
@@ -84,7 +90,7 @@ namespace testPj.Services
                 //}
                 string salt = "";
                 string hashedPassword = "";
-                salt = Crypto.GenerateSalt(); // salt key
+                //salt = Crypto.GenerateSalt(); // salt key
                 var password = input.Password/* + salt*/;
                 hashedPassword = EncodeServerName(password);
                 Users us = new Users()
@@ -126,8 +132,9 @@ namespace testPj.Services
                 if (data == null) return false;
                 data.Id = input.Id;
                 data.UserName = input.UserName.ToLower();
+                data.FullName = input.Name.Trim().ToLower();
                 data.Email = input.Email.ToLower().Trim();
-                data.IsActive = input.IsActive;
+                //data.IsActive = input.IsActive;
                 data.ModifiedAt = DateTime.Now;
                 data.ModifiedBy = _userInfo.Id;
                 return await userRepo.UpdateUs(data);
@@ -157,6 +164,32 @@ namespace testPj.Services
         public static string EncodeServerName(string serverName)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
+        }
+        public async Task<bool> ChangePassWordService(ChangePassWordModel input, int id)
+        {
+            try
+            {
+                var data = userRepo.GetDetail(id);
+                if (data == null) return false;
+                if (EncodeServerName(input.PassWordOld) != data.Password)
+                {
+                    _logger.LogError("Mật khẩu cũ không chính xác");
+                    return false;
+                }
+                if (input.PassWordNew != input.ConfirmPassWordNew)
+                {
+                    _logger.LogError("Xác nhận mật khẩu không chính xác");
+                    return false;
+                }
+                data.Id = input.Id;
+                data.Password = input.PassWordNew;
+                return await userRepo.ChangePassWordRepo(data);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
         }
     }
 }

@@ -5,11 +5,11 @@ var apiConfig = {
         //"host_user_service": "https://localhost:5001",
         "host_user_service": hostApi.host_user_service,
         "user": {
-            "controller": "/User",
+            "controller": "/api/User",
             "action": {
                 "getItem": {
                     "method": "GET",
-                    "path": ""
+                    "path": "/Detail"
                 },
                 "search": {
                     //function support get items by search condition
@@ -19,17 +19,22 @@ var apiConfig = {
                 "add": {
                     //function support to add item
                     "method": "POST",
-                    "path": ""
+                    "path": "/Create"
                 },
                 "delete": {
                     //function support to delete item
-                    "method": "POST",
-                    "path": ""
+                    "method": "DELETE",
+                    "path": "/Delete"
                 },
                 "update": {
                     //function support to update item
                     "method": "PUT",
-                    "path": ""
+                    "path": "/Update"
+                },
+                "changepassword": {
+                    //function support to update item
+                    "method": "PUT",
+                    "path": "/ChangePassWord"
                 }
             }
         },

@@ -15,13 +15,13 @@
         </div>
         @*Mật khẩu*@
         <div class="input-icons" id="input-container">
-            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" onchange="SubmitLogin();" placeholder="Mật khẩu" id="Password" />
+            <input type="password" class="form-control inputLogin mb-4" style="border-radius:30px" @*onchange="SubmitLogin();"*@ placeholder="Mật khẩu" id="Password" />
             <i class="fa fa-unlock absolute-icon-calendar "></i>
         </div>
         @*Nút đăng nhập*@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-12 mt-2 mb-3">
-                <button class="btn btn-block btnLogin" style="background-color: red" id="btnLogin" @*onclick="Login()"*@>Đăng nhập</button>
+                <button class="btn btn-block btnLogin btn btn-primary" id="btnLogin" @*onclick="Login()"*@>Đăng nhập</button>
             </div>
         </div>
     </div>
@@ -60,6 +60,7 @@
             'UserName': $('#UserName').val(),
             'Password': $('#Password').val(),
         }
+        debugger;
         $.ajax({
             url: 'Login/LoginUser',
             type: 'POST',
@@ -76,12 +77,14 @@
                     sessionStorage['UserName'] = result.userName;
                     hideLoading();
                     window.location.href = "/Home";
+                    //window.location.href = "api/Home";
+                    //HomeData();
                 }
             },
             error: function (ex) {
                 /*AlertLogin(ex.responseText);*/
                 //console.error('Error:', error);
-                //swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
+                swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
                 hideLoading();
             }
         });
