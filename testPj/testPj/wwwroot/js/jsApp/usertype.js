@@ -51,16 +51,6 @@ function fnDeleteSuccess(rspn) {
 function Delete(id) {
     fnGetDetail(null, id);
 }
-function getUrlVars() {
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++) {
-        hash = hashes[i].split('=');
-        vars.push(hash[0]);
-        vars[hash[0]] = hash[1];
-    }
-    return vars;
-}
 
 function UnitTypeActive(id, input) {
     var status = 1;
@@ -70,16 +60,9 @@ function UnitTypeActive(id, input) {
     }
     fnActive(id, status);
 }
-function updateUnitTypeSuccess(data) {
+function updateUserSuccess(data) {
     if (data != false) {
         toastr.success("Thêm mới thành công");
-        //createdLog("Loại đơn vị", "Chỉnh sửa loại đơn vị");
-        //toastr.success(localizationResources.Successfully, { progressBar: true })
-        //localStorage.removeItem("id");
-        //localStorage.removeItem("type");
-        //setTimeout(function () {
-        //    window.location.href = "/UnitType"
-        //}, 2000);
         setTimeout(function () {
             openView(0, 0)
         }, 2000);
@@ -104,18 +87,7 @@ function createUserSuccess(data) {
         //setTimeout(function () { toastr.error(getStatusCode(data.code), 'Error', { progressBar: true }) }, 50);
     }
 }
-function updateFail(request, status, error) {
-    toastr.error("Lưu dữ liệu thất bại!")
-}
 
-function validateObj(obj) {
-    if (obj.name.isBlank()) {
-        swal("Lỗi dữ liệu!", "Tên hoạt động không được để trống!", "error");
-        return false;
-    }
-
-    return true;
-}
 function fnDeleteUserSuccess(rspn) {
     if (rspn === true) {
         toastr.success("Xóa dữ liệu thành công");
@@ -125,24 +97,6 @@ function fnDeleteUserSuccess(rspn) {
         toastr.error("Xóa dữ liệu thất bại");
     }
 
-}
-//function fnActiveSuccess(rspn) {
-//    if (rspn.code === '1' && rspn.data.status == true) {
-//        toastr.success(localizationResources.Active, null, { progressBar: true });
-//        onSearch();
-//    } else if (rspn.code === '1' && rspn.data.status == false) {
-//        toastr.success(localizationResources.InActive, null, { progressBar: true });
-//        onSearch();
-//    }
-//    else {
-//        setTimeout(function () { toastr.error(getStatusCode(rspn.code), 'Error', { progressBar: true }) }, 100);
-//    }
-//}
-
-function clickMenu() {
-    openView(0, 0);
-    localStorage.removeItem("id");
-    localStorage.removeItem("type");
 }
 
 function openView(type, value) {
@@ -267,33 +221,6 @@ function fnSearchSuccess(rspn) {
                 cell.innerHTML = i + page_size + 1;
             });
         }).draw();
-
-        //$("#userTypeTable").dataTable({
-        //    "bPaginate": false,
-        //    "bLengthChange": false,
-        //    "bFilter": false,
-        //    "bInfo": false,
-        //    "columnDefs": [
-        //        //{
-        //        //    "targets": 0,
-        //        //    "className": "text-center",
-        //        //    "sortable": false,
-        //        //    "orderable": false,
-        //        //    "data": rspn.total,
-        //        //    render: function (data, type, row, meta) {
-        //        //        return meta.row + meta.settings._iDisplayStart + 1;
-        //        //    }
-        //        //},
-        //        {
-        //            "targets": [0, 3, 4],
-        //            "searchable": false,
-        //            "orderable": false
-        //        }],
-        //    "order": [],
-        //    "drawCallback": function (settings) {
-        //        $('[data-toggle="tooltip"]').tooltip();
-        //    },
-        //});
         reCalculatPagesCustom(rspn[1]);
         viewBtnActionPage();
         hideLoading();
@@ -335,32 +262,6 @@ function fnSearchSuccess(rspn) {
                 cell.innerHTML = i + page_size + 1;
             });
         }).draw();
-        //$("#userTypeTable").dataTable({
-        //    "bPaginate": false,
-        //    "bLengthChange": false,
-        //    "bFilter": false,
-        //    "bInfo": false,
-        //    "columnDefs": [
-        //        //{
-        //        //    "targets": 0,
-        //        //    "className": "text-center",
-        //        //    "sortable": false,
-        //        //    "orderable": false,
-        //        //    "data": null,
-        //        //    render: function (data, type, row, meta) {
-        //        //        return meta.row + meta.settings._iDisplayStart + 1;
-        //        //    }
-        //        //},
-        //        {
-        //            "targets": [0, 3, 4],
-        //            "searchable": false,
-        //            "orderable": false
-        //        }],
-        //    "order": [[0, 'asc']],
-        //    "drawCallback": function (settings) {
-        //        $('[data-toggle="tooltip"]').tooltip();
-        //    },
-        //});
         reCalculatPagesCustomNull();
         hideLoading();
     }
@@ -386,17 +287,6 @@ function fnDeleteUser(id) {
         apiConfig.api.user.action.delete.path + "?id=" + id,
         apiConfig.api.user.action.delete.method,
         null, 'fnDeleteUserSuccess', 'msgError');
-}
-function fnActive(id, status) {
-    var obj = {
-        'id': id,
-        'status': status,
-    }
-    callApi_userservice(
-        apiConfig.api.user.controller,
-        apiConfig.api.user.action.active.path,
-        apiConfig.api.user.action.active.method,
-        obj, 'fnActiveSuccess', 'msgError');
 }
 function submitCreate() {
     var obj = {
@@ -426,7 +316,7 @@ function submitEdit() {
             apiConfig.api.user.controller,
             apiConfig.api.user.action.update.path,
             apiConfig.api.user.action.update.method,
-            obj, 'updateUnitTypeSuccess', 'msgError');
+            obj, 'updateUserSuccess', 'msgError');
     }
 }
 function fnGetDetail(type, param) {
@@ -486,34 +376,22 @@ function fnEditSuccess(rspn) {
     }
 }
 
-//function createdLog(_module, _perform_tasks) {
 
-//    var obj = {
-//        'module': _module,
-//        'perform_tasks': _perform_tasks,
+//window.onload = function () {
+//    //let checkLocalStatus = localStorage.getItem('status');
+//    //if (checkLocalStatus == null) {
+//    //    localStorage.setItem('status', "-1");
+//    //}
+//    let checkLocalType = localStorage.getItem('type');
+//    let type = parseInt(checkLocalType);
+//    let checkLocalId = localStorage.getItem('id');
+//    let id = parseInt(checkLocalId);
+//    if (checkLocalType === null && checkLocalId === null) {
+//        type = 0;
+//        id = 0;
 //    }
-//    callApi_userservice(
-//        apiConfig.api.systemlog.controller,
-//        apiConfig.api.systemlog.action.add.path,
-//        apiConfig.api.systemlog.action.add.method,
-//        obj, '', '');
+//    setTimeout(function () {
+//        openView(type, id);
+//    }, 100);
+
 //}
-
-window.onload = function () {
-    //let checkLocalStatus = localStorage.getItem('status');
-    //if (checkLocalStatus == null) {
-    //    localStorage.setItem('status', "-1");
-    //}
-    let checkLocalType = localStorage.getItem('type');
-    let type = parseInt(checkLocalType);
-    let checkLocalId = localStorage.getItem('id');
-    let id = parseInt(checkLocalId);
-    if (checkLocalType === null && checkLocalId === null) {
-        type = 0;
-        id = 0;
-    }
-    setTimeout(function () {
-        openView(type, id);
-    }, 100);
-
-}

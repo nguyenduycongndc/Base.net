@@ -62,14 +62,14 @@
         </div>
     </div>
     <div class="header" style="z-index:10">
-        <div class="header-content clearfix">
             @{await Html.RenderPartialAsync("_TopNavigation.cshtml");}
-        </div>
+        @*<div class="header-content clearfix">
+        </div>*@
     </div>
     <!-- Menu Left-->
-    <div class="nk-sidebar" style="flex-direction: column; position: fixed; background: #544f90; max-height: 100%; display: flex;">
         @{await Html.RenderPartialAsync("_MenuLeftRender.cshtml");}
-    </div>
+    @*<div class="nk-sidebar" style="flex-direction: column; position: fixed; background: #544f90; max-height: 100%; display: flex;">
+    </div>*@
     <div class="header-white sidebar-dark" id="body-root">
         @RenderBody()
     </div>

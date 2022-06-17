@@ -39,12 +39,12 @@ namespace testPj.Controllers
         //[Route("LoginUser")]
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
-            var testList = loginServices.Login(inputModel);
-            if (testList != null)
+            var _login = loginServices.Login(inputModel);
+            if (_login != null)
             {
-                HttpContext.Session.SetString("SessionToken", testList.Token);
+                HttpContext.Session.SetString("SessionToken", _login.Token);
             }
-            return testList;
+            return _login;
         }
         [AllowAnonymous]
         [HttpGet]
