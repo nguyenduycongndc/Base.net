@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+<div class="left-side-bar">
+    <div class="brand-logo">
+        <a href="javascript:void(0);" onclick="home()">
+            <img src="~/vendors/images/deskapp-logo.svg" alt="" class="dark-logo">
+            <img src="~/vendors/images/deskapp-logo-white.svg" alt="" class="light-logo">
+        </a>
+        <div class="close-sidebar" data-toggle="left-sidebar-close">
+            <i class="ion-close-round"></i>
+        </div>
+    </div>
+    <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+            <ul id="accordion-menu">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
+                        <span class="micon dw dw-analytics-21"></span><span class="mtext">Chỉ số</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">Revenus</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">DAU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">NRU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ARPD</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ARPU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">DEVICE</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">LOCATION</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
+                        <span class="micon dw dw-gamepad"></span><span class="mtext">Game</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">CCU</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex()">ACCOUNT</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openViewIndex()" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-book"></span><span class="mtext">Kế toán</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
+                        <span class="micon dw dw-analytics-21"></span><span class="mtext">MM</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(2)">Quản lý ví</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(3)">Mua</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(4)">Bán</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(5)">Thống kê</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" onclick="openViewIndex(1)" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-user-1"></span><span class="mtext">Quản lý tài khoản</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function home() {
+        window.location.href = "/Home";
+    }
+    function openViewIndex(menu) {
+        if (menu === 1) {
+            window.location.href = "/api/User";
+            //$.ajax({
+            //    method: "GET",
+            //    url: "api/User",
+            //    success: function (result) {
+            //        $("#body-root").html(result);
+            //    }
+            //});
+        } else if (menu === 2) {
+            //window.location.href = "/WalletManagement";
+            window.location.href = "/api/WalletManagement";
+        }
+    }
+</script>

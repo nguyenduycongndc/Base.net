@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,38 +11,53 @@ using testPj.Data;
 using testPj.Models;
 using testPj.Repo.Interface;
 using testPj.Services.Interface;
- 
+using Microsoft.Extensions.Configuration;
+
+
 namespace testPj.Services
 {
     public class LoginService : ILoginService
     {
-        private readonly ILoginRepo loginRepo;
-        public LoginService(ILoginRepo loginRepo)
+        private readonly ILogger<LoginService> _logger;
+        private readonly IUserRepo userRepo;
+        private readonly IConfiguration _config;
+
+        public LoginService(ILogger<LoginService> logger, IUserRepo loginRepo, IConfiguration config)
         {
-            this.loginRepo = loginRepo;
+            _logger = logger;
+            this.userRepo = loginRepo;
+            _config = config;
         }
         public LoginModel Login(InputLoginModel inputModel)
         {
-            
             try
             {
-                var user = loginRepo.GetDetailByName(inputModel);
-
-                var detailUs = new LoginModel()
+                LoginModel userdetai = null;
+                if (inputModel.UserName != "" && inputModel.UserName != null && inputModel.PassWord != "" && inputModel.PassWord != null)
                 {
-                    UserName = user.UserName,
-                    Token = GenerateJwt(user),
-                };
+                    var user =  userRepo.GetDetailByName(inputModel);
+                    if (user == null)
+                    {
+                        return null;
+                    }
+                    userdetai = new LoginModel()
+                    {
+                        UserName = user.UserName,
+                        Token = GenerateJwt(user),
+                    };
+                    var Au = AuthenticateUser(inputModel);
 
-                return detailUs;
+                }
+                return userdetai;
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.Message);
                 return null;
             }
         }
 
-        public string GenerateJwt(Role user)
+        public string GenerateJwt(Users user)
         {
 
             var claims = new List<Claim>
@@ -51,7 +67,8 @@ namespace testPj.Services
             };
             DateTime jwtDate = DateTime.UtcNow;
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Design By Congnd"));
+            //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
             var expires = DateTime.UtcNow.AddHours(24);
 
@@ -65,6 +82,27 @@ namespace testPj.Services
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        private CurrentUserModel AuthenticateUser(InputLoginModel inputModel)
+        {
+            CurrentUserModel user = null;
+            try
+            {
+                var data = userRepo.GetDetailByName(inputModel);
+                user = new CurrentUserModel()
+                {
+                    Id = data.Id,
+                    FullName = data.FullName,
+                    UserName = data.UserName,
+                    RoleId = data.RoleId,
+                };
+                return user;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"USER-LOGIN - {inputModel.UserName} : {ex.Message}!");
+                return user;
+            }
         }
     }
 }

@@ -9,10 +9,13 @@ namespace testPj.Repo.Interface
 {
     public interface IUserRepo
     {
-        List<User> GetAll();
-        public User GetDetail(int id);
-        Task<bool> CreateUs(User user);
-        Task<bool> UpdateUs(User user);
-        Task<bool> DeleteUs(User user);
+        List<Users> GetAll();
+        public Users GetDetail(int id);
+        Task<bool> CreateUs(Users user, UsersRoles usersRoles);
+        Task<bool> UpdateUs(Users user);
+        Task<bool> DeleteUs(Users user);
+        Users GetDetailByName(InputLoginModel inputModel);
+        List<Users> CheckUser(string userName);
+        Task<bool> ChangePassWordRepo(Users user);
     }
 }

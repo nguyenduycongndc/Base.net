@@ -1,46 +1,58 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using testPj.Attributes;
 using testPj.Models;
 using testPj.Services.Interface;
 
 namespace testPj.Controllers
 {
+    ////[Route("api/[controller]")]
+    //[Route("[controller]")]
+    //[ApiController]
     public class LoginController : Controller
     {
+        private readonly ILogger<LoginController> _logger;
         private readonly ILoginService loginServices;
 
-        public LoginController(ILoginService loginServices)
+        public LoginController(ILogger<LoginController> logger, ILoginService loginServices)
         {
+            _logger = logger;
             this.loginServices = loginServices;
         }
 
         public IActionResult Index()
         {
-            //loginServices.Login("a", "");
-
             return View();
         }
+
+        [AllowAnonymous]
         [HttpPost]
-        public LoginModel Login(InputLoginModel inputModel)
+        //[Route("LoginUser")]
+        public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
-            var test = new InputLoginModel
+            var _login = loginServices.Login(inputModel);
+            if (_login != null)
             {
-                UserName = "a",
-                PassWord = "123"
-            };
-
-
-            var testList = loginServices.Login(test);
-            //var testList = loginServices.Login(inputModel);
-            return testList;
+                HttpContext.Session.SetString("SessionToken", _login.Token);
+            }
+            return _login;
         }
-        public static string EncodeServerName(string serverName)
+        [AllowAnonymous]
+        [HttpGet]
+        //[Route("Logout")]
+        public IActionResult Logout()
         {
-            return Convert.ToBase64String(Encoding.UTF8.GetBytes(serverName));
+            HttpContext.Session.Clear();
+            return Redirect("/Login");
         }
     }
 }

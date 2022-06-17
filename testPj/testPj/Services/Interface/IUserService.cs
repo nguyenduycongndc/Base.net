@@ -8,10 +8,11 @@ namespace testPj.Services.Interface
 {
     public interface IUserService
     {
-        List<UserModel> GetAllUser();
-        public DetailModel GetDetailModels(int id);
-        public Task<bool> CreateUse(CreateModel input);
-        public Task<bool> UpdateUse(UpdateModel input);
-        public Task<bool> DeleteUse(int Id);
+        List<Object> GetAllUser(SearchUserModel searchUserModel);
+        public CurrentUserModel GetDetailModels(int id);
+        public Task<bool> CreateUse(CreateModel input, CurrentUserModel _userInfo);
+        public Task<bool> UpdateUse(UpdateModel input, CurrentUserModel _userInfo);
+        public Task<bool> DeleteUse(int Id, CurrentUserModel _userInfo);
+        public Task<bool> ChangePassWordService(ChangePassWordModel input, int id);
     }
 }
