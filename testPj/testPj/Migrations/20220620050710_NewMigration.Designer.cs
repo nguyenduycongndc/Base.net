@@ -9,8 +9,8 @@ using testPj.Data;
 namespace testPj.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20220614143655_new")]
-    partial class @new
+    [Migration("20220620050710_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -165,6 +165,71 @@ namespace testPj.Migrations
                     b.ToTable("USERS_ROLES");
                 });
 
+            modelBuilder.Entity("testPj.Data.WalletManagement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<string>("AddressWallet")
+                        .HasColumnType("longtext")
+                        .HasColumnName("address_wallet");
+
+                    b.Property<string>("BNB")
+                        .HasColumnType("longtext")
+                        .HasColumnName("BNB");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_at");
+
+                    b.Property<int?>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("deleted_at");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int")
+                        .HasColumnName("is_active");
+
+                    b.Property<int>("IsCheck")
+                        .HasColumnType("int")
+                        .HasColumnName("is_check");
+
+                    b.Property<int?>("IsDeleted")
+                        .HasColumnType("int")
+                        .HasColumnName("is_deleted");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("modified_at");
+
+                    b.Property<int?>("ModifiedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("modified_by");
+
+                    b.Property<string>("TAU")
+                        .HasColumnType("longtext")
+                        .HasColumnName("TAU");
+
+                    b.Property<int?>("users_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("users_id");
+
+                    b.ToTable("WALLET_MANAGEMENT");
+                });
+
             modelBuilder.Entity("testPj.Data.UsersRoles", b =>
                 {
                     b.HasOne("testPj.Data.Roles", "Roles")
@@ -180,6 +245,15 @@ namespace testPj.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("testPj.Data.WalletManagement", b =>
+                {
+                    b.HasOne("testPj.Data.Users", "Users")
+                        .WithMany("WalletManagements")
+                        .HasForeignKey("users_id");
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("testPj.Data.Roles", b =>
                 {
                     b.Navigation("UsersRoles");
@@ -188,6 +262,8 @@ namespace testPj.Migrations
             modelBuilder.Entity("testPj.Data.Users", b =>
                 {
                     b.Navigation("UsersRoles");
+
+                    b.Navigation("WalletManagements");
                 });
 #pragma warning restore 612, 618
         }

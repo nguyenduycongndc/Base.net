@@ -50,6 +50,8 @@ namespace testPj
             services.AddScoped<IUserRepo, UserRepo>();
             services.AddScoped<IUserService, UserServices>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IWalletManagementService, WalletManagementService>();
+            services.AddScoped<IWalletManagementRepo, WalletManagementRepo>();
 
             services.AddSession();
         }

@@ -1,41 +1,38 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text.Json.Serialization;
-using testPj.Models;
+using System.Threading.Tasks;
 
 namespace testPj.Data
 {
-    [Table("USERS")]
-    public class Users
+    [Table("WALLET_MANAGEMENT")]
+
+    public class WalletManagement
     {
-        public Users()
-        {
-            this.UsersRoles = new HashSet<UsersRoles>();
-            this.WalletManagements = new HashSet<WalletManagement>();
-        }
         [Key]
         [Column("id")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [Column("full_name")]
-        [JsonPropertyName("full_name")]
-        public string FullName { get; set; }
+        [Column("address_wallet")]
+        [JsonPropertyName("address_wallet")]
+        public string AddressWallet { get; set; }
 
-        [Column("user_name")]
-        [JsonPropertyName("user_name")]
-        public string UserName { get; set; }
+        [Column("TAU")]
+        [JsonPropertyName("TAU")]
+        public string TAU { get; set; }
 
-        [Column("date_of_joining")]
-        [JsonPropertyName("date_of_joining")]
-        public DateTime? DateOfJoining { get; set; }
+        [Column("BNB")]
+        [JsonPropertyName("BNB")]
+        public string BNB { get; set; }
 
-        [Column("role_id")]
-        [JsonPropertyName("role_id")]
-        public int? RoleId { get; set; }
+        [Column("is_check")]
+        [JsonPropertyName("is_check")]
+        public int IsCheck { get; set; }
 
         [Column("is_active")]
         [JsonPropertyName("is_active")]
@@ -44,18 +41,6 @@ namespace testPj.Data
         [Column("is_deleted")]
         [JsonPropertyName("is_deleted")]
         public int? IsDeleted { get; set; }
-
-        [Column("email")]
-        [JsonPropertyName("email")]
-        public string Email { get; set; }
-
-        [Column("password")]
-        [JsonPropertyName("password")]
-        public string Password { get; set; }
-
-        [Column("salt")]
-        [JsonPropertyName("salt")]
-        public string SaltKey { get; set; }
 
         [Column("created_by")]
         [JsonPropertyName("created_by")]
@@ -80,7 +65,11 @@ namespace testPj.Data
         [Column("deleted_by")]
         [JsonPropertyName("deleted_by")]
         public int? DeletedBy { get; set; }
-        public virtual ICollection<UsersRoles> UsersRoles { get; set; }
-        public virtual ICollection<WalletManagement> WalletManagements { get; set; }
+
+        [JsonPropertyName("users_id")]
+        public int? users_id { get; set; }
+
+        [ForeignKey("users_id")]
+        public virtual Users Users { get; set; }
     }
 }

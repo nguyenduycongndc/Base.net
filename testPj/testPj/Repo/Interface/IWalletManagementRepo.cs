@@ -9,6 +9,10 @@ namespace testPj.Repo.Interface
 {
     public interface IWalletManagementRepo
     {
-        //List<Wallet> GetAll();
+        List<WalletManagement> GetAll();
+        Task<bool> CreateWallet(WalletManagement walletManagement);
+        Task<bool> CheckedWallet(WalletManagement walletManagement);
+        public WalletManagement GetDetailWallet(int id);
+        Task<bool> DeleteWalletRP(WalletManagement walletManagement);
     }
 }

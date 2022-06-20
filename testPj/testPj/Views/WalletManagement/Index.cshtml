@@ -1,14 +1,15 @@
 ﻿@{
     Layout = "_Layout";
-
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
 }
-@*<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/jsApp/walletManagement.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
-<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>*@
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
 
 <div class="main-container">
+    <input type="hidden" id="IdUser" name="Id" value=@currentuser.Id />
     <div class="pd-ltr-20">
         <div class="card" id="view">
             <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
@@ -17,17 +18,16 @@
             <div class="card-body card-custom">
                 <form id="formView" action="javascript:void(0)">
                     <div style="padding: 15px 0px;">
-                        @* mở lại comment khi có quyền *@
                         <a href="javascript:void(0);" onclick="openModal()" class="btn btn-info">Thêm mới</a>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" id="CountWallet">
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                            <label for="walletlable1" class="col-sm-5 col-form-label">Tài khoản:</label>
-                            <label for="walletcount1" class="col-sm-7 col-form-label"></label>
+                            <label for="walletlable1" class="col-sm-12 col-form-label">Tổng số ví:</label>
+                            @*<label for="walletcount1" class="col-sm-7 col-form-label"></label>*@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-3">
-                            <label for="walletlable2" class="col-sm-5 col-form-label">Ví đã chọn:</label>
-                            <label for="walletcount2" class="col-sm-7 col-form-label"></label>
+                            <label for="walletlable2" class="col-sm-12 col-form-label">Ví đã chọn:</label>
+                            @*<label for="walletcount2" class="col-sm-7 col-form-label"></label>*@
                         </div>
                     </div>
                 </form>
@@ -82,8 +82,11 @@
     </div>
 </div>
 <script>
+    onSearch();
     function openModal() {
+        debugger
         $('#modalCreateWallet').modal('show');
+         $('#PrivateKey').val("");
     }
     $(".modal").on("shown.bs.modal", function () {
         if ($(".modal-backdrop").length > 1) {

@@ -34,11 +34,11 @@
     //        type: "POST",
     //        url: '/Login/LoginRevamp',
     //        success: function (response) {
-    //            debugger;
+    //            
     //            alert(response);
     //        },
     //        error: function (result) {
-    //            debugger;
+    //            
     //        }
     //    });
     //};
@@ -60,7 +60,7 @@
             'UserName': $('#UserName').val(),
             'Password': $('#Password').val(),
         }
-        debugger;
+        
         $.ajax({
             url: 'Login/LoginUser',
             type: 'POST',
@@ -68,7 +68,7 @@
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(formdata),
             success: function (result) {
-                debugger;
+                
                 if (!result) {
                     swal("Thông báo!", "Tài khoản/Mật khẩu chưa đúng!", "warning");
                     hideLoading();

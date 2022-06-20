@@ -67,8 +67,8 @@ namespace testPj.Controllers
                 {
                     return null;
                 }
-                var testDetail = _userService.GetDetailModels(id);
-                return testDetail;
+                var userDetail = _userService.GetDetailModels(id);
+                return userDetail;
             }
             catch (Exception ex)
             {

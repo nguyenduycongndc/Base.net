@@ -16,6 +16,7 @@ namespace testPj.Data
         public DbSet<Users> Users { get; set; }
         public DbSet<UsersRoles> UsersRoles { get; set; }
         public DbSet<Roles> Roles { get; set; }
+        public DbSet<WalletManagement> WalletManagements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -12,11 +12,12 @@ namespace testPj.Models
         public string Address { get; set; }
         public string TAU { get; set; }
         public string BNB { get; set; }
-        public int Selected { get; set; }
+        public int IsCheck { get; set; }
     }
 
     public class SearchWalletModel
     {
+        public int Id { get; set; }
         [JsonPropertyName("start_number")]
         public int StartNumber { get; set; }
         [JsonPropertyName("page_size")]

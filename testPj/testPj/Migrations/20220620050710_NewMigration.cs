@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace testPj.Migrations
 {
-    public partial class @new : Migration
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,6 +96,41 @@ namespace testPj.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.CreateTable(
+                name: "WALLET_MANAGEMENT",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    address_wallet = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TAU = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    BNB = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    is_check = table.Column<int>(type: "int", nullable: false),
+                    is_active = table.Column<int>(type: "int", nullable: false),
+                    is_deleted = table.Column<int>(type: "int", nullable: true),
+                    created_by = table.Column<int>(type: "int", nullable: true),
+                    created_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    modified_by = table.Column<int>(type: "int", nullable: true),
+                    modified_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    deleted_at = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    deleted_by = table.Column<int>(type: "int", nullable: true),
+                    users_id = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WALLET_MANAGEMENT", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_WALLET_MANAGEMENT_USERS_users_id",
+                        column: x => x.users_id,
+                        principalTable: "USERS",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
             migrationBuilder.CreateIndex(
                 name: "IX_USERS_ROLES_roles_id",
                 table: "USERS_ROLES",
@@ -105,12 +140,20 @@ namespace testPj.Migrations
                 name: "IX_USERS_ROLES_users_id",
                 table: "USERS_ROLES",
                 column: "users_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WALLET_MANAGEMENT_users_id",
+                table: "WALLET_MANAGEMENT",
+                column: "users_id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "USERS_ROLES");
+
+            migrationBuilder.DropTable(
+                name: "WALLET_MANAGEMENT");
 
             migrationBuilder.DropTable(
                 name: "ROLES");
