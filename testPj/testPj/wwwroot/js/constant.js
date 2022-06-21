@@ -71,6 +71,40 @@ var apiConfig = {
                     "path": "/Detail"
                 }
             }
+        },
+        "buyitem": {
+            "controller": "/api/BuyItems",
+            "action": {
+                "search": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/Search"
+                },
+                "add": {
+                    //function support to add item
+                    "method": "POST",
+                    "path": "/Create"
+                },
+                "update": {
+                    //function support to add item
+                    "method": "PUT",
+                    "path": "/Update"
+                },
+                "delete": {
+                    //function support to delete item
+                    "method": "DELETE",
+                    "path": "/Delete"
+                },
+                "checked": {
+                    //function support to active/deactive item
+                    "method": "POST",
+                    "path": "/Checked"
+                },
+                "getItem": {
+                    "method": "GET",
+                    "path": "/Detail"
+                }
+            }
         }
     }
 }
