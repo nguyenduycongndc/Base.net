@@ -38,62 +38,71 @@ var apiConfig = {
                 }
             }
         },
-        "roles": {
-            "controller": "/Roles",
+        "wallet": {
+            "controller": "/api/WalletManagement",
             "action": {
-                "getItem": {
-                    "method": "GET",
-                    "path": ""
-                },
                 "search": {
                     //function support get items by search condition
-                    "method": "GET",
+                    "method": "POST",
                     "path": "/Search"
                 },
                 "add": {
                     //function support to add item
                     "method": "POST",
-                    "path": ""
+                    "path": "/Create"
+                },
+                "update": {
+                    //function support to add item
+                    "method": "PUT",
+                    "path": "/Update"
                 },
                 "delete": {
                     //function support to delete item
-                    "method": "POST",
-                    "path": ""
+                    "method": "DELETE",
+                    "path": "/Delete"
                 },
-                "update": {
-                    //function support to update item
-                    "method": "PUT",
-                    "path": ""
-                },
-                "active": {
+                "checked": {
                     //function support to active/deactive item
                     "method": "POST",
-                    "path": "/Active"
+                    "path": "/Checked"
                 },
-                "select": {
-                    //function support to changeWorkplace item
-                    "method": "POST",
-                    "path": "/Select"
-                },
-                "deleteall": {
-                    //function support to changeWorkplace item
-                    "method": "POST",
-                    "path": "/DeleteAll"
-                },
-                "getpermission": {
-                    //function support to changeWorkplace item
+                "getItem": {
                     "method": "GET",
-                    "path": "/TreePermission"
-                },
-                "updatepermission": {
-                    //function support to changeWorkplace item
+                    "path": "/Detail"
+                }
+            }
+        },
+        "buyitem": {
+            "controller": "/api/BuyItems",
+            "action": {
+                "search": {
+                    //function support get items by search condition
                     "method": "POST",
-                    "path": "/UpdatePermission"
+                    "path": "/Search"
                 },
-                "rendermenu": {
-                    //function support to changeWorkplace item
+                "add": {
+                    //function support to add item
+                    "method": "POST",
+                    "path": "/Create"
+                },
+                "update": {
+                    //function support to add item
+                    "method": "PUT",
+                    "path": "/Update"
+                },
+                "delete": {
+                    //function support to delete item
+                    "method": "DELETE",
+                    "path": "/Delete"
+                },
+                "checked": {
+                    //function support to active/deactive item
+                    "method": "POST",
+                    "path": "/Checked"
+                },
+                "getItem": {
                     "method": "GET",
-                    "path": "/Menu"
+                    "path": "/Detail"
                 }
             }
         }

@@ -2,6 +2,13 @@
 @{
     var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
 }
+
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/jsApp/walletManagement.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
+
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="javascript:void(0);" onclick="home()">
@@ -53,7 +60,6 @@
                         <li><a href="javascript:void(0);" onclick="openViewIndex(4)">Bán</a></li>
                         <li><a href="javascript:void(0);" onclick="openViewIndex(5)">Thống kê</a></li>
                     </ul>
-                </li>a>
                 </li>
                 <li>
                     <a href="javascript:void(0);" onclick="openViewIndex(1)" class="dropdown-toggle no-arrow">
@@ -78,6 +84,10 @@
             //        $("#body-root").html(result);
             //    }
             //});
+        } else if (menu === 2) {
+            window.location.href = "/api/WalletManagement";
+        } else if (menu === 3) {
+            window.location.href = "/api/BuyItems";
         }
     }
 </script>

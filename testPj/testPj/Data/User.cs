@@ -13,6 +13,7 @@ namespace testPj.Data
         public Users()
         {
             this.UsersRoles = new HashSet<UsersRoles>();
+            this.WalletManagements = new HashSet<WalletManagement>();
         }
         [Key]
         [Column("id")]
@@ -80,5 +81,6 @@ namespace testPj.Data
         [JsonPropertyName("deleted_by")]
         public int? DeletedBy { get; set; }
         public virtual ICollection<UsersRoles> UsersRoles { get; set; }
+        public virtual ICollection<WalletManagement> WalletManagements { get; set; }
     }
 }

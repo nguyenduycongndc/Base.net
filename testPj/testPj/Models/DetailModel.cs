@@ -8,4 +8,10 @@ namespace testPj.Models
         public string UserName { get; set; }
         public int IsActive { get; set; }
     }
+    public class DetailWalletModel
+    {
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public int IsActive { get; set; }
+    }
 }
