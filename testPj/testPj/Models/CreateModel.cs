@@ -10,6 +10,7 @@ namespace testPj.Models
     }
     public class CreateWalletModel
     {
+        public string PrivateKey { get; set; }
         public string AddressWallet { get; set; }
         public string TAU { get; set; }
         public string BNB { get; set; }

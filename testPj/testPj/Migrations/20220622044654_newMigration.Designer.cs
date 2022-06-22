@@ -9,8 +9,8 @@ using testPj.Data;
 namespace testPj.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20220620050710_NewMigration")]
-    partial class NewMigration
+    [Migration("20220622044654_newMigration")]
+    partial class newMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -215,6 +215,10 @@ namespace testPj.Migrations
                     b.Property<int?>("ModifiedBy")
                         .HasColumnType("int")
                         .HasColumnName("modified_by");
+
+                    b.Property<string>("PrivateKey")
+                        .HasColumnType("longtext")
+                        .HasColumnName("private _key");
 
                     b.Property<string>("TAU")
                         .HasColumnType("longtext")

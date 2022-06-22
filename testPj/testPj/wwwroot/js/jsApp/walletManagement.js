@@ -1,22 +1,39 @@
 ﻿function CreateWallet() {
     if ($('#PrivateKey').val() == "") {
         toastr.error("Private key không được để trống");
-    } else if ($('#PrivateKey').val() != "") {
-        var objCreate = {
-            'AddressWallet': $('#PrivateKey').val(),
-            'TAU': "9000",
-            'BNB': "0.5",
-        }
-        callApi_userservice(
-            apiConfig.api.wallet.controller,
-            apiConfig.api.wallet.action.add.path,
-            apiConfig.api.wallet.action.add.method,
-            objCreate, 'fnCreateSuccess', 'msgError');
+    } else if ($('#AddressWallet').val() == "") {
+        toastr.error("Đại chỉ ví không được để trống");
+    } else if ($('#PrivateKey').val() != "" && $('#AddressWallet').val() != "") {
+        var AddressWallet = $('#AddressWallet').val();
+
+        callApi_nft(
+            apiConfig.apinft.walletInfo.controller,
+            apiConfig.apinft.walletInfo.action.getItem.path + "?wallet=" + AddressWallet,
+            apiConfig.apinft.walletInfo.action.getItem.method,
+            null, "successInforWallet", 'msgError');
+        //callApi_nft(
+        //    apiNftConfig.apinft.walletInfo.controller,
+        //    apiNftConfig.apinft.walletInfo.action.getItem.path + "?wallet=" + AddressWallet,
+        //    apiNftConfig.apinft.walletInfo.action.getItem.method,
+        //    null, "successInforWallet", 'msgError');
     }
     /*
     api thêm của bên ví
     */
 
+}
+function successInforWallet(rs) {
+    var objCreate = {
+        'PrivateKey': $('#PrivateKey').val(),
+        'AddressWallet': $('#AddressWallet').val(),
+        'TAU': rs.TAU,
+        'BNB': rs.BNB,
+    }
+    callApi_userservice(
+        apiConfig.api.wallet.controller,
+        apiConfig.api.wallet.action.add.path,
+        apiConfig.api.wallet.action.add.method,
+        objCreate, 'fnCreateSuccess', 'msgError');
 }
 function fnCreateSuccess(rs) {
     if (rs == true) {
@@ -49,7 +66,7 @@ function fnSearchSuccess(rspn) {
         var test = $('#CountWallet');
         test.html('');
         var htmltest = '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
-            '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: blue">' + "Tổng số ví: " + rspn[1] +'</label>' +
+            '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: blue">' + "Tổng số ví: " + rspn[1] + '</label>' +
             //'<label for="walletlable1" class="col-sm-5 col-form-label">' + rspn[1] + '</label>' +
             '</div>' +
             '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
@@ -70,7 +87,7 @@ function fnSearchSuccess(rspn) {
                 '<td>' + obj.bnb + '</td>' +
                 '<td class="text-center">' + '<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" id="customSwitch' + obj.id + '" ' + (obj.isCheck === 1 ? 'checked' : '') + ' onclick="changeCheck(' + obj.id + ',this)"> <label class="custom-control-label" for="customSwitch' + obj.id + '"> <a hidden>' + obj.isCheck + '<a></label></div>' + '</td>' +
                 '<td class="text-center">' +
-                '<a type="button" class="btn icon-delete btn-action-custom" onclick="DeleteWallet(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
+                '<a type="button" class="btn icon-delete btn-action-custom" onclick="DeleteWallet(' + obj.id + ')" style="color:red"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
                 '</td>' +
                 '</tr>';
             tbBody.append(html);
@@ -187,19 +204,19 @@ function fnCheckedSuccess(rspn) {
 function DeleteWallet(id) {
     callApi_userservice(
         apiConfig.api.wallet.controller,
-        apiConfig.api.wallet.action.getItem.path + "?id=" + param,
+        apiConfig.api.wallet.action.getItem.path + "?id=" + id,
         apiConfig.api.wallet.action.getItem.method,
-        null, fnDeleteWalletSuccess, 'msgError');
-    
+        null, "fnDeleteWalletSc", 'msgError');
+
 }
-function fnDeleteWalletSuccess(rs) {
+function fnDeleteWalletSc(rspn) {
     swal({
         title: "Thông báo",
-        text: 'Bạn có chắc chắn muốn xoá bản ghi' + ' ' + '"' + rspn.address + '"',
+        text: 'Bạn có chắc chắn muốn xoá bản ghi' + ' ' + '"' + rspn.addressWallet + '"',
         type: 'warning',
         showCancelButton: !0,
     }).then((isConfirm) => {
-        if (isConfirm) {
+        if (isConfirm.value == true) {
             fnDeleteWallet(rspn.id);
         }
         return false;

@@ -18,6 +18,10 @@ namespace testPj.Data
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
+        [Column("private _key")]
+        [JsonPropertyName("private _key")]
+        public string PrivateKey { get; set; }
+
         [Column("address_wallet")]
         [JsonPropertyName("address_wallet")]
         public string AddressWallet { get; set; }

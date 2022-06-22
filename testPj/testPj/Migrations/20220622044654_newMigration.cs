@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace testPj.Migrations
 {
-    public partial class NewMigration : Migration
+    public partial class newMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -102,6 +102,8 @@ namespace testPj.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    private_key = table.Column<string>(name: "private _key", type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     address_wallet = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     TAU = table.Column<string>(type: "longtext", nullable: true)

@@ -56,6 +56,7 @@ namespace testPj.Services
 
                 WalletManagement wl = new WalletManagement()
                 {
+                    PrivateKey = input.PrivateKey.Trim(),
                     AddressWallet = input.AddressWallet.Trim(),
                     TAU = input.TAU,
                     BNB = input.BNB,
@@ -99,7 +100,8 @@ namespace testPj.Services
                 var detailWl = new DetailWalletModel()
                 {
                     Id = data.Id,
-                   
+                    IsActive = data.IsActive,
+                    AddressWallet = data.AddressWallet,
                 };
 
                 return detailWl;

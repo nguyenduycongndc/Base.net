@@ -11,7 +11,7 @@ namespace testPj.Models
     public class DetailWalletModel
     {
         public int Id { get; set; }
-        public string UserName { get; set; }
+        public string AddressWallet { get; set; }
         public int IsActive { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace testPj
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -35,7 +36,8 @@ namespace testPj
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
             //GlobalSetting.Secret = jwtSettings.Secret;
 
-            services.AddSession(options => {
+            services.AddSession(options =>
+            {
                 options.IdleTimeout = TimeSpan.FromDays(8);
             });
             services.AddControllersWithViews();
@@ -54,6 +56,7 @@ namespace testPj
             services.AddScoped<IWalletManagementRepo, WalletManagementRepo>();
 
             services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

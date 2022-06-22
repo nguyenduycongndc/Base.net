@@ -32,6 +32,7 @@ namespace testPj.Repo
                          select new WalletManagement
                          {
                              Id = x.Id,
+                             PrivateKey = x.PrivateKey,
                              AddressWallet = x.AddressWallet,
                              TAU = x.TAU,
                              BNB = x.BNB,

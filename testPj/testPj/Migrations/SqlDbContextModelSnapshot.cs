@@ -214,6 +214,10 @@ namespace testPj.Migrations
                         .HasColumnType("int")
                         .HasColumnName("modified_by");
 
+                    b.Property<string>("PrivateKey")
+                        .HasColumnType("longtext")
+                        .HasColumnName("private _key");
+
                     b.Property<string>("TAU")
                         .HasColumnType("longtext")
                         .HasColumnName("TAU");

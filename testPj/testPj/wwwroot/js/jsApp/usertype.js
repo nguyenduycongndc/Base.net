@@ -42,11 +42,11 @@ function fnDeleteSuccess(rspn) {
         //        fnDeleteUser(rspn.id);
         //    }
     }).then((isConfirm) => {
-        if (isConfirm) {
+        if (isConfirm.value == true) {
             fnDeleteUser(rspn.id);
         }
         return false;
-    });;
+    });
 }
 function Delete(id) {
     fnGetDetail(null, id);
@@ -160,31 +160,20 @@ function fnSearchSuccess(rspn) {
                 '<td>' + obj.userName + '</td>' +
                 '<td>' + TT + '</td>' +
                 '<td class="text-center">' +
-                //mở lại comment khi có quyền
-                //(IsCheckPemission('M_UT', 'PER_STATUS') === true && obj.roleId !== 1 ? '<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" id="customSwitch' + obj.id + '" ' + (obj.status === true ? 'checked' : '') + ' onclick="UnitTypeActive(' + obj.id + ',this)"> <label class="custom-control-label" for="customSwitch' + obj.id + '"> <a hidden>' + obj.status + '<a></label> </div>' : '<div class="custom-control custom-switch"> <input type="checkbox" class="custom-control-input" id="customSwitch' + obj.id + '" ' + (obj.status === true ? 'checked' : '') + ' disabled ><label class="custom-control-label" for="customSwitch' + obj.id + '"></label> </div>')
-                //+
+
+                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(2,' + obj.id + ')" style="color:green"><i data-toggle="tooltip" title="Chi tiết" class="fa fa-eye" aria-hidden="true"></i></a>' +
+                (obj.isActive == 1 ?
+                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')" style="color:blue"><i data-toggle="tooltip" title="Cập nhật" class="micon dw dw-edit2" aria-hidden="true"></i></a>' :
+                    '<a type="button" class="btn icon-disabled btn-action-custom" ><i data-toggle="tooltip" title="Cập nhật" class="micon dw dw-edit2" aria-hidden="true"></i></a>')
+                +
+                //'<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')"><i data-toggle="tooltip" title="Cập nhật" class="micon dw dw-edit2" aria-hidden="true"></i></a>' +
+
+                (obj.isActive == 1 ?
+                '<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')" style="color:red"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' :
+                    '<a type="button" class="btn icon-disabled btn-action-custom" ><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true" ></i></a>')
+                +
+                //'<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
                 //'</td>' +
-
-                //'<td>' + obj.description + '</td>' +
-                //'<td class="text-center col-action">' +
-                //(IsCheckPemission('M_UT', 'PER_DETAIL') === true ?
-                //    '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(2,' + obj.id + ')"><i data-toggle="tooltip" title="Chi tiết" class="fa fa-eye" aria-hidden="true"></i></a>' :
-                //    '<a type="button" class="btn icon-disabled btn-action-custom"><i data-toggle="tooltip" title="Xem chi tiết" class="fa fa-eye" aria-hidden="true" ></i></a>')
-                //+
-                //(IsCheckPemission('M_UT', 'PER_EDIT') === true && obj.roleId !== 1 ?
-                //    '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')"><i data-toggle="tooltip" title="Cập nhật" class="fas fa-pencil-alt" aria-hidden="true"></i></a>' :
-                //    '<a type="button" class="btn icon-disabled btn-action-custom"><i data-toggle="tooltip" title="Cập nhật dữ liệu" class="fas fa-pencil-alt" aria-hidden="true"></i></a>')
-                //+
-                //(IsCheckPemission('M_UT', 'PER_DEL') === true && obj.roleId !== 1 ?
-                //    '<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true" ></i></a>' :
-                //    '<a type="button" class="btn icon-disabled btn-action-custom" ><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true" ></i></a>')
-                //+
-                ////mở lại comment khi có quyền
-
-                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(2,' + obj.id + ')"><i data-toggle="tooltip" title="Chi tiết" class="fa fa-eye" aria-hidden="true"></i></a>' +
-                '<a type="button" class="btn icon-default btn-action-custom" onclick="openView(3,' + obj.id + ')"><i data-toggle="tooltip" title="Cập nhật" class="micon dw dw-edit2" aria-hidden="true"></i></a>' +
-                '<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
-                '</td>' +
                 '</tr>';
             tbBody.append(html);
         }

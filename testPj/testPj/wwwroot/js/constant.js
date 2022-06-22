@@ -75,30 +75,33 @@ var apiConfig = {
         "buyitem": {
             "controller": "/api/BuyItems",
             "action": {
+                "getItem": {
+                    "method": "GET",
+                    "path": "/Detail"
+                }
+            }
+        },
+        "sellitem": {
+            "controller": "/api/SellItems",
+            "action": {
                 "search": {
                     //function support get items by search condition
                     "method": "POST",
                     "path": "/Search"
                 },
-                "add": {
-                    //function support to add item
+                "getItem": {
+                    "method": "GET",
+                    "path": "/Detail"
+                }
+            }
+        },
+        "statistical": {
+            "controller": "/api/Statistical",
+            "action": {
+                "search": {
+                    //function support get items by search condition
                     "method": "POST",
-                    "path": "/Create"
-                },
-                "update": {
-                    //function support to add item
-                    "method": "PUT",
-                    "path": "/Update"
-                },
-                "delete": {
-                    //function support to delete item
-                    "method": "DELETE",
-                    "path": "/Delete"
-                },
-                "checked": {
-                    //function support to active/deactive item
-                    "method": "POST",
-                    "path": "/Checked"
+                    "path": "/Search"
                 },
                 "getItem": {
                     "method": "GET",
@@ -106,5 +109,31 @@ var apiConfig = {
                 }
             }
         }
+    },
+    "apinft": {
+        "host_nft": hostApi.host_amazonaws,
+        "walletInfo": {
+            "controller": "/api/Wallet",
+            "action": {
+                "getItem": {
+                    "method": "GET",
+                    "path": "/Info"
+                },
+            }
+        },
     }
-}
+};
+//var apiNftConfig = {
+//    "apinft": {
+//        "host_nft": hostApi.host_amazonaws,
+//        "walletInfo": {
+//            "controller": "/api/Wallet",
+//            "action": {
+//                "getItem": {
+//                    "method": "GET",
+//                    "path": "/Info"
+//                },
+//            }
+//        },
+//    }
+//}
