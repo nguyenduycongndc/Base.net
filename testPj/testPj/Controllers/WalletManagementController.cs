@@ -37,7 +37,7 @@ namespace testPj.Controllers
         //}
         [HttpPost]
         [Route("InforWallet")]
-        public CreateWalletModel InforWallet([FromBody] InputWalletModel inputWalletModel)
+        public async Task<CreateWalletModel> InforWallet([FromBody] InputWalletModel inputWalletModel)
         {
             try
             {
@@ -51,8 +51,8 @@ namespace testPj.Controllers
                     AddressWallet = inputWalletModel.AddressWallet,
                     IsCheck = inputWalletModel.IsCheck,
                 };
-                CallGetMethod(_data);
-                return _data;
+                var _result = await CallGetMethod(_data, _userInfo);
+                return _result;
             }
             catch (Exception ex)
             {
@@ -162,68 +162,46 @@ namespace testPj.Controllers
                 return false;
             }
         }
-        public async Task CallGetMethod(CreateWalletModel createWalletModel)
+
+        public async Task<CreateWalletModel> CallGetMethod(CreateWalletModel createWalletModel, CurrentUserModel _userInfo)
         {
             HttpClientHandler handler = new HttpClientHandler();
-            using (var client = new HttpClient(handler))
-            {
-                client.BaseAddress = new Uri("http://ec2-13-125-111-150.ap-northeast-2.compute.amazonaws.com:9099/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                //string authInfo = Convert.ToBase64String(Encoding.Default.GetBytes("Akash:Vidhate"));
-                string authInfo = "TJTpWG4Q9YdlE4Zh";
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-api-key", authInfo);
-                client.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", authInfo);
-                #region Consume GET method  
+            CreateWalletModel _creteWallet = new CreateWalletModel();
 
-                HttpResponseMessage response = await client.GetAsync("api/Wallet/Info?wallet=" + createWalletModel.AddressWallet);
-                if (response.IsSuccessStatusCode)
-                {
-                    string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
-                    CreateWalletModel test = new CreateWalletModel()
-                    {
-                        PrivateKey = createWalletModel.PrivateKey,
-                        AddressWallet = createWalletModel.AddressWallet,
-                        TAU = "",
-                        BNB = httpResponseResult,
-                        IsCheck = 0,
-                    };
-                    await CreateProductAsync(test);
-                }
-                else
-                {
-                    Console.WriteLine("Internal server Error");
-                }
-                Console.ReadKey();
-                #endregion
-            }
-        }
-
-        public async Task<Object> CreateProductAsync(CreateWalletModel createWalletModel)
-        {
             try
             {
-                using (var client = new HttpClient())
+                using (var client = new HttpClient(handler))
                 {
-                    client.BaseAddress = new Uri("http://localhost:5001/");
+                    client.BaseAddress = new Uri("http://ec2-13-125-111-150.ap-northeast-2.compute.amazonaws.com:9099/");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    string authInfo = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJuYmYiOjE2NTU5NTcxNDQsImV4cCI6MTY1NjA0MzU0NCwiaXNzIjoiaHR0cDovLzo6ODAiLCJhdWQiOiJodHRwOi8vOjo4MCJ9.NNy2x0P4zXEJl1ldhW9dNsjt2EY90Q6oKbkVf7Y2PiulWPntYoRWlgw39QHNTQETqdKUQzuG7AOcT_MR9VMn9A";
-                    client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", authInfo);
-                    #region Consume POST Method  
+                    //string authInfo = Convert.ToBase64String(Encoding.Default.GetBytes("Akash:Vidhate"));
+                    string authInfo = "TJTpWG4Q9YdlE4Zh";
+                    //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-api-key", authInfo);
+                    client.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", authInfo);
+                    #region Consume GET method  
 
-                    HttpResponseMessage responsePost = await client.PostAsJsonAsync("api/WalletManagement/Create", createWalletModel);
-                    if (responsePost.IsSuccessStatusCode)
+                    HttpResponseMessage response = await client.GetAsync("api/Wallet/Info?wallet=" + createWalletModel.AddressWallet);
+                    if (response.IsSuccessStatusCode)
                     {
-                        string httpResponseResult = responsePost.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
-                        if (httpResponseResult == "false")
+                        string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                        if (string.IsNullOrEmpty(httpResponseResult))
                         {
                             return null;
                         }
-                        else return responsePost;
-                       
+                        else
+                        {
+                            _creteWallet.PrivateKey = createWalletModel.PrivateKey;
+                            _creteWallet.AddressWallet = createWalletModel.AddressWallet;
+                            _creteWallet.TAU = "";
+                            _creteWallet.BNB = httpResponseResult;
+                            _creteWallet.IsCheck = 0;
+
+                            var a = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
+                            if (!a) return null;
+
+                        }
                     }
-                    return responsePost;
                     #endregion
                 }
             }
@@ -232,7 +210,9 @@ namespace testPj.Controllers
                 _logger.LogError(ex.Message);
                 return null;
             }
-            
+
+            return _creteWallet;
+
         }
     }
 }

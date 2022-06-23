@@ -13,12 +13,22 @@
             apiConfig.api.wallet.controller,
             apiConfig.api.wallet.action.inforWallet.path,
             apiConfig.api.wallet.action.inforWallet.method,
-            input, '', 'msgError');
+            input, "test", 'msgError');
     }
     /*
     api thêm của bên ví
     */
 
+}
+function test(rs) {
+    debugger;
+    if (rs != null) {
+        toastr.success("Thêm mới ví thành công");
+        $('#modalCreateWallet').modal('hide');
+        fnSearch(true);
+    } else {
+        toastr.error("Thêm mới ví thất bại");
+    }
 }
 //function successInforWallet(rs) {
 //    var objCreate = {

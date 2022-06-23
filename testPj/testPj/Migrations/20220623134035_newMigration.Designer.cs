@@ -9,7 +9,7 @@ using testPj.Data;
 namespace testPj.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20220622044654_newMigration")]
+    [Migration("20220623134035_newMigration")]
     partial class newMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
