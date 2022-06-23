@@ -69,5 +69,23 @@ namespace testPj.Repo
             await _context.SaveChangesAsync();
             return true;
         }
+        public List<WalletManagement> CheckWalletManagement(string AddressWallet)
+        {
+            var query = (from x in _context.WalletManagements
+                         where x.AddressWallet.Equals(AddressWallet) &&  x.IsDeleted != 0 
+                         select new WalletManagement
+                         {
+                             Id = x.Id,
+                             PrivateKey = x.PrivateKey,
+                             AddressWallet = x.AddressWallet,
+                             IsActive = x.IsActive,
+                             TAU = x.TAU,
+                             BNB = x.BNB,
+                             IsCheck = x.IsCheck,
+                             IsDeleted = x.IsDeleted,
+                         }).ToList();
+
+            return query;
+        }
     }
 }

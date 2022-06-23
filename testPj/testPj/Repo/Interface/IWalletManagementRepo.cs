@@ -14,5 +14,6 @@ namespace testPj.Repo.Interface
         Task<bool> CheckedWallet(WalletManagement walletManagement);
         public WalletManagement GetDetailWallet(int id);
         Task<bool> DeleteWalletRP(WalletManagement walletManagement);
+        List<WalletManagement> CheckWalletManagement(string AddressWallet);
     }
 }

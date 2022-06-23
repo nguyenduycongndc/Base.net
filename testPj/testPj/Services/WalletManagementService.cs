@@ -43,16 +43,16 @@ namespace testPj.Services
         {
             try
             {
-                //var checkUser = userRepo.CheckUser(input.UserName);
-                //if (checkUser.Count() > 0)
-                //{
-                //    _logger.LogError("Tài khoản đã tồn tại");
-                //    return false;
-                //}
-                //if (input.UserName == "" || input.UserName == null || input.Password == "" || input.Password == null)
-                //{
-                //    return false;
-                //}
+                var checkWallet = _walletManagementRepo.CheckWalletManagement(input.AddressWallet);
+                if (checkWallet.Count() > 0)
+                {
+                    _logger.LogError("Ví đã tồn tại");
+                    return false;
+                }
+                if (input.AddressWallet == "" || input.AddressWallet == null || input.PrivateKey == "" || input.PrivateKey == null)
+                {
+                    return false;
+                }
 
                 WalletManagement wl = new WalletManagement()
                 {

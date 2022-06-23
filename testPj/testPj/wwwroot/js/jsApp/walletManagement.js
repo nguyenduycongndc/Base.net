@@ -4,46 +4,44 @@
     } else if ($('#AddressWallet').val() == "") {
         toastr.error("Đại chỉ ví không được để trống");
     } else if ($('#PrivateKey').val() != "" && $('#AddressWallet').val() != "") {
-        var AddressWallet = $('#AddressWallet').val();
-
-        callApi_nft(
-            apiConfig.apinft.walletInfo.controller,
-            apiConfig.apinft.walletInfo.action.getItem.path + "?wallet=" + AddressWallet,
-            apiConfig.apinft.walletInfo.action.getItem.method,
-            null, "successInforWallet", 'msgError');
-        //callApi_nft(
-        //    apiNftConfig.apinft.walletInfo.controller,
-        //    apiNftConfig.apinft.walletInfo.action.getItem.path + "?wallet=" + AddressWallet,
-        //    apiNftConfig.apinft.walletInfo.action.getItem.method,
-        //    null, "successInforWallet", 'msgError');
+        var input = {
+            'PrivateKey': $('#PrivateKey').val().trim(),
+            'AddressWallet': $('#AddressWallet').val().trim(),
+        }
+        debugger;
+        callApi_userservice(
+            apiConfig.api.wallet.controller,
+            apiConfig.api.wallet.action.inforWallet.path,
+            apiConfig.api.wallet.action.inforWallet.method,
+            input, '', 'msgError');
     }
     /*
     api thêm của bên ví
     */
 
 }
-function successInforWallet(rs) {
-    var objCreate = {
-        'PrivateKey': $('#PrivateKey').val(),
-        'AddressWallet': $('#AddressWallet').val(),
-        'TAU': rs.TAU,
-        'BNB': rs.BNB,
-    }
-    callApi_userservice(
-        apiConfig.api.wallet.controller,
-        apiConfig.api.wallet.action.add.path,
-        apiConfig.api.wallet.action.add.method,
-        objCreate, 'fnCreateSuccess', 'msgError');
-}
-function fnCreateSuccess(rs) {
-    if (rs == true) {
-        toastr.success("Thêm mới ví thành công");
-        $('#modalCreateWallet').modal('hide');
-        fnSearch(rs);
-    } else {
-        toastr.error("Thêm mới ví thất bại");
-    }
-}
+//function successInforWallet(rs) {
+//    var objCreate = {
+//        'PrivateKey': $('#PrivateKey').val(),
+//        'AddressWallet': $('#AddressWallet').val(),
+//        'TAU': rs.TAU,
+//        'BNB': rs.BNB,
+//    }
+//    callApi_userservice(
+//        apiConfig.api.wallet.controller,
+//        apiConfig.api.wallet.action.add.path,
+//        apiConfig.api.wallet.action.add.method,
+//        objCreate, 'fnCreateSuccess', 'msgError');
+//}
+//function fnCreateSuccess(rs) {
+//    if (rs == true) {
+//        toastr.success("Thêm mới ví thành công");
+//        $('#modalCreateWallet').modal('hide');
+//        fnSearch(rs);
+//    } else {
+//        toastr.error("Thêm mới ví thất bại");
+//    }
+//}
 function onSearch() {
     fnSearch(true);
 }

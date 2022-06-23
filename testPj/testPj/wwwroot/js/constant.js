@@ -69,6 +69,10 @@ var apiConfig = {
                 "getItem": {
                     "method": "GET",
                     "path": "/Detail"
+                },
+                "inforWallet": {
+                    "method": "POST",
+                    "path": "/InforWallet"
                 }
             }
         },
@@ -110,30 +114,5 @@ var apiConfig = {
             }
         }
     },
-    "apinft": {
-        "host_nft": hostApi.host_amazonaws,
-        "walletInfo": {
-            "controller": "/api/Wallet",
-            "action": {
-                "getItem": {
-                    "method": "GET",
-                    "path": "/Info"
-                },
-            }
-        },
-    }
 };
-//var apiNftConfig = {
-//    "apinft": {
-//        "host_nft": hostApi.host_amazonaws,
-//        "walletInfo": {
-//            "controller": "/api/Wallet",
-//            "action": {
-//                "getItem": {
-//                    "method": "GET",
-//                    "path": "/Info"
-//                },
-//            }
-//        },
-//    }
-//}
+

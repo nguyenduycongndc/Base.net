@@ -21,4 +21,20 @@ namespace testPj.Models
         public int Id { get; set; }
         public int Checked { get; set; }
     }
+
+    public class InputWalletModel
+    {
+        public string PrivateKey { get; set; }
+        public string AddressWallet { get; set; }
+        public int IsCheck { get; set; }
+    }
+
+    public class InputCreateWalletModel
+    {
+        public string PrivateKey { get; set; }
+        public string AddressWallet { get; set; }
+        public string TAU { get; set; }
+        public string BNB { get; set; }
+        public int IsCheck { get; set; }
+    }
 }
