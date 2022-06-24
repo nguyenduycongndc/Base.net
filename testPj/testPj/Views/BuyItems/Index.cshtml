@@ -4,7 +4,7 @@
 }
 <script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
-@*<script src="~/js/jsApp/walletManagement.js" type="text/javascript" asp-append-version="true"></script>*@
+<script src="~/js/jsApp/BuyItem.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
 <div class="main-container">
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-1" style="margin:auto"><input type="checkbox" id="checkbox1" /></div>
+                                    <div class="col-md-1" style="margin:auto"><input type="checkbox" id="checkbox1"/></div>
                                     <label for="PrivateKey" class="col-md-4 col-form-label" style="margin:auto">Common</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="Zen1" aria-label="Zen1" aria-describedby="basic-addon1" onkeypress='validate(event)'>
@@ -37,7 +37,7 @@
                                     <label style="margin:auto">$</label>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-md-1" style="margin:auto"><input type="checkbox" id="checkbox1" /></div>
+                                    <div class="col-md-1" style="margin:auto"><input type="checkbox" id="checkbox2" /></div>
                                     <label for="PrivateKey" class="col-md-4 col-form-label" style="margin:auto">UnCommon</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="Zen2" aria-label="Zen2" aria-describedby="basic-addon1" onkeypress='validate(event)'>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-1" style="margin:auto"><input type="checkbox" id="checkbox5" /></div>
-                                    <label for="PrivateKey" class="col-md-4 col-form-label" style="margin:auto">Lenged</label>
+                                    <label for="PrivateKey" class="col-md-4 col-form-label" style="margin:auto">Lengend</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="Zen5" aria-label="Zen5" aria-describedby="basic-addon1" onkeypress='validate(event)'>
                                     </div>
@@ -808,7 +808,7 @@
                                 <div class="card">
                                     <div class="card-header" id="heading5">
                                         <button class="btn collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                            <i class="fa fa-plus"></i>&emsp;Lenged
+                                            <i class="fa fa-plus"></i>&emsp;Lengend
                                         </button>
                                     </div>
                                     <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordionExample">
@@ -833,7 +833,7 @@
                                                 <div class="col-md-7 col-sm-7 col-lg-7 row">
                                                     <div class="col-md-5 row">
                                                         <div class="col-md-7">
-                                                            <input type="checkbox" id="checkbox400" />&emsp;<label style="margin: auto" for="PrivateKey">Lenged</label>
+                                                            <input type="checkbox" id="checkbox400" />&emsp;<label style="margin: auto" for="PrivateKey">Lengend</label>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <input class="col-md-3" type="checkbox" id="checkboxsex401" />&emsp;<label for="PrivateKey" style="margin:auto">Đực</label>
@@ -1171,43 +1171,21 @@
                 </ul>
             </div>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer" id="footer1">
             <a>Trạng thái</a>
-            <a href="javascript:void(0);" class="btn btn-info" onclick="Start()">Bắt đầu</a>
-            <a href="javascript:void(0);" class="btn btn-secondary" onclick="Pause()">Tạm dừng</a>
+            <button href="javascript:void(0);" class="btn btn-info" onclick="Start()">Bắt đầu</button>
+            <button href="javascript:void(0);" class="btn btn-secondary" onclick="Pause()" disabled>Tạm dừng</button>
         </div>
-    </div>
-</div>
-</div>
-<div class="modal hide fade" id="modalCreateWallet" role="dialog" aria-labelledby="modalCreateWalletLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCreateWallet">Thêm ví</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group row">
-                    <label for="PrivateKey" class="col-sm-3 col-form-label">Private key:</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" id="PrivateKey" aria-label="PrivateKey" aria-describedby="basic-addon1">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="javascript:void(0);" class="btn btn-info" onclick="CreateWallet()">Thêm</a>
-                <a href="javascript:void(0);" class="btn btn-secondary" data-dismiss="modal">Trở lại</a>
-            </div>
+        <div class="modal-footer" id="footer2" style="display:none">
+            <a>Trạng thái</a>
+            <button href="javascript:void(0);" class="btn btn-info" onclick="Start()" disabled>Bắt đầu</button>
+            <button href="javascript:void(0);" class="btn btn-secondary" onclick="Pause()">Tạm dừng</button>
         </div>
     </div>
 </div>
 <script>
     function validate(evt) {
-        debugger;
         var theEvent = evt || window.event;
-
         // Handle paste
         if (theEvent.type === 'paste') {
             key = event.clipboardData.getData('text/plain');
@@ -1216,11 +1194,10 @@
             var key = theEvent.keyCode || theEvent.which;
             key = String.fromCharCode(key);
         }
-        var regex = /^[0-9.]+$/;
+        var regex = /^[0-9]+$/;
         if (!regex.test(key)) {
             theEvent.returnValue = false;
             if (theEvent.preventDefault) theEvent.preventDefault();
         }
     }
-    $(".collapse").collapse({ toggle: false });
 </script>

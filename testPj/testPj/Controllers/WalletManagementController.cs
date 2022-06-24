@@ -27,14 +27,6 @@ namespace testPj.Controllers
             _walletManagementService = walletManagementService;
         }
         static HttpClient client = new HttpClient();
-        //public string TokenRs()
-        //{
-        //    if (HttpContext.Items["Token"] is var Token == null)
-        //    {
-        //        return null;
-        //    }
-        //    return (string)Token;
-        //}
         [HttpPost]
         [Route("InforWallet")]
         public async Task<CreateWalletModel> InforWallet([FromBody] InputWalletModel inputWalletModel)
@@ -68,7 +60,6 @@ namespace testPj.Controllers
             {
                 return null;
             }
-            //TokenRs();
             return View();
         }
         [HttpPost]

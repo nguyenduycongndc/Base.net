@@ -8,20 +8,14 @@
             'PrivateKey': $('#PrivateKey').val().trim(),
             'AddressWallet': $('#AddressWallet').val().trim(),
         }
-        debugger;
         callApi_userservice(
             apiConfig.api.wallet.controller,
             apiConfig.api.wallet.action.inforWallet.path,
             apiConfig.api.wallet.action.inforWallet.method,
-            input, "test", 'msgError');
+            input, "fnSuccess", 'msgError');
     }
-    /*
-    api thêm của bên ví
-    */
-
 }
-function test(rs) {
-    debugger;
+function fnSuccess(rs) {
     if (rs != null) {
         toastr.success("Thêm mới ví thành công");
         $('#modalCreateWallet').modal('hide');

@@ -7,7 +7,6 @@
 <script src="~/js/jsApp/walletManagement.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
-
 <div class="main-container">
     <input type="hidden" id="IdUser" name="Id" value=@currentuser.Id />
     <div class="pd-ltr-20">
@@ -88,7 +87,6 @@
     </div>
 </div>
 <script>
-    onSearch();
     function openModal() {
         $('#modalCreateWallet').modal('show');
         $('#PrivateKey').val("");
@@ -99,4 +97,5 @@
             $(".modal-backdrop").remove();
         }
     })
+    onSearch();
 </script>

@@ -329,7 +329,6 @@ function fnGetDetail(type, param) {
 }
 
 function fnGetDetailSuccess(rspn) {
-    debugger
     var frmModify = $("#formDetail");
     if (rspn !== undefined && rspn !== null) {
 

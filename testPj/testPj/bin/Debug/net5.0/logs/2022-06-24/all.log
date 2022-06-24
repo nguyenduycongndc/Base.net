@@ -1,0 +1,259 @@
+2022-06-24 08:49:02.3691|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 08:49:05.1365|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:28.4616|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:28.5083|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:30.2902|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:31.2274|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:31.4174|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:35.9468|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:36.5240|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:45.1171|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 08:49:45.5038|ERROR|testPj.Services.WalletManagementService|Ví đã tồn tại
+2022-06-24 09:28:37.9063|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 09:28:40.3717|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:37:48.6844|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:37:48.8203|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:37:59.5592|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:38:02.2271|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:38:02.3065|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 09:38:11.1859|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:01:49.2508|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:01:49.4455|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:01:54.3857|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:01:58.0393|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:02:27.9063|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:02:28.0162|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:02:29.9198|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:13:44.0310|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:13:46.3227|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:13:48.6345|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:13:48.7278|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:13:50.3690|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:00.6082|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:00.6811|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:03.5860|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:03.6801|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:06.6331|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:14:06.6975|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:17:51.0460|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:17:53.5119|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:17:56.2120|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:17:59.6972|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:01.0143|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:01.7006|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:02.2423|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:02.7826|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:03.4530|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:04.1726|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:17.1770|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:18:19.5437|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:21.6488|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:23.7422|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:24.3834|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:24.5567|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:24.7010|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:24.8541|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:25.0087|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:25.1337|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:25.2604|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:25.3990|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:39.6252|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:18:42.1802|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:43.7733|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:18:43.8687|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:14.5405|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:19:17.2288|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:19.3524|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:19.4634|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:25.6925|ERROR|testPj.Controllers.WalletManagementController|Object reference not set to an instance of an object.
+2022-06-24 10:19:49.2129|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:19:52.7133|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:54.8376|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:54.9331|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:58.6169|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:19:58.6949|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:00.6230|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:00.6960|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:07.0723|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:13.8207|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:23.2791|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:25.2134|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:29.5251|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:20:31.7111|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:33:23.2160|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:33:50.6668|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:34:09.8232|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:13.9471|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:16.7913|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:16.9921|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:22.2120|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:22.3871|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:27.7264|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:27.8205|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:29.1730|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:29.2269|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:30.3893|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:30.4458|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:31.5237|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:31.5774|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:34:32.9455|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:35:28.3732|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 10:35:30.9923|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 10:35:33.5240|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 11:10:47.8799|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 11:10:59.6492|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:46:48.4286|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:04.9650|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:05.0970|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:07.3326|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:07.3964|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:08.7128|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:08.7695|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:10.0581|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:10.1194|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:12.0894|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 13:53:12.1525|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:28:56.6216|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:28:59.5392|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:29:02.0988|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:35:23.4580|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:35:26.0863|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:35:29.1149|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:36:35.8335|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:36:38.2426|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:36:40.3948|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:44:16.8635|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:44:19.3030|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:44:26.6763|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:45:11.1164|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:45:15.6953|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:45:18.1606|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:46:01.9899|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:55:27.3041|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 14:55:30.4124|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 14:55:33.1764|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:23:49.5369|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:23:52.2707|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:23:55.4282|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:26:42.5230|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:26:45.9772|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:26:48.3484|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:27:50.9139|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:28:48.1816|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:28:50.5822|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:28:52.7554|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:29:02.8641|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:31:55.4448|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:31:58.2699|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:32:03.8953|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:32:17.6927|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:33:13.7456|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:33:16.3022|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:33:18.9145|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:33:34.7851|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:35:14.2114|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:35:18.6627|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:35:21.3320|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:35:21.5210|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:35:23.1321|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:35:35.3836|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:37:11.1294|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:37:13.5673|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:37:16.1598|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:37:33.7374|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:03.6516|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:33.0045|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:38:36.1164|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:44.6356|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:44.7393|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:46.5823|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:52.8026|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:38:59.4332|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:39:29.7642|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:39:32.9130|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:39:34.9408|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:39:40.0040|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:40:29.0663|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:41:40.8026|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:44:12.9115|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:44:21.2861|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:44:24.0351|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:44:55.3337|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:47:56.4598|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:47:58.8624|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:01.4271|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:06.7537|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:35.7391|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:48:38.0207|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:40.3341|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:40.4269|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:41.2587|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:43.3322|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:47.2068|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:48:50.8175|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:05.0246|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:50:07.4596|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:10.9887|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:12.3175|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:46.3081|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:50:48.7234|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:51.4758|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:50:53.3643|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:54:14.9333|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:54:24.8108|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 15:54:33.8024|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 15:54:39.6146|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:32:05.4017|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 16:32:57.8676|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:33:04.7725|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:33:10.1621|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:36:07.9164|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 16:36:19.3451|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:36:50.0695|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 16:53:28.2557|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 16:53:30.9288|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:53:37.0046|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 16:53:58.8467|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:06:18.8805|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:07:33.1597|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:10:19.9204|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:10:22.2558|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:10:36.8794|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:11:15.5830|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:12:07.5553|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:12:15.9715|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:12:18.2225|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:12:18.3174|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:12:19.2855|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:12:20.4137|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:29:56.1394|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:29:58.7077|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:30:01.2538|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:31:19.3328|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:32:11.0047|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:34:19.8221|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:34:25.1597|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:35:01.0825|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:35:07.5370|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:35:10.4567|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:35:25.2381|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:36:50.3979|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:38:02.5263|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:38:05.0814|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:38:07.1189|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:38:16.3055|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:38:41.3534|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:40:27.8561|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:40:32.5510|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:40:34.5510|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:40:41.9880|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:50:25.9498|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 17:50:29.8299|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:51:06.8368|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:51:09.1758|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:51:18.4576|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:53:26.4289|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 17:53:42.8192|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 18:02:27.5079|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-24 18:02:52.2114|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-24 18:03:00.0602|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!

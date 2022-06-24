@@ -109,7 +109,6 @@ namespace testPj.Attributes
                     }
                 }
                 context.HttpContext.Items["UserInfo"] = user;
-                context.HttpContext.Items["Token"] = token;
                 _logger.Log(NLog.LogLevel.Info, $"{user.UserName}: logon into api successfully!");
             }
         }

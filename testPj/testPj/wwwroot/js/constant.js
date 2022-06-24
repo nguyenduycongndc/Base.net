@@ -79,9 +79,9 @@ var apiConfig = {
         "buyitem": {
             "controller": "/api/BuyItems",
             "action": {
-                "getItem": {
-                    "method": "GET",
-                    "path": "/Detail"
+                "listegghero": {
+                    "method": "POST",
+                    "path": "/ListEggHero"
                 }
             }
         },
