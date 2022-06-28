@@ -331,6 +331,9 @@ function callApi_select(selector, placeholder, host, controller, action) {
                     type: 'public'
                 }
                 return query;
+                return {
+                    text: params.term
+                };
             },
             processResults: function (data) {
                 return {
@@ -351,29 +354,36 @@ function ResetPageSize() {
     reCalculatPagesCustom(0);
     viewBtnActionPage();
 }
-function checkFilesize(files) {
 
-    var result = false;
-    if (localStorage["SystemParam"] != null && localStorage["SystemParam"] != undefined) {
-        var list_param = JSON.parse(localStorage["SystemParam"]);
-        var param = list_param.find(el => el.name === "FILESIZE");
-        var filesize = parseInt(param.value);
-        const k = 1024;
-        const dm = 2;
-        var convert_size = files.size / Math.pow(k, dm);
-        if (convert_size > filesize) {
-            result = true;
+function callApi_oneselect(selector, placeholder, host, controller, action) {
+    $("#" + selector).select2({
+        placeholder: placeholder,
+        minimumInputLength: 0,
+        multiple: false,
+        closeOnSelect: true,
+        ajax: {
+            headers: { "Authorization": sessionStorage['SessionToken'] },
+            url: host + controller + action,
+            dataType: 'json',
+            data: function (params) {
+                var query = {
+                    q: params.term,
+                    type: 'public'
+                }
+                return query;
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            id: item.id,
+                            text: item.address,
+                        }
+                    })
+                };
+            },
+            cache: true
         }
-    }
-    return result;
-}
-function getFilesizeSystem() {
-    var _size = "0 MB";
-    if (localStorage["SystemParam"] != null && localStorage["SystemParam"] != undefined) {
-        var list_param = JSON.parse(localStorage["SystemParam"]);
-        var param = list_param.find(el => el.name === "FILESIZE");
-        _size = param.value + " MB";
-    }
-    return _size;
+    });
 }
 

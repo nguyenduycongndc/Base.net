@@ -100,6 +100,10 @@ var apiConfig = {
                 "selectwallet": {
                     "method": "GET",
                     "path": "/SelectWallet"
+                },
+                "dropdown": {
+                    "method": "GET",
+                    "path": "/Dropdown"
                 }
             }
         },

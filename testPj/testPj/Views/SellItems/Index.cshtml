@@ -2,9 +2,12 @@
     Layout = "_Layout";
     var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
 }
+@*<script src="/js/jquery/jquery/jquery.min.js"></script>*@
+<script src="~/js/select2/js/select2.js"></script>
+
 <script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
-@*<script src="~/js/jsApp/usertype.js" type="text/javascript" asp-append-version="true"></script>*@
+<script src="~/js/jsApp/SellItems.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
 <script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
 
@@ -65,14 +68,11 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2" for="IsActive">
-                                    Trạng thái
+                                <label class="col-form-label col-lg-2" for="Wallet">
+                                    Ví
                                 </label>
                                 <div class="col-lg-10">
-                                    <select class="form-control" id="IsActive">
-                                        <option value="-1">Tất cả</option>
-                                        <option value="1">Hoạt động</option>
-                                        <option value="0">Dừng hoạt động</option>
+                                    <select class="form-control" id="Wallet">
                                     </select>
                                 </div>
                             </div>
@@ -119,8 +119,9 @@
     </div>
 </div>
 
-@*<script>
-        callApi_userservice("AuditWorkCreate", "", apiConfig.api.host_audit_service,
-            apiConfig.api.sellitem.controller,
-            apiConfig.api.sellitem.action.selectwallet.path);
-    </script>*@
+<script>
+    callApi_oneselect("Wallet", "Chọn ví...",
+        apiConfig.api.host_user_service,
+        apiConfig.api.sellitem.controller,
+        apiConfig.api.sellitem.action.dropdown.path);
+</script>

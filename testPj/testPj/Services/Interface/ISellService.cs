@@ -9,5 +9,6 @@ namespace testPj.Services.Interface
     public interface ISellService
     {
         List<WalletModel> GetAllWallet();
+        List<WalletModel> GetAllWalletDrop(string q);
     }
 }

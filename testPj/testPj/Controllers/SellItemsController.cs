@@ -14,11 +14,11 @@ namespace testPj.Controllers
     [Route("api/[controller]")]
     //[ApiController]
     [BaseAuthorize]
-    public class SelltemsController : Controller
+    public class SellItemsController : Controller
     {
-        private readonly ILogger<SelltemsController> _logger;
+        private readonly ILogger<SellItemsController> _logger;
         private readonly ISellService _sellService;
-        public SelltemsController(ILogger<SelltemsController> logger, ISellService sellService)
+        public SellItemsController(ILogger<SellItemsController> logger, ISellService sellService)
         {
             _logger = logger;
             _sellService = sellService;
@@ -44,6 +44,24 @@ namespace testPj.Controllers
                 }
                 var walletDetail = _sellService.GetAllWallet();
                 return walletDetail;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
+        }
+        [HttpGet]
+        [Route("Dropdown")]
+        public List<WalletModel> Dropdown(string q)
+        {
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                return _sellService.GetAllWalletDrop(q);
             }
             catch (Exception ex)
             {
