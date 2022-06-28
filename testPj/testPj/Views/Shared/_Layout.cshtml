@@ -103,6 +103,12 @@
 <script src="~/vendors/scripts/datatable-setting.js" asp-append-version="true"></script>
 <script src="~/js/api.js" asp-append-version="true"></script>
 <script>
+    $(".modal").on("shown.bs.modal", function () {
+        debugger
+        if ($(".modal-backdrop.fade.show").length >= 0) {
+            $(".modal-backdrop.fade.show").remove();
+        }
+    })
     $(function () {
         $.ajaxSetup({
             beforeSend: function (xhr) {

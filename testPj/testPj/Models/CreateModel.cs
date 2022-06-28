@@ -211,6 +211,7 @@ namespace testPj.Models
     {
 
     }
+    #region
     public class Hero
     {
         //public string checksum { get; set; }
@@ -224,6 +225,8 @@ namespace testPj.Models
         public int priceUSD { get; set; }//tien
 
     }
+    #endregion
+    #region DataRs
     public class ModelX
     {
         public string checksum { get; set; }
@@ -298,14 +301,5 @@ namespace testPj.Models
         public int? timeStartRent { get; set; }
         public int? lockTime { get; set; }
     }
-    public class RsOutPut
-    {
-        public List<DataOut> Data { get; set; }
-
-    }
-    public class DataRsOutPut
-    {
-        public List<DataOut> Data { get; set; }
-
-    }
+    #endregion
 }
