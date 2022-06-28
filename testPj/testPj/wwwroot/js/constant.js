@@ -96,6 +96,10 @@ var apiConfig = {
                 "getItem": {
                     "method": "GET",
                     "path": "/Detail"
+                },
+                "selectwallet": {
+                    "method": "GET",
+                    "path": "/SelectWallet"
                 }
             }
         },

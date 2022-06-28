@@ -55,6 +55,11 @@ namespace testPj
             services.AddScoped<IWalletManagementService, WalletManagementService>();
             services.AddScoped<IWalletManagementRepo, WalletManagementRepo>();
 
+            services.AddScoped<ISellService, SellService>();
+            services.AddScoped<ISellRepo, SellRepo>();
+            //services.AddScoped<ISellService, SellService>();
+            //services.AddScoped<ISellRepo, SellRepo>();
+
             services.AddSession();
 
         }

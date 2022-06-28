@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 using testPj.Attributes;
 using testPj.Models;
@@ -175,7 +176,8 @@ namespace testPj.Controllers
                     HttpResponseMessage response = await client.GetAsync("api/Wallet/Info?wallet=" + createWalletModel.AddressWallet);
                     if (response.IsSuccessStatusCode)
                     {
-                        string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                        var httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                        OutWalletModel _outWallet = JsonSerializer.Deserialize<OutWalletModel>(httpResponseResult);
                         if (string.IsNullOrEmpty(httpResponseResult))
                         {
                             return null;
@@ -184,8 +186,8 @@ namespace testPj.Controllers
                         {
                             _creteWallet.PrivateKey = createWalletModel.PrivateKey;
                             _creteWallet.AddressWallet = createWalletModel.AddressWallet;
-                            _creteWallet.TAU = "";
-                            _creteWallet.BNB = httpResponseResult;
+                            _creteWallet.TAU = _outWallet.BalanceTAU.ToString();
+                            _creteWallet.BNB = _outWallet.BalanceBNB.ToString();
                             _creteWallet.IsCheck = 0;
 
                             var a = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
