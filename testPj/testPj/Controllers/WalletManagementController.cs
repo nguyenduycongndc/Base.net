@@ -82,6 +82,24 @@ namespace testPj.Controllers
             }
         }
         [HttpPost]
+        [Route("Load")]
+        public List<Object> Load([FromBody] SearchWalletModel searchWalletModel)
+        {
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                return _walletManagementService.GetAllWallet(searchWalletModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
+        }
+        [HttpPost]
         [Route("Create")]
         public async Task<bool> Create([FromBody] CreateWalletModel add)
         {

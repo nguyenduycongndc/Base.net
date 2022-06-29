@@ -153,7 +153,7 @@ namespace testPj.Services
                 if (data == null) return false;
                 data.DeletedAt = DateTime.Now;
                 data.DeletedBy = _userInfo.Id;
-                data.IsDeleted = 0;
+                data.IsDeleted = 1;
                 return await userRepo.DeleteUs(data);
             }
             catch (Exception ex)

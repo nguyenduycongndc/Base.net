@@ -1,4 +1,29 @@
-﻿function CreateWallet() {
+﻿function LoadWallet() {
+    var obj = {
+        'Id': parseInt($('#IdUser').val()),
+        'page_size': parseInt($("#cbPageSize").val()),
+        'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
+    }
+    callApi_userservice(
+        apiConfig.api.wallet.controller,
+        apiConfig.api.wallet.action.search.path,
+        apiConfig.api.wallet.action.search.method,
+        obj, 'fnLoadSuccess', 'msgError');
+}
+function fnLoadSuccess(rs) {
+    for (var i = 0; i < rs[0].length; i++) {
+        var input = {
+            'PrivateKey': rs[0][i].privateKey,
+            'AddressWallet': rs[0][i].address,
+        }
+        callApi_userservice(
+            apiConfig.api.wallet.controller,
+            apiConfig.api.wallet.action.inforWallet.path,
+            apiConfig.api.wallet.action.inforWallet.method,
+            input, "fnLoadSc", 'msgError');
+    }
+}
+function CreateWallet() {
     if ($('#PrivateKey').val() == "") {
         toastr.error("Private key không được để trống");
     } else if ($('#AddressWallet').val() == "") {
@@ -24,29 +49,8 @@ function fnSuccess(rs) {
         toastr.error("Thêm mới ví thất bại");
     }
 }
-//function successInforWallet(rs) {
-//    var objCreate = {
-//        'PrivateKey': $('#PrivateKey').val(),
-//        'AddressWallet': $('#AddressWallet').val(),
-//        'TAU': rs.TAU,
-//        'BNB': rs.BNB,
-//    }
-//    callApi_userservice(
-//        apiConfig.api.wallet.controller,
-//        apiConfig.api.wallet.action.add.path,
-//        apiConfig.api.wallet.action.add.method,
-//        objCreate, 'fnCreateSuccess', 'msgError');
-//}
-//function fnCreateSuccess(rs) {
-//    if (rs == true) {
-//        toastr.success("Thêm mới ví thành công");
-//        $('#modalCreateWallet').modal('hide');
-//        fnSearch(rs);
-//    } else {
-//        toastr.error("Thêm mới ví thất bại");
-//    }
-//}
-function onSearch() {
+function fnLoadSc() {
+//function onSearch() {
     fnSearch(true);
 }
 function fnSearch(rs) {
@@ -65,17 +69,15 @@ function fnSearch(rs) {
 }
 function fnSearchSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn[0].length > 0) {
-        var test = $('#CountWallet');
-        test.html('');
-        var htmltest = '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
             '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: blue">' + "Tổng số ví: " + rspn[1] + '</label>' +
-            //'<label for="walletlable1" class="col-sm-5 col-form-label">' + rspn[1] + '</label>' +
             '</div>' +
             '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
             '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: red">' + "Ví đã chọn: " + rspn[2] + '</label>' +
-            //'<label for="walletlable1" class="col-sm-5 col-form-label">' + rspn[2] + '</label>' +
             '</div>';
-        test.append(htmltest);
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#walletTable tbody');
         $("#walletTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -131,6 +133,15 @@ function fnSearchSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn[0] == "" || rspn[0] == null || rspn[0] == undefined) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
+            '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: blue">' + "Tổng số ví: " + rspn[1] + '</label>' +
+            '</div>' +
+            '<div class="col-xl-3 col-lg-3 col-md-3 col-3">' +
+            '<label for="walletlable1" class="col-sm-12 col-form-label" style="color: red">' + "Ví đã chọn: " + rspn[2] + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#walletTable tbody');
         $("#walletTable").dataTable().fnDestroy();
         tbBody.html('');

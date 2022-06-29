@@ -24,17 +24,18 @@ namespace testPj.Services
         {
             var qr = _walletManagementRepo.GetAll();
             List<WalletModel> lst = new List<WalletModel>();
-            var listWallet = qr.Where(x => (x.IsDeleted != 0) && x.users_id == searchWalletModel.Id).Select(x => new WalletModel()
+            var listWallet = qr.Where(x => (x.IsDeleted != 1) && x.users_id == searchWalletModel.Id).Select(x => new WalletModel()
             {
                 Id = x.Id,
                 Address = x.AddressWallet,
+                PrivateKey = x.PrivateKey,
                 TAU = x.TAU,
                 BNB = x.BNB,
                 IsCheck = x.IsCheck,
             }).OrderBy(x => x.Id).ToList();
             var count = listWallet.Count();
-            var countSelected = qr.Where(x => (x.IsDeleted != 0)).Count(a => a.IsCheck == 1);
-            var countNoSelected = qr.Where(x => (x.IsDeleted != 0)).Count(a => a.IsCheck == 0);
+            var countSelected = qr.Where(x => (x.IsDeleted != 1)).Count(a => a.IsCheck == 1);
+            var countNoSelected = qr.Where(x => (x.IsDeleted != 1)).Count(a => a.IsCheck == 0);
             lst = listWallet.Skip(searchWalletModel.StartNumber).Take(searchWalletModel.PageSize).ToList();
             var data = new List<Object> { lst, listWallet.Count(), countSelected, countNoSelected };
             return data;
@@ -46,8 +47,22 @@ namespace testPj.Services
                 var checkWallet = _walletManagementRepo.CheckWalletManagement(input.AddressWallet);
                 if (checkWallet.Count() > 0)
                 {
-                    _logger.LogError("Ví đã tồn tại");
-                    return false;
+                    WalletManagement wlup = new WalletManagement()
+                    {
+                        Id = checkWallet[0].Id,
+                        PrivateKey = input.PrivateKey.Trim(),
+                        AddressWallet = input.AddressWallet.Trim(),
+                        TAU = input.TAU,
+                        BNB = input.BNB,
+                        IsCheck = input.IsCheck,
+                        IsActive = 1,
+                        CreatedAt = DateTime.Now,
+                        CreatedBy = _userInfo.Id,
+                        users_id = _userInfo.Id,
+                    };
+                    //_logger.LogError("Ví đã tồn tại");
+                    //return false;
+                    return await _walletManagementRepo.UpdateWallet(wlup);
                 }
                 if (input.AddressWallet == "" || input.AddressWallet == null || input.PrivateKey == "" || input.PrivateKey == null)
                 {
@@ -120,7 +135,7 @@ namespace testPj.Services
                 if (data == null) return false;
                 data.DeletedAt = DateTime.Now;
                 data.DeletedBy = _userInfo.Id;
-                data.IsDeleted = 0;
+                data.IsDeleted = 1;
                 return await _walletManagementRepo.DeleteWalletRP(data);
             }
             catch (Exception ex)

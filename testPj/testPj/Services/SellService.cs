@@ -23,7 +23,7 @@ namespace testPj.Services
         {
             var qr = _sellRepo.GetAll();
             List<WalletModel> lst = new List<WalletModel>();
-            var listWallet = qr.Where(x => (x.IsDeleted != 0) && x.IsCheck == 1).Select(x => new WalletModel()
+            var listWallet = qr.Where(x => (x.IsDeleted != 1) && x.IsCheck == 1).Select(x => new WalletModel()
             {
                 Id = x.Id,
                 Address = x.AddressWallet,
@@ -38,7 +38,7 @@ namespace testPj.Services
         {
             var qr = _sellRepo.GetAll();
             List<WalletModel> lst = new List<WalletModel>();
-            var listWallet = qr.Where(x => (x.IsDeleted != 0) && x.IsCheck == 1 && (string.IsNullOrEmpty(q) || x.AddressWallet.Contains(q) || x.AddressWallet.Contains(q))).Select(x => new WalletModel()
+            var listWallet = qr.Where(x => (x.IsDeleted != 1) && x.IsCheck == 1 && (string.IsNullOrEmpty(q) || x.AddressWallet.Contains(q) || x.AddressWallet.Contains(q))).Select(x => new WalletModel()
             {
                 Id = x.Id,
                 Address = x.AddressWallet,

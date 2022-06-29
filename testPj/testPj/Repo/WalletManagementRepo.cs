@@ -65,14 +65,14 @@ namespace testPj.Repo
             updt.IsActive = 0;
             updt.DeletedAt = walletManagement.DeletedAt;
             updt.DeletedBy = walletManagement.DeletedBy;
-            updt.IsDeleted = 0;
+            updt.IsDeleted = 1;
             await _context.SaveChangesAsync();
             return true;
         }
         public List<WalletManagement> CheckWalletManagement(string AddressWallet)
         {
             var query = (from x in _context.WalletManagements
-                         where x.AddressWallet.Equals(AddressWallet) &&  x.IsDeleted != 0 
+                         where x.AddressWallet.Equals(AddressWallet) &&  x.IsDeleted != 1 
                          select new WalletManagement
                          {
                              Id = x.Id,
@@ -86,6 +86,20 @@ namespace testPj.Repo
                          }).ToList();
 
             return query;
+        }
+        public async Task<bool> UpdateWallet(WalletManagement walletManagement)
+        {
+            var updt = await _context.WalletManagements.FindAsync(walletManagement.Id);
+            updt.Id = walletManagement.Id;
+            updt.PrivateKey = walletManagement.PrivateKey;
+            updt.AddressWallet = walletManagement.AddressWallet;
+            updt.BNB = walletManagement.BNB;
+            updt.TAU = walletManagement.TAU;
+            updt.IsActive = walletManagement.IsActive;
+            updt.ModifiedAt = walletManagement.ModifiedAt;
+            updt.ModifiedBy = walletManagement.ModifiedBy;
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

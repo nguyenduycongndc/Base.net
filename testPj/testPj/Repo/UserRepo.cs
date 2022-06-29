@@ -65,7 +65,7 @@ namespace testPj.Repo
             updt.IsActive = 0;
             updt.DeletedAt = user.DeletedAt;
             updt.DeletedBy = user.DeletedBy;
-            updt.IsDeleted = 0;
+            updt.IsDeleted = 1;
             await context.SaveChangesAsync();
             return true;
         }

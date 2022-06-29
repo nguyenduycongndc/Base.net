@@ -118,35 +118,42 @@ namespace testPj.Controllers
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     string authInfo = "TJTpWG4Q9YdlE4Zh";
                     client.DefaultRequestHeaders.TryAddWithoutValidation("x-api-key", authInfo);
-                    for (int i = 0; i < WalletModel.Count(); i++)
+                    //for (int i = 0; i < WalletModel.Count(); i++)
+                    //{
+                    for (int j = 0; j < outPut.Data.Count(); j++)
                     {
-                        for (int j = 0; j < outPut.Data.Count(); j++)
+                        Random random = new Random();
+
+                        int index = random.Next(WalletModel.Count());
+                        #region Consume GET method  
+                        HttpResponseMessage response = await client.GetAsync("/api/Buy/Hero?wallet=" + WalletModel[index].Address + "&privateKey=" + WalletModel[index].PrivateKey + "&tokenId=" + outPut.Data[j].tokenId);
+                        //call api thêm vào bảng lịch sử thống kê
+                        if (response.IsSuccessStatusCode)
                         {
-                            #region Consume GET method  
-                            HttpResponseMessage response = await client.GetAsync("/api/Buy/Hero?wallet=" + WalletModel[i].Address + "&privateKey=" + WalletModel[i].PrivateKey + "&tokenId=" + outPut.Data[j].tokenId);
-                            if (response.IsSuccessStatusCode)
+                            var httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
+                            string deleteCh = httpResponseResult.Remove(0, 1);
+                            string deleteChx = deleteCh.Remove(deleteCh.Length - 1, 1);
+                            if (string.IsNullOrEmpty(httpResponseResult))
                             {
-                                string httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
-                                if (string.IsNullOrEmpty(httpResponseResult))
-                                {
-                                    return null;
-                                }
-                                else
-                                {
-                                    //_creteWallet.PrivateKey = createWalletModel.PrivateKey;
-                                    //_creteWallet.AddressWallet = createWalletModel.AddressWallet;
-                                    //_creteWallet.TAU = "";
-                                    //_creteWallet.BNB = httpResponseResult;
-                                    //_creteWallet.IsCheck = 0;
-
-                                    //var a = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
-                                    //if (!a) return null;
-
-                                }
+                                return null;
                             }
-                            #endregion
+                            else
+                            {
+                                //_creteWallet.PrivateKey = createWalletModel.PrivateKey;
+                                //_creteWallet.AddressWallet = createWalletModel.AddressWallet;
+                                //_creteWallet.TAU = "";
+                                //_creteWallet.BNB = httpResponseResult;
+                                //_creteWallet.IsCheck = 0;
+
+                                //var a = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
+                                //if (!a) return null;
+
+                            }
                         }
+                        #endregion
+                        //}
                     }
+                    //}
                 }
             }
             catch (Exception ex)
