@@ -250,56 +250,85 @@ namespace testPj.Models
         public int skillActiveId { get; set; }
         public int skillPassiveId { get; set; }
         public string ownerId { get; set; }
-        public int? ownerIdOffer { get; set; }
+        public string ownerIdOffer { get; set; }
         public string name { get; set; }
         public string sex { get; set; }
-        public int? view { get; set; }
+        public string view { get; set; }
         public int level { get; set; }
-        public int percentLevelUp { get; set; }
+        public double percentLevelUp { get; set; }
         public string eyes { get; set; }
         public string hair { get; set; }
         public string tattoo { get; set; }
-        public int attack { get; set; }
-        public int armor { get; set; }
-        public int hp { get; set; }
-        public int speed { get; set; }
+        public double attack { get; set; }
+        public double armor { get; set; }
+        public double hp { get; set; }
+        public double speed { get; set; }
         public int wings { get; set; }
         [JsonPropertyName("base")]
         public int Base { get; set; }
         public int horn { get; set; }
         public int armorItem { get; set; }
-        public int pricesBNB { get; set; }
-        public int pricesUSD { get; set; }
+        public double pricesBNB { get; set; }
+        public double pricesUSD { get; set; }
         public bool isSelling { get; set; }
         public int star { get; set; }
         public int breedCount { get; set; }
         public int spiritId { get; set; }
-        public int? lastBreedingTime { get; set; }
+        public DateTime? lastBreedingTime { get; set; }
         public int momId { get; set; }
         public int dadId { get; set; }
         public int exp { get; set; }
-        public int critDame { get; set; }
-        public int critRate { get; set; }
-        public int evasion { get; set; }
-        public int energy { get; set; }
-        public int energyMax { get; set; }
+        public double critDame { get; set; }
+        public double critRate { get; set; }
+        public double evasion { get; set; }
+        public double energy { get; set; }
+        public double energyMax { get; set; }
         public int? levelCapCurentStar { get; set; }
         public int? levelCapNextStar { get; set; }
         public int? upgradeStarUSDFee { get; set; }
-        public int? upgradeStarGoldFee { get; set; }
-        public int? listSkillPassiveDto { get; set; }
-        public int? listSkillActiveDto { get; set; }
-        public int baseHp { get; set; }
-        public int baseAttack { get; set; }
-        public int baseArmor { get; set; }
-        public int baseSpeed { get; set; }
-        public int? ownerRent { get; set; }
-        public int feeRent { get; set; }
-        public int hourEndRent { get; set; }
+        public double? upgradeStarGoldFee { get; set; }
+        public List<listSkillPassiveDto> listSkillPassiveDto { get; set; }
+        public List<listSkillActiveDto> listSkillActiveDto { get; set; }
+        public double baseHp { get; set; }
+        public double baseAttack { get; set; }
+        public double baseArmor { get; set; }
+        public double baseSpeed { get; set; }
+        public string ownerRent { get; set; }
+        public double feeRent { get; set; }
+        public double hourEndRent { get; set; }
         public string status { get; set; }
-        public int? timeEndRent { get; set; }
-        public int? timeStartRent { get; set; }
-        public int? lockTime { get; set; }
+        public string timeEndRent { get; set; }
+        public string timeStartRent { get; set; }
+        public string lockTime { get; set; }
+    }
+    public class listSkillPassiveDto
+    {
+        public int id { get; set; }
+        public string elemental { get; set; }
+        public string rarity { get; set; }
+        public string type { get; set; }
+        public double percent { get; set; }
+        public int effectivePeriod { get; set; }
+        public string detailSkill { get; set; }
+        public string attachedEffect { get; set; }
+        public double percentEffect { get; set; }
+        public string optionExtra { get; set; }
+        public string description { get; set; }
+    }
+    public class listSkillActiveDto
+    {
+        public int id { get; set; }
+        public string roleId { get; set; }
+        public string rarity { get; set; }
+        public string type { get; set; }
+        public double percent { get; set; }
+        public int effectivePeriod { get; set; }
+        public string detailSkill { get; set; }
+        public string attachedEffect { get; set; }
+        public double percentEffect { get; set; }
+        public string optionExtra { get; set; }
+        public string description { get; set; }
+        public string skillId { get; set; }
     }
     #endregion
 }
