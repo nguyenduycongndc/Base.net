@@ -90,3 +90,7 @@
 2022-06-30 10:08:15.8687|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
 2022-06-30 10:08:55.6502|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
 2022-06-30 10:09:38.0409|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-30 11:09:45.2449|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-06-30 11:10:24.0138|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-30 11:10:57.0095|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-06-30 11:11:10.1802|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!

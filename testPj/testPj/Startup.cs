@@ -16,6 +16,10 @@ using testPj.Repo;
 using testPj.Repo.Interface;
 using testPj.Services;
 using testPj.Services.Interface;
+using testPj.Tool;
+using testPj.Tool.ControllerTool;
+using testPj.Tool.ServicerTool;
+using testPj.Tool.ServicerTool.InterfaceBuyNFT;
 
 namespace testPj
 {
@@ -57,11 +61,18 @@ namespace testPj
 
             services.AddScoped<ISellService, SellService>();
             services.AddScoped<ISellRepo, SellRepo>();
+
+            services.AddScoped<IBuyItemsService, BuyItemsService>();
+            services.AddScoped<IBuyItemRepo, BuyItemRepo>();
+
+            services.AddScoped<IBuyNFT, BuyNFTServive>();
             //services.AddScoped<ISellService, SellService>();
             //services.AddScoped<ISellRepo, SellRepo>();
 
             services.AddSession();
 
+            services.AddSingleton<IWorker, Worker>();
+            services.AddHostedService<DerivedBackgroundPrinter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

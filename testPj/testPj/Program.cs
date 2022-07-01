@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using testPj.Tool;
 
 namespace testPj
 {
@@ -42,7 +44,12 @@ namespace testPj
                     logging.SetMinimumLevel(LogLevel.Trace);
                 })
                 .UseNLog() // NLog: Setup NLog for Dependency injection
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder => 
+                { 
+                    webBuilder.UseStartup<Startup>(); 
+                })
+                //.ConfigureServices(servicers => servicers.AddHostedService<DerivedBackgroundPrinter>())
+                ;
         }
     }
 }

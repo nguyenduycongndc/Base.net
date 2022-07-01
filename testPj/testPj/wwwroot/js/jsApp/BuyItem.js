@@ -1397,29 +1397,29 @@ function Start() {
         Egg,
         Hero,
     }
-    callApi_auto(
+    callApi_userservice(
         apiConfig.api.buyitem.controller,
-        apiConfig.api.buyitem.action.listegghero.path,
-        apiConfig.api.buyitem.action.listegghero.method,
+        apiConfig.api.buyitem.action.savedatabuy.path,
+        apiConfig.api.buyitem.action.savedatabuy.method,
         input, 'fnSuccess', 'msgError');
 }
-function callApi_auto(controller, action, method, data, callbackSuccess, callbackError) {
-    $.ajax({
-        type: method,
-        url: apiConfig.api.host_user_service + controller + action,
-        contentType: "application/json; charset=utf-8",
-        data: (method == 'GET' ? data : JSON.stringify(data)),
-        success: function (result) {
-            if (window[callbackSuccess] != undefined)
-                window[callbackSuccess](result);
-            setTimeout(function () { Start() }, 5000);
-        },
-        error: function (request, status, error) {
-            if (window[callbackError] != undefined)
-                window[callbackError](request, status, error);
-        }
-    });
-};
+//function callApi_auto(controller, action, method, data, callbackSuccess, callbackError) {
+//    $.ajax({
+//        type: method,
+//        url: apiConfig.api.host_user_service + controller + action,
+//        contentType: "application/json; charset=utf-8",
+//        data: (method == 'GET' ? data : JSON.stringify(data)),
+//        success: function (result) {
+//            if (window[callbackSuccess] != undefined)
+//                window[callbackSuccess](result);
+//            setTimeout(function () { Start() }, 5000);
+//        },
+//        error: function (request, status, error) {
+//            if (window[callbackError] != undefined)
+//                window[callbackError](request, status, error);
+//        }
+//    });
+//};
 function fnSuccess(res) {
     var xxxx = res;
     var x = "";

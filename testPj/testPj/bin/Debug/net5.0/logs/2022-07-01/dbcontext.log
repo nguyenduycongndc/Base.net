@@ -1,0 +1,30 @@
+2022-07-01 11:29:14.0450|ERROR|Failed executing DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `ROLES` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` longtext CHARACTER SET utf8mb4 NULL,
+    `description` longtext CHARACTER SET utf8mb4 NULL,
+    `is_active` tinyint(1) NULL,
+    `is_deleted` tinyint(1) NULL,
+    `created_at` datetime(6) NULL,
+    `created_by` int NULL,
+    `modified_at` datetime(6) NULL,
+    `modified_by` int NULL,
+    `deleted_at` datetime(6) NULL,
+    `deleted_by` int NULL,
+    CONSTRAINT `PK_ROLES` PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4;
+2022-07-01 11:30:17.4015|ERROR|Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `ROLES` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` longtext CHARACTER SET utf8mb4 NULL,
+    `description` longtext CHARACTER SET utf8mb4 NULL,
+    `is_active` tinyint(1) NULL,
+    `is_deleted` tinyint(1) NULL,
+    `created_at` datetime(6) NULL,
+    `created_by` int NULL,
+    `modified_at` datetime(6) NULL,
+    `modified_by` int NULL,
+    `deleted_at` datetime(6) NULL,
+    `deleted_by` int NULL,
+    CONSTRAINT `PK_ROLES` PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4;

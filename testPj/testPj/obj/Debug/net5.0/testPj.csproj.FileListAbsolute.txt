@@ -469,3 +469,5 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\ref\testPj.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.pdb
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.genruntimeconfig.cache
+C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Nancy.dll
