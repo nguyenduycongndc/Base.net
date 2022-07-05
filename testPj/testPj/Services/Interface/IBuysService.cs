@@ -6,10 +6,10 @@ using testPj.Models;
 
 namespace testPj.Services.Interface
 {
-    public interface IBuyItemsService
+    public interface IBuysService
     {
         public Task<bool> CreateData(InputBuyModel inputBuyModel, CurrentUserModel _userInfo);
-        List<BuyItemModel> GetAllListBuy();
+        List<BuysModel> GetAllListBuy();
         public Task<bool> DeleteListBuy(int Id);
     }
 }

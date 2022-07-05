@@ -444,10 +444,8 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\scopedcss\bundle\
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.TagHelpers.input.cache
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.TagHelpers.output.cache
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.RazorCoreGenerate.cache
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\BuyItems\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
-C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\SellItems\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
@@ -471,3 +469,5 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.pdb
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\testPj.genruntimeconfig.cache
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Nancy.dll
+C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Buys\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Sells\Index.cshtml.g.cs

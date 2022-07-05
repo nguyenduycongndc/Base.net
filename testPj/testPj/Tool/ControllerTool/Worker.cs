@@ -21,37 +21,38 @@ namespace testPj.Tool.ControllerTool
             _logger = logger;
             _serviceScopeFactory = serviceScopeFactory;
         }
-        
+
         public async Task DoWork(CancellationToken cancellationToken)
         {
-            var test = new List<BuyItemModel>();
+            var listData = new List<BuysModel>();
+
             using (var scope = _serviceScopeFactory.CreateScope())
             {
-                var buyItemsService = scope.ServiceProvider.GetService<IBuyItemsService>();
+                var buysService = scope.ServiceProvider.GetService<IBuysService>();
                 var buyNFT = scope.ServiceProvider.GetService<IBuyNFT>();
-                if (buyItemsService != null)
-                {
-                    test = buyItemsService.GetAllListBuy();
-                }
+               
                 if (buyNFT != null)
                 {
-                    var result = JsonConvert.DeserializeObject<InputBuyModel>(test[0].RequestBody);
                     while (!cancellationToken.IsCancellationRequested)
                     {
-                        //Interlocked.Increment(ref number);
+                        if (buysService != null)
+                        {
+                            listData = buysService.GetAllListBuy();
+                        }
+                        var result = new InputBuyModel();
+                        if (listData.Count() != 0)
+                        {
+                            result = JsonConvert.DeserializeObject<InputBuyModel>(listData[0].RequestBody);
+                        }
+                        else
+                        {
+                            result = null;
+                        }
                         var tetNFT = buyNFT.GetDataHero(result);
-                        _logger.LogInformation($"aaaa:{test[0].RequestBody}");
                         await Task.Delay(1000 * 5);
                     }
                 }
             }
-            //while (!cancellationToken.IsCancellationRequested)
-            //{
-            //    //Interlocked.Increment(ref number);
-                
-            //    _logger.LogInformation($"aaaa:{test[0].RequestBody}");
-            //    await Task.Delay(1000 * 5);
-            //}
         }
     }
 }

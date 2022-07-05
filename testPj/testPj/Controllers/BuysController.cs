@@ -14,23 +14,26 @@ using System.Threading.Tasks;
 using testPj.Attributes;
 using testPj.Models;
 using testPj.Services.Interface;
+using testPj.Tool.ServicerTool.InterfaceBuyNFT;
 
 namespace testPj.Controllers
 {
     [Route("api/[controller]")]
     //[ApiController]
     [BaseAuthorize]
-    public class BuyItemsController : Controller
+    public class BuysController : Controller
     {
-        private readonly ILogger<BuyItemsController> _logger;
+        private readonly ILogger<BuysController> _logger;
         //private readonly ISellService _sellService;
-        private readonly IBuyItemsService _buyItemsService;
+        private readonly IBuysService _buyItemsService;
+        private readonly IBuyNFT _buyNFT;
 
-        public BuyItemsController(ILogger<BuyItemsController> logger/*, ISellService sellService*/, IBuyItemsService buyItemsService)
+        public BuysController(ILogger<BuysController> logger/*, ISellService sellService*/, IBuysService buyItemsService, IBuyNFT buyNFT)
         {
             _logger = logger;
             //_sellService = sellService;
             _buyItemsService = buyItemsService;
+            _buyNFT = buyNFT;
         }
         [HttpGet]
         public IActionResult Index()
@@ -41,7 +44,6 @@ namespace testPj.Controllers
             }
             return View();
         }
-        public static string BRIGDE_CHECKSUM_KEY { get; } = "R026jm8BNZdUyMYria";
         [HttpPost]
         [Route("SaveDataBuy")]
         public async Task<bool> SaveDataBuy([FromBody] InputBuyModel inputBuyModel)
@@ -53,6 +55,7 @@ namespace testPj.Controllers
                 {
                     return false;
                 }
+                _buyNFT.GetDataHero(inputBuyModel);
                 return await _buyItemsService.CreateData(inputBuyModel, _userInfo);
             }
             catch (Exception ex)

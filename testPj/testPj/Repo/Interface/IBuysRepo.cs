@@ -6,7 +6,7 @@ using testPj.Data;
 
 namespace testPj.Repo.Interface
 {
-    public interface IBuyItemRepo
+    public interface IBuysRepo
     {
         Task<bool> CreateDataRepo(InputToolBuy inputToolBuy);
         List<InputToolBuy> GetAll();

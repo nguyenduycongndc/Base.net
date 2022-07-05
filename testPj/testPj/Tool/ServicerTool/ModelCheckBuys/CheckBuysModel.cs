@@ -1,71 +1,35 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
-namespace testPj.Models
+namespace testPj.Tool.ServicerTool.CheckBuys.ModelCheckBuys
 {
-    public class CreateModel
+    public class CheckBuysModel
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public int RoleId { get; set; }
-    }
-    public class CreateWalletModel
-    {
-        public string PrivateKey { get; set; }
-        public string AddressWallet { get; set; }
-        public string TAU { get; set; }
-        public string BNB { get; set; }
-        public int IsCheck { get; set; }
-    }
-    public class CheckedWalletModel
-    {
-        public int Id { get; set; }
-        public int Checked { get; set; }
+        public int heroId { get; set; }
+        public string transactionId { get; set; }
+        public string ownerId { get; set; }
     }
 
-    public class InputWalletModel
-    {
-        public string PrivateKey { get; set; }
-        public string AddressWallet { get; set; }
-        public int IsCheck { get; set; }
-    }
-    public class InputBuyModel
-    {
-        public Egg Egg { get; set; }
-        public Hero Hero { get; set; }
-    }
-    public class Egg
-    {
-
-    }
-    #region
-    public class Hero
-    {
-        //public string checksum { get; set; }
-        public List<Fillter> filters { get; set; }
-    }
-    public class Fillter
-    {
-        public int rarity { get; set; }
-        public int sex { get; set; }//duc, cai
-        public int breed { get; set; }//0-5
-        public int priceUSD { get; set; }//tien
-
-    }
-    #endregion
-    #region DataRs
-    public class ModelX
+    public class DtCheckBuysModel
     {
         public string checksum { get; set; }
         public long unixTime { get; set; }
-        public List<Fillter> filters { get; set; }
+        public int heroId { get; set; }
+        public string transactionId { get; set; }
+        public string ownerId { get; set; }
     }
-    public class OutPut
+    public class ResultCheckBuyModel
     {
-        public List<DataOut> Data { get; set; }
+        public int code { get; set; }
+        public string text { get; set; }
+        public string msg { get; set; }
+        public string desc { get; set; }
+        public ResultDataCheckBuyModel data { get; set; }
     }
-    public class DataOut
+    public class ResultDataCheckBuyModel
     {
         public int id { get; set; }
         public int ticketId { get; set; }
@@ -96,6 +60,7 @@ namespace testPj.Models
         [JsonPropertyName("base")]
         public int Base { get; set; }
         public int horn { get; set; }
+        public int pet { get; set; }
         public int armorItem { get; set; }
         public double pricesBNB { get; set; }
         public double pricesUSD { get; set; }
@@ -116,8 +81,8 @@ namespace testPj.Models
         public int? levelCapNextStar { get; set; }
         public int? upgradeStarUSDFee { get; set; }
         public double? upgradeStarGoldFee { get; set; }
-        public List<listSkillPassiveDto> listSkillPassiveDto { get; set; }
-        public List<listSkillActiveDto> listSkillActiveDto { get; set; }
+        public List<ListSkillPassiveDto> listSkillPassiveDto { get; set; }
+        public List<ListSkillActiveDto> listSkillActiveDto { get; set; }
         public double baseHp { get; set; }
         public double baseAttack { get; set; }
         public double baseArmor { get; set; }
@@ -126,11 +91,11 @@ namespace testPj.Models
         public double feeRent { get; set; }
         public double hourEndRent { get; set; }
         public string status { get; set; }
-        public string timeEndRent { get; set; }
-        public string timeStartRent { get; set; }
-        public string lockTime { get; set; }
+        public DateTime? timeEndRent { get; set; }
+        public DateTime? timeStartRent { get; set; }
+        public DateTime? lockTime { get; set; }
     }
-    public class listSkillPassiveDto
+    public class ListSkillPassiveDto
     {
         public int id { get; set; }
         public string elemental { get; set; }
@@ -143,8 +108,9 @@ namespace testPj.Models
         public double percentEffect { get; set; }
         public string optionExtra { get; set; }
         public string description { get; set; }
+
     }
-    public class listSkillActiveDto
+    public class ListSkillActiveDto
     {
         public int id { get; set; }
         public string roleId { get; set; }
@@ -158,6 +124,6 @@ namespace testPj.Models
         public string optionExtra { get; set; }
         public string description { get; set; }
         public string skillId { get; set; }
+
     }
-    #endregion
 }

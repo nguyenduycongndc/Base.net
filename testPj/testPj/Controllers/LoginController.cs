@@ -21,12 +21,12 @@ namespace testPj.Controllers
     public class LoginController : Controller
     {
         private readonly ILogger<LoginController> _logger;
-        private readonly ILoginService loginServices;
+        private readonly ILoginService _loginServices;
 
         public LoginController(ILogger<LoginController> logger, ILoginService loginServices)
         {
             _logger = logger;
-            this.loginServices = loginServices;
+            _loginServices = loginServices;
         }
 
         public IActionResult Index()
@@ -39,7 +39,7 @@ namespace testPj.Controllers
         //[Route("LoginUser")]
         public LoginModel LoginUser([FromBody] InputLoginModel inputModel)
         {
-            var _login = loginServices.Login(inputModel);
+            var _login = _loginServices.Login(inputModel);
             if (_login != null)
             {
                 HttpContext.Session.SetString("SessionToken", _login.Token);

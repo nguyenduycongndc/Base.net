@@ -14,11 +14,11 @@ namespace testPj.Controllers
     [Route("api/[controller]")]
     //[ApiController]
     [BaseAuthorize]
-    public class SellItemsController : Controller
+    public class SellsController : Controller
     {
-        private readonly ILogger<SellItemsController> _logger;
-        private readonly ISellService _sellService;
-        public SellItemsController(ILogger<SellItemsController> logger, ISellService sellService)
+        private readonly ILogger<SellsController> _logger;
+        private readonly ISellsService _sellService;
+        public SellsController(ILogger<SellsController> logger, ISellsService sellService)
         {
             _logger = logger;
             _sellService = sellService;
@@ -31,6 +31,22 @@ namespace testPj.Controllers
                 return null;
             }
             return View();
+        }
+        public async Task<bool> Create(BuysActiveModel buysActiveModel)
+        {
+            try
+            {
+                //if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                //{
+                //    return false;
+                //}
+                return await _sellService.CreateHistory(buysActiveModel);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
         }
         [HttpGet]
         [Route("SelectWallet")]
@@ -62,6 +78,24 @@ namespace testPj.Controllers
                     return null;
                 }
                 return _sellService.GetAllWalletDrop(q);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
+        }
+        [HttpPost]
+        [Route("Search")]
+        public List<Object> Search([FromBody] SearchSellModel searchSellModel)
+        {
+            try
+            {
+                if (HttpContext.Items["UserInfo"] is not CurrentUserModel _userInfo)
+                {
+                    return null;
+                }
+                return _sellService.GetDataSell(searchSellModel);
             }
             catch (Exception ex)
             {

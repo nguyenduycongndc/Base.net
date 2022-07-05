@@ -208,8 +208,8 @@ namespace testPj.Controllers
                             _creteWallet.BNB = _outWallet.BalanceBNB.ToString();
                             _creteWallet.IsCheck = 0;
 
-                            var a = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
-                            if (!a) return null;
+                            var cre = await _walletManagementService.CreateWallet(_creteWallet, _userInfo);
+                            if (!cre) return null;
 
                         }
                     }

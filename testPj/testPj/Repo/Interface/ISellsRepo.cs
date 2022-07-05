@@ -6,8 +6,11 @@ using testPj.Data;
 
 namespace testPj.Repo.Interface
 {
-    public interface ISellRepo
+    public interface ISellsRepo
     {
         List<WalletManagement> GetAll();
+        Task<bool> CreateTransactionHistory(TransactionHistory transactionHistory);
+        List<TransactionHistory> GetAllSell();
+
     }
 }

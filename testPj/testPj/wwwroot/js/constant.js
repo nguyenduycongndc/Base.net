@@ -76,8 +76,8 @@ var apiConfig = {
                 }
             }
         },
-        "buyitem": {
-            "controller": "/api/BuyItems",
+        "buys": {
+            "controller": "/api/Buys",
             "action": {
                 "savedatabuy": {
                     "method": "POST",
@@ -85,8 +85,8 @@ var apiConfig = {
                 }
             }
         },
-        "sellitem": {
-            "controller": "/api/SellItems",
+        "sells": {
+            "controller": "/api/Sells",
             "action": {
                 "search": {
                     //function support get items by search condition

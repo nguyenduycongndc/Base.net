@@ -59,11 +59,11 @@ namespace testPj
             services.AddScoped<IWalletManagementService, WalletManagementService>();
             services.AddScoped<IWalletManagementRepo, WalletManagementRepo>();
 
-            services.AddScoped<ISellService, SellService>();
-            services.AddScoped<ISellRepo, SellRepo>();
+            services.AddScoped<ISellsService, SellsService>();
+            services.AddScoped<ISellsRepo, SellsRepo>();
 
-            services.AddScoped<IBuyItemsService, BuyItemsService>();
-            services.AddScoped<IBuyItemRepo, BuyItemRepo>();
+            services.AddScoped<IBuysService, BuysService>();
+            services.AddScoped<IBuysRepo, BuysRepo>();
 
             services.AddScoped<IBuyNFT, BuyNFTServive>();
             //services.AddScoped<ISellService, SellService>();

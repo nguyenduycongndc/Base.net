@@ -207,6 +207,9 @@ function Start() {
                 return;
             }
         }
+    } else if ((MaleCommonHero == true && CommonHero != true) || (FemaleCommonHero == true && CommonHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
     }
 
     //Uncommonhero
@@ -320,7 +323,11 @@ function Start() {
                 return;
             }
         }
+    } else if ((MaleUnCommonHero == true && UnCommonHero != true) || (FemaleUnCommonHero == true && UnCommonHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
     }
+    
 
     //Rarehero
     //MaleRareHero
@@ -433,6 +440,9 @@ function Start() {
                 return;
             }
         }
+    }else if ((MaleEpicHero == true && EpicHero != true) || (FemaleEpicHero == true && EpicHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
     }
     
     //Epichero
@@ -546,7 +556,10 @@ function Start() {
                 return;
             }
         }
-    } 
+    } else if ((MaleEpicHero == true && EpicHero != true) || (FemaleEpicHero == true && EpicHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
+    }
 
     //Lengendhero
     //MaleLengendHero
@@ -659,6 +672,9 @@ function Start() {
                 return;
             }
         }
+    } else if ((MaleLengendHero == true && LengendHero != true) || (FemaleLengendHero == true && LengendHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
     }
     
 
@@ -773,6 +789,9 @@ function Start() {
                 return;
             }
         }
+    } else if ((MaleMythicHero == true && MythicHero != true) || (FemaleMythicHero == true && MythicHero != true)) {
+        toastr.error("Vui lòng chọn loại hero");
+        return;
     }
 
     //var MoneyMaleCommonHero = {
@@ -1398,9 +1417,9 @@ function Start() {
         Hero,
     }
     callApi_userservice(
-        apiConfig.api.buyitem.controller,
-        apiConfig.api.buyitem.action.savedatabuy.path,
-        apiConfig.api.buyitem.action.savedatabuy.method,
+        apiConfig.api.buys.controller,
+        apiConfig.api.buys.action.savedatabuy.path,
+        apiConfig.api.buys.action.savedatabuy.method,
         input, 'fnSuccess', 'msgError');
 }
 //function callApi_auto(controller, action, method, data, callbackSuccess, callbackError) {

@@ -1,0 +1,705 @@
+2022-07-05 09:03:30.0876|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:06:20.9832|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:06:21.5742|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:06:37.4157|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:06:54.4881|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:06:59.5228|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:06:59.9469|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:07:04.5368|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:07:09.5371|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:07:10.9450|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:07:11.0705|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:07:11.0994|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:08:50.1426|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:08:55.1434|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:09:00.1830|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:09:02.9144|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:09:03.0594|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:10:06.8991|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:10:09.3870|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:10:09.3870|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:11:13.5878|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:17.5695|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:18.7291|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:23.7537|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:28.7703|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:33.7683|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:38.8138|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:11:39.3431|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:11:39.5077|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:12:33.9780|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:12:39.0063|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:12:44.0224|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:12:49.0467|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:12:53.3359|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:12:53.6543|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:13:17.7931|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:13:42.7816|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:13:47.3131|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:14:32.7574|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:14:32.9711|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:15:18.0700|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:15:18.3450|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:16:25.0868|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:16:25.3154|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:16:51.6232|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:16:52.1227|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:18:00.4532|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:18:00.4785|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:18:19.8598|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:18:19.9131|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:18:47.1032|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:18:47.1266|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:19:47.0901|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:21:44.1842|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:21:44.2472|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:21:44.2724|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:21:46.2768|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:21:48.8833|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:21:49.2884|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:21:54.3017|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:21:59.3206|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:22:05.9451|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:22:25.8724|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:22:25.9482|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:22:42.2170|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:22:42.2418|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:22:42.3393|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:23:21.5982|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:23:21.9805|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:23:23.7937|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:23:26.4996|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:23:28.8100|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:23:31.4885|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:23:36.7724|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:23:38.3839|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:23:44.4190|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `w`.`id`, `w`.`address_wallet`, `w`.`BNB`, `w`.`created_at`, `w`.`created_by`, `w`.`deleted_at`, `w`.`deleted_by`, `w`.`is_active`, `w`.`is_check`, `w`.`is_deleted`, `w`.`modified_at`, `w`.`modified_by`, `w`.`private _key`, `w`.`TAU`, `w`.`users_id`
+FROM `WALLET_MANAGEMENT` AS `w`
+2022-07-05 09:23:44.4190|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'MySqlConnection'.
+   at MySqlConnector.MySqlConnection.VerifyNotDisposed() in /_/src/MySqlConnector/MySqlConnection.cs:line 938
+   at MySqlConnector.MySqlConnection.get_Session() in /_/src/MySqlConnector/MySqlConnection.cs:line 690
+   at MySqlConnector.Core.ICancellableCommandExtensions.ResetCommandTimeout(ICancellableCommand command) in /_/src/MySqlConnector/Core/ICancellableCommand.cs:line 82
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 317
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in /_/src/MySqlConnector/MySqlCommand.cs:line 261
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:23:44.4644|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed object.
+Object name: 'MySqlConnection'.
+2022-07-05 09:24:00.9051|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:24:00.9294|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:24:01.0281|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:24:04.3825|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:24:19.5103|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 09:24:55.8078|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:24:55.9241|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:24:57.7750|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:25:00.9276|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:00.9301|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:25:05.9344|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:10.9446|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:15.9432|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:20.9722|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:25.9717|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:27.9143|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:25:52.7807|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:25:52.8908|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:25:57.9147|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:26:01.1708|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:26:02.9619|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:26:06.6324|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:26:07.9762|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:26:12.9710|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:26:14.6026|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:26:43.7907|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 09:26:43.8188|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 09:26:43.9454|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:33:37.9654|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:33:51.2027|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:33:56.2240|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:00.7602|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:34:01.2466|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:06.2701|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:11.2704|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:16.2866|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:21.3143|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:26.3272|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:31.3493|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:36.3460|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:34:41.3742|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:15.8821|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:15.9502|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:37:17.9318|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:20.5259|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:20.6174|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:20.6649|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:20.6814|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:20.7366|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:21.3987|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:21.3987|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:23.4928|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:23.5865|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:25.7733|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:27.4618|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:28.7118|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:28.7891|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:30.2104|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:30.8073|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:34.2264|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:37:35.8375|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:40.8558|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:45.8944|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:50.9239|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:37:55.9751|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:38:00.9745|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:38:06.0107|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:38:11.0194|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:29.9744|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:30.4508|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:42:31.7896|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:42:34.3055|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:42:34.8560|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:39.8794|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:44.8883|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:49.9020|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:54.9150|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:42:59.9329|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:09.1242|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:09.1989|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 09:43:12.5264|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:13.9928|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:15.8861|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:16.7437|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:18.5084|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:18.9890|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:19.7929|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:21.2608|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:23.4458|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:24.0274|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:24.3532|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:29.0395|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:29.9938|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:30.1024|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:30.1344|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:30.1503|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:30.7737|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:30.7737|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:33.7578|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 09:43:34.0531|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:39.0736|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:44.0988|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:49.1321|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 09:43:54.1589|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:07:59.9743|ERROR|testPj.Program|Stopped program because of exception
+2022-07-05 10:08:29.5991|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:08:29.9956|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:08:31.8216|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:08:34.4578|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:08:35.8051|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:08:39.4559|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:08:42.3826|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:08:42.6016|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.ObjectDisposedException: Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.InitializeStateManager(Boolean standAlone)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 10:08:42.6384|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 10:08:59.5475|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:04.5710|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:09.5831|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:14.5985|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:19.6391|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:24.6220|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:29.6543|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:34.6588|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:39.6809|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:44.7191|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:49.7427|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:54.7574|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:09:59.7591|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:04.7808|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:10.8004|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:14.8063|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:19.8142|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:24.8228|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:29.8650|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:34.8853|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:39.9329|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:44.9456|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:49.9915|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:10:54.9879|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:00.0146|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:05.0331|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:10.0668|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:15.0844|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:20.1014|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:25.1129|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:30.1481|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:35.1400|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:40.1869|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:45.2181|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:50.2276|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:11:55.2668|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:00.2516|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:05.2665|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:10.2951|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:15.2905|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:20.2987|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:25.3219|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:30.3478|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:35.3774|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:40.3875|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:45.4163|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:50.4108|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:12:55.4573|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:00.4734|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:05.4928|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:10.5277|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:15.5459|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:20.5638|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:25.5652|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:30.5636|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:35.6060|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:40.6298|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:45.5988|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:50.6375|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:13:55.6430|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:00.6728|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:05.6778|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:10.7275|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:15.7254|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:20.7753|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:25.7776|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:30.7687|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:35.8313|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:40.8121|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:45.8240|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:50.8900|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:14:55.8803|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:00.9104|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:05.9364|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:10.9429|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:15.9628|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:20.9874|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:26.0049|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:31.0155|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:36.0202|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:41.0532|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:46.0547|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:51.0631|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:15:56.0850|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:01.0872|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:06.1212|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:11.1324|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:16.1731|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:21.1730|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:26.1740|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:31.1997|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:36.2237|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:41.2644|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:46.2878|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:51.2780|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:16:56.3319|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:01.3193|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:06.3820|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:11.3639|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:16.4078|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:21.4205|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:26.4332|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:31.4532|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:36.4541|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:41.4557|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:46.4903|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:51.5034|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:17:56.5379|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:01.5976|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:06.5927|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:11.6189|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:16.6503|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:21.6666|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:26.6815|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:31.7043|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:36.6993|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:41.7372|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:51.8023|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:18:51.8728|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:18:53.9642|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:18:55.8223|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:18:56.6366|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:19:01.6491|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:19:03.5406|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:19:03.8250|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 10:19:05.9458|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:19:06.1019|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 10:19:31.7741|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Object reference not set to an instance of an object.
+2022-07-05 10:19:59.8078|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:19:59.8887|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:20:01.4016|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:20:03.4774|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:20:04.6565|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 10:20:08.9005|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:20:09.1835|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 10:27:20.5239|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:27:22.4182|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:27:24.7740|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:31:05.1801|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:31:06.7456|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 10:51:36.6971|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 10:59:53.3713|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 11:02:46.2341|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 11:24:17.5151|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 11:39:15.4182|ERROR|testPj.Program|Stopped program because of exception
+2022-07-05 11:40:07.8956|ERROR|testPj.Program|Stopped program because of exception
+2022-07-05 11:41:34.5322|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 11:42:29.9367|ERROR|testPj.Program|Stopped program because of exception
+2022-07-05 14:08:05.3396|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 14:32:57.9255|ERROR|Microsoft.EntityFrameworkCore.Database.Command|Failed executing DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE `TRANSACTION_HISTORY` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `id_nft` int NOT NULL AUTO_INCREMENT,
+    `class` longtext CHARACTER SET utf8mb4 NULL,
+    `rarity` longtext CHARACTER SET utf8mb4 NULL,
+    `address_wallet` longtext CHARACTER SET utf8mb4 NULL,
+    `TAU` double NOT NULL,
+    `BNB` double NOT NULL,
+    `USD` double NOT NULL,
+    `Sell_TAU` double NOT NULL,
+    `Buy_TAU` double NOT NULL,
+    `Date_Sell` datetime(6) NULL,
+    `Date_Buy` datetime(6) NULL,
+    `Is_Selling` tinyint(1) NOT NULL,
+    `is_check` int NOT NULL,
+    `is_active` int NOT NULL,
+    CONSTRAINT `PK_TRANSACTION_HISTORY` PRIMARY KEY (`id`)
+) CHARACTER SET utf8mb4;
+2022-07-05 15:33:20.0749|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 15:33:26.1343|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:33:28.3586|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:33:29.8054|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:33:52.8277|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:33:58.7892|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:34:00.9508|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:34:04.4236|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:34:24.5938|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:34:29.6107|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:34:34.6009|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:34:48.0718|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 15:34:51.3385|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:34:53.7437|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:50.3214|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:50.4776|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:52.7755|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:35:55.3685|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:55.9632|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:56.1021|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:56.5233|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:57.5705|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:35:57.8132|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:35:57.8132|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:36:02.8127|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:07.8378|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:12.8708|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:17.8527|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:22.8543|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:27.8814|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:32.9252|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:37.9535|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:42.9638|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:45.2123|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:36:47.9789|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:52.9759|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:36:58.0124|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:03.0010|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:08.0170|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:08.9306|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:37:13.0309|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:18.0569|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:23.0847|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:28.1061|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:33.1433|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:38.1552|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:43.1750|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:48.1890|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:53.2111|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:58.2197|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:37:58.5613|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:38:03.2195|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:08.2413|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:13.2643|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:18.2859|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:23.3195|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:28.3266|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:33.3602|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:38.3514|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:43.3959|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:48.3803|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:53.4283|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:38:58.4297|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:03.4593|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:08.4764|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:13.4940|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:18.5085|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:23.5326|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:28.5723|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:33.5594|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:38.5858|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:43.5921|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:48.6214|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:53.6473|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:39:58.6340|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:03.6464|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:08.6700|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:13.6918|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:18.7268|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:24.7561|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:28.7555|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:34.1550|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:38.7943|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:43.8342|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:48.8334|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:53.8494|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:40:58.8794|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:03.9234|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:08.9217|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:14.7403|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:18.9536|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:23.9459|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:29.0036|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:34.0064|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:39.0276|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:44.0225|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:49.0442|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:54.4713|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:41:59.3394|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:04.0673|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:09.0959|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:14.0885|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:19.1143|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:24.1418|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:29.8445|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:34.1915|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:39.2051|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:44.2041|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:49.2291|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:54.2370|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:42:59.2703|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:04.3062|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:09.3159|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:14.3353|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:19.3521|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:24.3452|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:29.3878|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:34.4024|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:39.4308|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:44.4449|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:49.4729|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:54.4832|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:43:59.5000|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:04.5326|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:09.5413|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:14.5408|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:19.5866|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:24.5847|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:29.5991|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:34.6397|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:39.6340|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:44.6592|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:49.6808|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:54.6928|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:44:59.7058|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:01.8295|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:02.0968|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 15:46:05.0709|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:46:06.7408|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:11.7658|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:43.8522|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:43.9967|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:46.4484|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:46:49.0499|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:54.0336|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:46:59.0264|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:04.0432|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:09.0552|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:14.0822|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:19.1032|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:24.1314|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:37.2733|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:37.6202|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:42.4607|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:47:42.5836|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 15:47:42.6103|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 15:47:42.6434|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:51.5929|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:55.7290|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:47:59.3174|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:04.6305|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:09.8569|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:15.2403|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:19.9046|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:32.1723|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 15:48:32.1964|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 15:48:36.5277|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:40.5846|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:48:53.3768|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 15:48:53.4025|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 15:48:56.3050|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:49:01.4507|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:49:06.3677|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:58:49.4931|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 15:58:49.5827|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:58:54.7319|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:58:55.1026|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:58:55.8592|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:58:57.4144|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:59:00.8499|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:04.0421|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 15:59:20.4934|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:20.5298|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 15:59:36.7429|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 15:59:36.7660|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 15:59:36.8771|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:41.8840|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:46.9131|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:51.9088|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 15:59:58.6475|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 16:00:00.0401|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 16:00:02.3604|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 16:00:04.2476|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:16:43.5709|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 17:19:56.6195|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:19:57.2113|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 17:19:58.5239|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 17:20:00.7958|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 17:20:01.5390|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:20:06.5373|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:20:11.5465|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:20:16.5417|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:20:17.9023|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-05 17:20:36.0562|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-05 17:20:36.0786|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:21:10.4496|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:23:26.8884|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 17:23:26.9115|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 17:23:34.9557|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 17:23:35.0162|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:25:05.4939|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 17:53:06.4155|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 17:53:06.5187|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:53:16.4361|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:53:22.1152|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:53:53.7911|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 17:53:53.8164|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-05 17:53:53.9129|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:53:58.9317|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:03.9384|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:08.9609|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:13.9808|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:18.9949|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:24.3585|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:29.0314|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:34.0586|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:39.0570|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:54:44.0552|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:55:23.8755|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:55:26.8620|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:55:55.6080|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:55:58.2454|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:56:09.5962|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 17:56:10.9424|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 17:57:02.4312|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:00:43.3071|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 18:00:43.3071|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 18:01:48.2921|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:03:41.1621|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 18:03:55.6770|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 18:04:56.1796|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:06:29.2692|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 18:06:58.4893|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 18:07:59.1451|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-05 18:07:59.1451|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-05 18:08:58.9635|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:10:06.7281|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:10:44.9145|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-05 18:12:08.4993|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.

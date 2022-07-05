@@ -18,6 +18,7 @@ namespace testPj.Data
         public DbSet<Roles> Roles { get; set; }
         public DbSet<WalletManagement> WalletManagements { get; set; }
         public DbSet<InputToolBuy> InputToolBuy { get; set; }
+        public DbSet<TransactionHistory> TransactionHistory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

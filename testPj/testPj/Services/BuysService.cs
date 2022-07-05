@@ -11,15 +11,15 @@ using testPj.Services.Interface;
 
 namespace testPj.Services
 {
-    public class BuyItemsService : IBuyItemsService
+    public class BuysService : IBuysService
     {
-        private readonly ILogger<BuyItemsService> _logger;
-        private readonly IBuyItemRepo _buyItemRepo;
+        private readonly ILogger<BuysService> _logger;
+        private readonly IBuysRepo _buysRepo;
 
-        public BuyItemsService(ILogger<BuyItemsService> logger, IBuyItemRepo buyItemRepo)
+        public BuysService(ILogger<BuysService> logger, IBuysRepo buysRepo)
         {
             _logger = logger;
-            _buyItemRepo = buyItemRepo;
+            _buysRepo = buysRepo;
 
         }
         public async Task<bool> CreateData(InputBuyModel inputBuyModel, CurrentUserModel _userInfo)
@@ -42,7 +42,7 @@ namespace testPj.Services
                     CreatedAt = DateTime.Now,
                     CreatedBy = _userInfo.Id,
                 };
-                return await _buyItemRepo.CreateDataRepo(inputToolBuy);
+                return await _buysRepo.CreateDataRepo(inputToolBuy);
             }
             catch (Exception ex)
             {
@@ -50,11 +50,11 @@ namespace testPj.Services
                 return false;
             }
         }
-        public List<BuyItemModel> GetAllListBuy()
+        public List<BuysModel> GetAllListBuy()
         {
-            var qr = _buyItemRepo.GetAll();
-            List<BuyItemModel> lst = new List<BuyItemModel>();
-            var list = qr.Where(x => x.IsActive == 1).Select(x => new BuyItemModel()
+            var qr = _buysRepo.GetAll();
+            List<BuysModel> lst = new List<BuysModel>();
+            var list = qr.Where(x => x.IsActive == 1).Select(x => new BuysModel()
             {
                 Id = x.Id,
                 RequestBody = x.RequestBody,
@@ -67,10 +67,10 @@ namespace testPj.Services
         {
             try
             {
-                var data = _buyItemRepo.GetDetailBuy(id);
+                var data = _buysRepo.GetDetailBuy(id);
                 if (data == null) return false;
                 data.IsActive = 0;
-                return await _buyItemRepo.DeleteBuy(data);
+                return await _buysRepo.DeleteBuy(data);
             }
             catch (Exception ex)
             {
