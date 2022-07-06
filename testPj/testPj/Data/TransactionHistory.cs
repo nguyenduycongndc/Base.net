@@ -69,6 +69,10 @@ namespace testPj.Data
         [JsonPropertyName("is_check")]
         public int IsCheck { get; set; }
 
+        [Column("token_id")]
+        [JsonPropertyName("token_id")]
+        public int Token_Id { get; set; }
+
         [Column("is_active")]
         [JsonPropertyName("is_active")]
         public int IsActive { get; set; }//0-chợ, 1-túi

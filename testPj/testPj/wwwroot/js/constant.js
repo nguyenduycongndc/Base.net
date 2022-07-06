@@ -104,6 +104,10 @@ var apiConfig = {
                 "dropdown": {
                     "method": "GET",
                     "path": "/Dropdown"
+                },
+                "listNTFSell": {
+                    "method": "POST",
+                    "path": "/ListNTFSell"
                 }
             }
         },

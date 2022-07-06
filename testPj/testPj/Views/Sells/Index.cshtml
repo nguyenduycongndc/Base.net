@@ -15,7 +15,7 @@
     <div class="pd-ltr-20">
         <div class="card" id="view">
             <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
-                Quản lý tài khoản
+                Bán NFT
             </div>
             <div class="card-body card-custom">
                 <form id="formView" action="javascript:void(0)">
@@ -100,7 +100,7 @@
                                 <th class="sorting" style="text-align: center">Trạng thái</th>
                                 <th class="sorting" style="text-align: center">Hoạt động</th>
                                 <th class="sorting" style="text-align: center">Giá Bán (TAU)</th>
-                                <th scope="col" style="width: 50px"><input id="checkAll" type="checkbox" name="checkAll"></th>
+                                <th scope="col" style="width: 50px; text-align: center"><input id="checkAll" type="checkbox" name="checkAll"></th>
                             </tr>
                         </thead>
                         <tbody class="contain-tbody-custom">
@@ -113,9 +113,71 @@
                         <partial name="_Pagination" />
                     </div>
                 </div>
+                <div class="row mt-2">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5" style="text-align: right;">
+                        <div style="width: 24%; display: inline-flex; flex-direction: row; justify-content: center; align-items: flex-start; padding: 0 5px 0 5px; ">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalContent" onclick="SellNFT()" style="width: 100%">Bán</button>
+                        </div>
+                        <div style="width: 24%; display: inline-flex; flex-direction: row; justify-content: center; align-items: flex-start; padding: 0 5px 0 5px; ">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalContent" onclick="DeleteSellNFT()" style="width: 100%">Hủy bán</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
+    </div>
+</div>
+@* Bán 1 *@
+<div class="modal hide fade" id="modalContent" role="dialog" aria-labelledby="modalContentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="examplemodalSubmitContent">Bán</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="one" class="form-valide" action="#" method="post" style="margin-top: 20px;">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFT" name="priceNFT" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                @* Bán nhiều *@
+                <form id="muntill" class="form-valide" action="#" method="post" style="margin-top: 20px; display: none">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá Min</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFTMin" name="priceNFTMin" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá Max</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFTMax" name="priceNFTMax" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="btn btn-success" onclick="onclickSubmit()">Bán</a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -124,4 +186,23 @@
         apiConfig.api.host_user_service,
         apiConfig.api.sells.controller,
         apiConfig.api.sells.action.dropdown.path);
+    $("#checkAll").click(function () {
+        $('.checkitem').not(this).prop('checked', this.checked);
+    });
+    function validatePrice(evt) {
+        var theEvent = evt || window.event;
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /^[0-9]+$/;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
 </script>

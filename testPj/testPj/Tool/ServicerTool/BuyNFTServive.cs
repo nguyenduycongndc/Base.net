@@ -29,11 +29,13 @@ namespace testPj.Tool.ServicerTool
             _sellsService = sellsService;
         }
         public static string BRIGDE_CHECKSUM_KEY { get; } = "R026jm8BNZdUyMYria";
-        long unixTimestamp { get; } = (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;//lỗi
-
-        public string HashMD5()
+        public long UnixTimeNow()
         {
-            //Int32 unixTimestamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            var timeSpan = (DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0));
+            return (long)timeSpan.TotalSeconds;
+        }
+        public string HashMD5(long unixTimestamp)
+        {
             var hash = "";
             using (var md5Hash = MD5.Create())
             {
@@ -48,10 +50,20 @@ namespace testPj.Tool.ServicerTool
             }
             return hash;
         }
+       
         public async Task<OutPut> GetDataHero(InputBuyModel inputBuyModel)
         {
             HttpClientHandler handler = new HttpClientHandler();
             OutPut _output = new OutPut();
+            var unixTimestamp = UnixTimeNow();
+            var hash = HashMD5(unixTimestamp);
+            //var test = new CheckBuysModel()
+            //{
+            //    heroId = 37520,
+            //    transactionId = "0xa84187ca8cf3db9c06e9e6f05521ac914c876ed6ddd317ae2432becbf21836af",
+            //    ownerId = "0xca954B569e7f193d853Ccb571ff2E1Fd957694d5",
+            //};
+            //var tesstttt = await CheckBuysHero(test);
             try
             {
                 using (var client = new HttpClient(handler))
@@ -59,7 +71,6 @@ namespace testPj.Tool.ServicerTool
                     client.BaseAddress = new Uri("http://test-svr.theatlantis.io:1236/");
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    var hash = HashMD5();
                     var detailWl = new ModelX()
                     {
                         checksum = hash,
@@ -85,8 +96,10 @@ namespace testPj.Tool.ServicerTool
                     #endregion
                 }
                 var walletDetail = _sellService.GetAllWallet();
-
-                await CallBuyHero(_output, walletDetail);
+                if (_output != null)
+                {
+                    await CallBuyHero(_output, walletDetail);
+                }
                 return _output;
             }
             catch (Exception ex)
@@ -121,7 +134,7 @@ namespace testPj.Tool.ServicerTool
                             var httpResponseResult = response.Content.ReadAsStringAsync().ContinueWith(task => task.Result).Result;
                             string deleteCh = httpResponseResult.Remove(0, 1);
                             string deleteChx = deleteCh.Remove(deleteCh.Length - 1, 1);
-                            var test = new CheckBuysModel()
+                            var _buys = new CheckBuysModel()
                             {
                                 heroId = outPut.Data[j].id,
                                 transactionId = deleteChx,
@@ -133,12 +146,7 @@ namespace testPj.Tool.ServicerTool
                             }
                             else
                             {
-                                var test1 = await CheckBuysHero(test);
-                                if (test1 != null)
-                                {
-
-                                }
-
+                                var buys = await CheckBuysHero(_buys);
                             }
                         }
                         #endregion
@@ -152,11 +160,18 @@ namespace testPj.Tool.ServicerTool
             }
             return null;
         }
+
+
+
+
         public async Task<ResultCheckBuyModel> CheckBuysHero(CheckBuysModel checkBuysModel)
         {
             HttpClientHandler handler = new HttpClientHandler();
             ResultCheckBuyModel _resultcheckbuy = new ResultCheckBuyModel();
             BuysActiveModel _buysactive = new BuysActiveModel();
+            var unixTimestamp = UnixTimeNow();
+            var hash = HashMD5(unixTimestamp);
+
             try
             {
                 using (var client = new HttpClient(handler))
@@ -165,7 +180,6 @@ namespace testPj.Tool.ServicerTool
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    var hash = HashMD5();
                     var dtcheck = new DtCheckBuysModel()
                     {
                         checksum = hash,
@@ -173,6 +187,7 @@ namespace testPj.Tool.ServicerTool
                         heroId = checkBuysModel.heroId,
                         transactionId = checkBuysModel.transactionId,
                         ownerId = checkBuysModel.ownerId,
+
                     };
                     #region Consume GET method  
                     HttpResponseMessage response = await client.PostAsJsonAsync("/api/Bridge/buy-hero-confirm-in-market", dtcheck);
@@ -186,75 +201,8 @@ namespace testPj.Tool.ServicerTool
                         }
                         else
                         {
-                            _resultcheckbuy.code = result.code;
-                            _resultcheckbuy.text = result.text;
-                            _resultcheckbuy.msg = result.msg;
-                            _resultcheckbuy.desc = result.desc;
-                            _resultcheckbuy.data = new ResultDataCheckBuyModel()
-                            {
-                                id = result.data.id,
-                                ticketId = result.data.ticketId,
-                                tokenId = result.data.tokenId,
-                                elemental = result.data.elemental,
-                                elemental2 = result.data.elemental2,
-                                elemental3 = result.data.elemental3,
-                                Class = result.data.Class,
-                                rarity = result.data.rarity,
-                                skillActiveId = result.data.skillActiveId,
-                                skillPassiveId = result.data.skillPassiveId,
-                                ownerId = result.data.ownerId,
-                                ownerIdOffer = result.data.ownerIdOffer,
-                                name = result.data.name,
-                                sex = result.data.sex,
-                                view = result.data.view,
-                                level = result.data.level,
-                                percentLevelUp = result.data.percentLevelUp,
-                                eyes = result.data.eyes,
-                                hair = result.data.hair,
-                                tattoo = result.data.tattoo,
-                                attack = result.data.attack,
-                                armor = result.data.armor,
-                                hp = result.data.hp,
-                                speed = result.data.speed,
-                                wings = result.data.wings,
-                                Base = result.data.Base,
-                                horn = result.data.horn,
-                                pet = result.data.pet,
-                                armorItem = result.data.armorItem,
-                                pricesBNB = result.data.pricesBNB,
-                                pricesUSD = result.data.pricesUSD,
-                                isSelling = result.data.isSelling,
-                                star = result.data.star,
-                                breedCount = result.data.breedCount,
-                                spiritId = result.data.spiritId,
-                                lastBreedingTime = result.data.lastBreedingTime,
-                                momId = result.data.momId,
-                                dadId = result.data.dadId,
-                                exp = result.data.exp,
-                                critDame = result.data.critDame,
-                                critRate = result.data.critRate,
-                                evasion = result.data.evasion,
-                                energy = result.data.energy,
-                                energyMax = result.data.energyMax,
-                                levelCapCurentStar = result.data.levelCapCurentStar,
-                                levelCapNextStar = result.data.levelCapNextStar,
-                                upgradeStarUSDFee = result.data.upgradeStarUSDFee,
-                                upgradeStarGoldFee = result.data.upgradeStarGoldFee,
-                                listSkillPassiveDto = result.data.listSkillPassiveDto.ToList(),
-                                listSkillActiveDto = result.data.listSkillActiveDto.ToList(),
-                                baseHp = result.data.baseHp,
-                                baseAttack = result.data.baseAttack,
-                                baseArmor = result.data.baseArmor,
-                                baseSpeed = result.data.baseSpeed,
-                                ownerRent = result.data.ownerRent,
-                                feeRent = result.data.feeRent,
-                                hourEndRent = result.data.hourEndRent,
-                                status = result.data.status,
-                                timeEndRent = result.data.timeEndRent,
-                                timeStartRent = result.data.timeStartRent,
-                                lockTime = result.data.lockTime,
-                            };
-
+                            _resultcheckbuy = result;
+                            
                             _buysactive.IdNFT = result.data.id;
                             _buysactive.Class = result.data.Class;
                             _buysactive.rarity = result.data.rarity;
@@ -262,6 +210,7 @@ namespace testPj.Tool.ServicerTool
                             _buysactive.BNB = result.data.pricesBNB;
                             _buysactive.USD = result.data.pricesUSD;
                             _buysactive.Is_Selling = result.data.isSelling;
+                            _buysactive.Token_Id = result.data.tokenId;
                             var cre = await _sellsService.CreateHistory(_buysactive);
                             if (!cre) return null;
                         }

@@ -1,36 +1,4 @@
-﻿////function callApi_multipleselect(selector, placeholder) {
-////    $("#" + selector).select2({
-////        placeholder: placeholder,
-////        minimumInputLength: 0,
-////        multiple: true,
-////        closeOnSelect: true,
-////        ajax: {
-////            headers: { "Authorization": "Bearer " + sessionStorage['SessionToken'] },
-////            url: apiConfig.api.host_user_service + apiConfig.api.systemusergroup.controller + apiConfig.api.systemusergroup.action.select.path,
-////            dataType: 'json',
-////            data: function (params) {
-////                var query = {
-////                    q: params.term,
-////                    type: 'public'
-////                }
-////                return query;
-////            },
-////            processResults: function (data) {
-////                return {
-////                    results: $.map(data.data, function (item) {
-////                        return {
-////                            text: item.full_name,
-////                            id: item.id
-////                        }
-////                    })
-////                };
-////            },
-////            cache: true
-////        }
-////    });
-//}
-
-
+﻿
 function fnDeleteSuccess(rspn) {
     swal({
         title: "Thông báo",

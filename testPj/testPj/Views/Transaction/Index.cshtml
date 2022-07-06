@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "_Layout";
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+@*<script src="/js/jquery/jquery/jquery.min.js"></script>*@
+<script src="~/js/select2/js/select2.js"></script>
+
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/jsApp/Transaction.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card" id="view">
+            <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
+                Kế toán
+            </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="GDTab()" id="GD-tab" data-toggle="tab" href="#GD" role="tab" aria-controls="GD" aria-selected="true">Giao dịch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="RwTab()" id="Rw-tab" data-toggle="tab" href="#Rw" role="tab" aria-controls="Rw" aria-selected="false">Reward wallet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="UHTab()" id="UH-tab" data-toggle="tab" href="#UH" role="tab" aria-controls="UH" aria-selected="false">Up Hero</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="EvoleTab()" id="Evole-tab" data-toggle="tab" href="#Evole" role="tab" aria-controls="Evole" aria-selected="false">Evole</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="BreedingTab()" id="Breeding-tab" data-toggle="tab" href="#Breeding" role="tab" aria-controls="Breeding" aria-selected="false">Breeding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="WalletctyTab()" id="Walletcty-tab" data-toggle="tab" href="#Walletcty" role="tab" aria-controls="Walletcty" aria-selected="false">Ví cty</a>
+                </li>
+            </ul>
+
+            @*</div>*@
+            <div class="tab-content">
+                <div class="tab-pane active" id="GD" role="tabpanel" aria-labelledby="GD-tab">
+                    @*<input type="hidden" id="Id" name="Id" value="0" />*@
+                    <div class="col-md-12 row mt-3">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-4">
+                                    <b>1.Tổng quan</b>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-4" for="fromD">
+                                    Thời hiệu từ
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="date" class="form-control" id="fromD" name="fromD">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-4" for="toD">
+                                    Thời hiệu đến
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="date" class="form-control" id="toD" name="toD">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane" id="GD" role="tabpanel" aria-labelledby="GD-tab">
+                    <div id="accordionGD">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    callApi_oneselect("Wallet", "Chọn ví...",
+        apiConfig.api.host_user_service,
+        apiConfig.api.sells.controller,
+        apiConfig.api.sells.action.dropdown.path);
+</script>

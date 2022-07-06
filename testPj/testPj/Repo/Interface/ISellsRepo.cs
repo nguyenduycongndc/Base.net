@@ -10,6 +10,7 @@ namespace testPj.Repo.Interface
     {
         List<WalletManagement> GetAll();
         Task<bool> CreateTransactionHistory(TransactionHistory transactionHistory);
+        Task<bool> UpdateHistory(TransactionHistory transactionHistory);
         List<TransactionHistory> GetAllSell();
 
     }

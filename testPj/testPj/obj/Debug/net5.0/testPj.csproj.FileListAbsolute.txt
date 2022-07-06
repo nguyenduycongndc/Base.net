@@ -471,3 +471,4 @@ C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Microsoft.Extensi
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\bin\Debug\net5.0\Nancy.dll
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Buys\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Sells\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\Base.net\testPj\testPj\obj\Debug\net5.0\Razor\Views\Transaction\Index.cshtml.g.cs

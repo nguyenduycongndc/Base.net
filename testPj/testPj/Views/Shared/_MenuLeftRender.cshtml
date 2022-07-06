@@ -45,10 +45,23 @@
                         <li><a href="javascript:void(0);" onclick="openViewIndex()">ACCOUNT</a></li>
                     </ul>
                 </li>
-                <li>
+                @*<li>
                     <a href="javascript:void(0);" onclick="openViewIndex()" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-book"></span><span class="mtext">Kế toán</span>
                     </a>
+                </li>*@
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle">
+                        <span class="micon dw dw-book"></span><span class="mtext">Kế toán</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(6)">Giao dịch</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(7)">Reward wallet</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(8)">Up Hero</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(9)">Evole</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(10)">Breeding</a></li>
+                        <li><a href="javascript:void(0);" onclick="openViewIndex(11)">Ví Cty</a></li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a href="javascript:void(0);" class="dropdown-toggle">
@@ -92,6 +105,8 @@
             window.location.href = "/api/Sells";
         } else if (menu === 5) {
             window.location.href = "/api/Statistical";
+        } else if (menu === 6) {
+            window.location.href = "/api/Transaction";
         }
     }
 </script>

@@ -24,7 +24,27 @@ namespace testPj.Repo
             await _context.SaveChangesAsync();
             return true;
         }
-
+        public async Task<bool> UpdateHistory(TransactionHistory transactionHistory)
+        {
+            var updt = await _context.TransactionHistory.FindAsync(transactionHistory.Id);
+            updt.Id = transactionHistory.Id;
+            updt.IdNFT = transactionHistory.IdNFT;
+            updt.Class = transactionHistory.Class;
+            updt.rarity = transactionHistory.rarity;
+            updt.AddressWallet = transactionHistory.AddressWallet;
+            updt.TAU = transactionHistory.TAU;
+            updt.BNB = transactionHistory.BNB;
+            updt.USD = transactionHistory.USD;
+            updt.Sell_TAU = transactionHistory.Sell_TAU;
+            updt.Date_Sell = transactionHistory.Date_Sell;
+            updt.Is_Selling = transactionHistory.Is_Selling;
+            updt.IsCheck = transactionHistory.IsCheck;
+            updt.Token_Id = transactionHistory.Token_Id;
+            updt.IsActive = transactionHistory.IsActive;
+            
+            await _context.SaveChangesAsync();
+            return true;
+        }
         public List<TransactionHistory> GetAllSell()
         {
             return _context.TransactionHistory.ToList();

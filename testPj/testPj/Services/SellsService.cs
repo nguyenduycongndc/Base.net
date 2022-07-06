@@ -31,9 +31,10 @@ namespace testPj.Services
                     Class = buysActiveModel.Class,
                     rarity = buysActiveModel.rarity,
                     AddressWallet = buysActiveModel.AddressWallet,
-                    TAU = 0,
+                    Token_Id = buysActiveModel.Token_Id,
+                    TAU = buysActiveModel.USD,
                     BNB = buysActiveModel.BNB,
-                    USD = buysActiveModel.USD,
+                    USD = 0,
                     Sell_TAU = 0,
                     Buy_TAU = 0,
                     Date_Sell = null,
@@ -44,6 +45,35 @@ namespace testPj.Services
                 };
 
                 return await _sellRepo.CreateTransactionHistory(wl);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return false;
+            }
+        }
+        public async Task<bool> UpdateHistory(SellActiveModel sellActiveModel)
+        {
+            try
+            {
+                TransactionHistory wl = new TransactionHistory()
+                {
+                    IdNFT = sellActiveModel.IdNFT,
+                    Class = sellActiveModel.Class,
+                    rarity = sellActiveModel.rarity,
+                    AddressWallet = sellActiveModel.AddressWallet,
+                    Token_Id = sellActiveModel.Token_Id,
+                    TAU = sellActiveModel.USD,
+                    BNB = sellActiveModel.BNB,
+                    USD = 0,
+                    Sell_TAU = sellActiveModel.USD,
+                    Date_Buy = DateTime.Now,
+                    Is_Selling = sellActiveModel.Is_Selling,
+                    IsCheck = 0,
+                    IsActive = 0,
+                };
+
+                return await _sellRepo.UpdateHistory(wl);
             }
             catch (Exception ex)
             {
@@ -111,6 +141,55 @@ namespace testPj.Services
             lst = listSell.Skip(searchSellModel.StartNumber).Take(searchSellModel.PageSize).ToList();
             var data = new List<Object> { lst, listSell.Count() };
             return data;
+        }
+        public List<SellModel> GetListDataSell(ChooseAll obj)
+        {
+            var qr = _sellRepo.GetAllSell();
+            var wallet = _sellRepo.GetAll();
+            
+            var list = obj.listID.Split(",").ToList();
+            List<SellModel> lst = new List<SellModel>();
+            var listSell = qr.Where(x => list.Contains(x.Id.ToString())).Select(x => new SellModel()
+            {
+                Id = x.Id,
+                IdNFT = x.IdNFT,
+                Class = x.Class,
+                rarity = x.rarity,
+                TAU = x.TAU,
+                USD = x.USD,
+                Sell_TAU = x.Sell_TAU,
+                AddressWallet = x.AddressWallet,
+                privateKey = wallet.FirstOrDefault(a => a.AddressWallet == x.AddressWallet)?.PrivateKey,
+                Token_Id = x.Token_Id,
+                IsActive = x.IsActive,
+                Is_Selling = x.Is_Selling,
+                priceNFT = obj.priceNFT,
+            }).OrderBy(x => x.Id).ToList();
+            return listSell;
+        }
+        public List<SellRsModel> GetListDataFESell(ChooseAll obj)
+        {
+            var qr = _sellRepo.GetAllSell();
+            var wallet = _sellRepo.GetAll();
+            
+            var list = obj.listID.Split(",").ToList();
+            List<SellRsModel> lst = new List<SellRsModel>();
+            var listSell = qr.Where(x => list.Contains(x.Id.ToString())).Select(x => new SellRsModel()
+            {
+                Id = x.Id,
+                IdNFT = x.IdNFT,
+                Class = x.Class,
+                rarity = x.rarity,
+                TAU = x.TAU,
+                USD = x.USD,
+                Sell_TAU = x.Sell_TAU,
+                AddressWallet = x.AddressWallet,
+                Token_Id = x.Token_Id,
+                IsActive = x.IsActive,
+                Is_Selling = x.Is_Selling,
+                priceNFT = obj.priceNFT,
+            }).OrderBy(x => x.Id).ToList();
+            return listSell;
         }
     }
 }

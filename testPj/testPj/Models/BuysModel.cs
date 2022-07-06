@@ -24,5 +24,6 @@ namespace testPj.Models
         public double USD { get; set; }
 
         public bool Is_Selling { get; set; }
+        public int Token_Id { get; set; }
     }
 }

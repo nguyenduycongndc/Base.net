@@ -12,6 +12,9 @@ namespace testPj.Services.Interface
         public Task<bool> CreateHistory(BuysActiveModel buysActiveModel);
         List<WalletModel> GetAllWalletDrop(string q);
         List<Object> GetDataSell(SearchSellModel searchSellModel);
+        List<SellModel> GetListDataSell(ChooseAll obj);
+        List<SellRsModel> GetListDataFESell(ChooseAll obj);
+        public Task<bool> UpdateHistory(SellActiveModel sellActiveModel);
 
     }
 }
