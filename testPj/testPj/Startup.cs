@@ -20,6 +20,7 @@ using testPj.Tool;
 using testPj.Tool.ControllerTool;
 using testPj.Tool.ServicerTool;
 using testPj.Tool.ServicerTool.InterfaceBuyNFT;
+using testPj.Tool.ServicerTool.InterfaceSellNFT;
 
 namespace testPj
 {
@@ -66,6 +67,7 @@ namespace testPj
             services.AddScoped<IBuysRepo, BuysRepo>();
 
             services.AddScoped<IBuyNFT, BuyNFTServive>();
+            services.AddScoped<ISellNFT, SellNFTService>();
             //services.AddScoped<ISellService, SellService>();
             //services.AddScoped<ISellRepo, SellRepo>();
 

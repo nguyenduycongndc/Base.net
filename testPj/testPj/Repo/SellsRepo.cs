@@ -41,13 +41,39 @@ namespace testPj.Repo
             updt.IsCheck = transactionHistory.IsCheck;
             updt.Token_Id = transactionHistory.Token_Id;
             updt.IsActive = transactionHistory.IsActive;
-            
+
             await _context.SaveChangesAsync();
             return true;
         }
         public List<TransactionHistory> GetAllSell()
         {
             return _context.TransactionHistory.ToList();
+        }
+        public TransactionHistory GetHTDetail(int id)
+        {
+            var query = (from x in _context.TransactionHistory
+                         where x.Id.Equals(id)
+                         select new TransactionHistory
+                         {
+                             Id = x.Id,
+                             IdNFT = x.IdNFT,
+                             Class = x.Class,
+                             rarity = x.rarity,
+                             AddressWallet = x.AddressWallet,
+                             TAU = x.TAU,
+                             BNB = x.BNB,
+                             USD = x.USD,
+                             Sell_TAU = x.Sell_TAU,
+                             Buy_TAU = x.Buy_TAU,
+                             Date_Sell = x.Date_Sell,
+                             Date_Buy = x.Date_Buy,
+                             Is_Selling = x.Is_Selling,
+                             IsCheck = x.IsCheck,
+                             Token_Id = x.Token_Id,
+                             IsActive = x.IsActive,
+                         }).FirstOrDefault();
+
+            return query;
         }
     }
 }

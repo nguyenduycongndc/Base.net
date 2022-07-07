@@ -69,13 +69,16 @@ namespace testPj.Models
     public class ChooseAll
     {
         public string listID { get; set; }
-        public int priceNFT { get; set; }
+        public double priceNFT { get; set; }
     }
     public class CheckSellModel
     {
+        public int id { get; set; }
         public int heroId { get; set; }
         public string transactionId { get; set; }
         public string ownerId { get; set; }
+        public double priceNFT { get; set; }
+
     }
     public class DtCheckSellModel
     {
@@ -84,22 +87,42 @@ namespace testPj.Models
         public int heroId { get; set; }
         public string transactionId { get; set; }
         public string ownerId { get; set; }
+        public double pricesBNB { get; set; }
     }
 
     public class SellActiveModel
     {
+        public int Id { get; set; }
         public int IdNFT { get; set; }
         public string Class { get; set; }
 
         public string rarity { get; set; }
 
         public string AddressWallet { get; set; }
-        public double BNB { get; set; }
 
         public double USD { get; set; }
 
         public bool Is_Selling { get; set; }
         public int Token_Id { get; set; }
-        public int priceNFT { get; set; }
+        public double priceNFT { get; set; }
     }
-}
+    public class SellDetailModel
+    {
+        public int Id { get; set; }
+        public int IdNFT { get; set; }
+        public string Class { get; set; }
+        public string rarity { get; set; }
+        public string AddressWallet { get; set; }
+        public int Token_Id { get; set; }
+        public double TAU { get; set; }
+        public double BNB { get; set; }
+        public double USD { get; set; }
+        public double Buy_TAU { get; set; }
+        public DateTime? Date_Buy { get; set; }
+        public double Sell_TAU { get; set; }
+        public DateTime? Date_Sell { get; set; }
+        public bool Is_Selling { get; set; }
+        public int IsCheck { get; set; }
+        public int IsActive { get; set; }
+    } 
+} 

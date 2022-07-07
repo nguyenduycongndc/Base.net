@@ -92,6 +92,18 @@
 </div>
 
 <script>
+    //window.onload = function LoadWallet() {
+    //    var obj = {
+    //        'Id': parseInt($('#IdUser').val()),
+    //        'page_size': parseInt($("#cbPageSize").val()),
+    //        'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
+    //    }
+    //    callApi_userservice(
+    //        apiConfig.api.wallet.controller,
+    //        apiConfig.api.wallet.action.search.path,
+    //        apiConfig.api.wallet.action.search.method,
+    //        obj, '', 'msgError');
+    //}
     callApi_oneselect("Wallet", "Chọn ví...",
         apiConfig.api.host_user_service,
         apiConfig.api.sells.controller,

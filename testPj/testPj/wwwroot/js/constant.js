@@ -108,6 +108,10 @@ var apiConfig = {
                 "listNTFSell": {
                     "method": "POST",
                     "path": "/ListNTFSell"
+                },
+                "updateNFT": {
+                    "method": "PUT",
+                    "path": "/UpdateNFT"
                 }
             }
         },

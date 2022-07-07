@@ -20,11 +20,9 @@ namespace testPj.Tool.ServicerTool
     {
         private readonly ISellsService _sellsService;
         private readonly ILogger<BuyNFTServive> _logger;
-        private readonly ISellsService _sellService;
 
-        public BuyNFTServive(ILogger<BuyNFTServive> logger, ISellsService sellsService, ISellsService sellService)
+        public BuyNFTServive(ILogger<BuyNFTServive> logger, ISellsService sellsService)
         {
-            _sellService = sellService;
             _logger = logger;
             _sellsService = sellsService;
         }
@@ -95,7 +93,7 @@ namespace testPj.Tool.ServicerTool
                     }
                     #endregion
                 }
-                var walletDetail = _sellService.GetAllWallet();
+                var walletDetail = _sellsService.GetAllWallet();
                 if (_output != null)
                 {
                     await CallBuyHero(_output, walletDetail);

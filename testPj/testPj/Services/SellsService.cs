@@ -35,8 +35,7 @@ namespace testPj.Services
                     TAU = buysActiveModel.USD,
                     BNB = buysActiveModel.BNB,
                     USD = 0,
-                    Sell_TAU = 0,
-                    Buy_TAU = 0,
+                    Buy_TAU = buysActiveModel.USD,
                     Date_Sell = null,
                     Date_Buy = DateTime.Now,
                     Is_Selling = false,
@@ -56,24 +55,27 @@ namespace testPj.Services
         {
             try
             {
-                TransactionHistory wl = new TransactionHistory()
-                {
-                    IdNFT = sellActiveModel.IdNFT,
-                    Class = sellActiveModel.Class,
-                    rarity = sellActiveModel.rarity,
-                    AddressWallet = sellActiveModel.AddressWallet,
-                    Token_Id = sellActiveModel.Token_Id,
-                    TAU = sellActiveModel.USD,
-                    BNB = sellActiveModel.BNB,
-                    USD = 0,
-                    Sell_TAU = sellActiveModel.USD,
-                    Date_Buy = DateTime.Now,
-                    Is_Selling = sellActiveModel.Is_Selling,
-                    IsCheck = 0,
-                    IsActive = 0,
-                };
+                var data = _sellRepo.GetHTDetail(sellActiveModel.Id);
+                if (data == null) return false;
 
-                return await _sellRepo.UpdateHistory(wl);
+                data.Id = sellActiveModel.Id;
+                data.IdNFT = sellActiveModel.IdNFT;
+                data.Class = sellActiveModel.Class;
+                data.rarity = sellActiveModel.rarity;
+                data.AddressWallet = sellActiveModel.AddressWallet;
+                data.Token_Id = sellActiveModel.Token_Id;
+                data.TAU = sellActiveModel.USD;
+                data.BNB = data.BNB;
+                data.USD = data.USD;
+                data.Buy_TAU = data.Buy_TAU;
+                data.Date_Buy = data.Date_Buy;
+                data.Sell_TAU = sellActiveModel.priceNFT;
+                data.Date_Sell = DateTime.Now;
+                data.Is_Selling = sellActiveModel.Is_Selling;
+                data.IsCheck = 0;
+                data.IsActive = sellActiveModel.Is_Selling == true ? 0 : 1;
+
+                return await _sellRepo.UpdateHistory(data);
             }
             catch (Exception ex)
             {
@@ -146,7 +148,7 @@ namespace testPj.Services
         {
             var qr = _sellRepo.GetAllSell();
             var wallet = _sellRepo.GetAll();
-            
+
             var list = obj.listID.Split(",").ToList();
             List<SellModel> lst = new List<SellModel>();
             var listSell = qr.Where(x => list.Contains(x.Id.ToString())).Select(x => new SellModel()
@@ -171,7 +173,7 @@ namespace testPj.Services
         {
             var qr = _sellRepo.GetAllSell();
             var wallet = _sellRepo.GetAll();
-            
+
             var list = obj.listID.Split(",").ToList();
             List<SellRsModel> lst = new List<SellRsModel>();
             var listSell = qr.Where(x => list.Contains(x.Id.ToString())).Select(x => new SellRsModel()
@@ -190,6 +192,36 @@ namespace testPj.Services
                 priceNFT = obj.priceNFT,
             }).OrderBy(x => x.Id).ToList();
             return listSell;
+        }
+        public SellRsModel GetDetailModels(int Id)
+        {
+            try
+            {
+                var data = _sellRepo.GetHTDetail(Id);
+
+                var detail = new SellRsModel()
+                {
+                    Id = data.Id,
+                    IdNFT = data.IdNFT,
+                    Class = data.Class,
+                    rarity = data.rarity,
+                    TAU = data.TAU,
+                    USD = data.USD,
+                    Sell_TAU = data.Sell_TAU,
+                    AddressWallet = data.AddressWallet,
+                    Token_Id = data.Token_Id,
+                    IsActive = data.IsActive,
+                    Is_Selling = data.Is_Selling,
+                    priceNFT = data.Sell_TAU,
+                };
+
+                return detail;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return null;
+            }
         }
     }
 }

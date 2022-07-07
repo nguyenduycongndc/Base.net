@@ -15,6 +15,6 @@ namespace testPj.Services.Interface
         List<SellModel> GetListDataSell(ChooseAll obj);
         List<SellRsModel> GetListDataFESell(ChooseAll obj);
         public Task<bool> UpdateHistory(SellActiveModel sellActiveModel);
-
+        public SellRsModel GetDetailModels(int id);
     }
 }

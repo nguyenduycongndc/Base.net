@@ -157,52 +157,45 @@ function Start() {
             }
         }
         else if (FemaleCommonHero == true) {
-            if (FemaleCommon05 == true && $('#Zen000').val() == "") {
+            if (FemaleCommon05 == true && $('#Zen006').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon05 != true && $('#Zen000').val() != "") {
+            } else if (FemaleCommon05 != true && $('#Zen006').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
-            if (FemaleCommon15 == true && $('#Zen001').val() == "") {
+            if (FemaleCommon15 == true && $('#Zen007').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon15 != true && $('#Zen001').val() != "") {
+            } else if (FemaleCommon15 != true && $('#Zen007').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
-            if (FemaleCommon25 == true && $('#Zen002').val() == "") {
+            if (FemaleCommon25 == true && $('#Zen008').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon25 != true && $('#Zen002').val() != "") {
+            } else if (FemaleCommon25 != true && $('#Zen008').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
-            if (FemaleCommon35 == true && $('#Zen003').val() == "") {
+            if (FemaleCommon35 == true && $('#Zen009').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon35 != true && $('#Zen003').val() != "") {
+            } else if (FemaleCommon35 != true && $('#Zen009').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
-            if (FemaleCommon45 == true && $('#Zen004').val() == "") {
+            if (FemaleCommon45 == true && $('#Zen010').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon45 != true && $('#Zen004').val() != "") {
+            } else if (FemaleCommon45 != true && $('#Zen010').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
-            if (FemaleCommon55 == true && $('#Zen005').val() == "") {
+            if (FemaleCommon55 == true && $('#Zen011').val() == "") {
                 toastr.error("Vui lòng nhập giá hero đã chọn");
                 return;
-            } else if (FemaleCommon55 != true && $('#Zen005').val() != "") {
-                toastr.error("Vui lòng chọn hero đã nhập giá mua");
-                return;
-            }
-            if (FemaleCommon55 == true && $('#Zen005').val() == "") {
-                toastr.error("Vui lòng nhập giá hero đã chọn");
-                return;
-            } else if (FemaleCommon55 != true && $('#Zen005').val() != "") {
+            } else if (FemaleCommon55 != true && $('#Zen011').val() != "") {
                 toastr.error("Vui lòng chọn hero đã nhập giá mua");
                 return;
             }
@@ -1440,6 +1433,7 @@ function Start() {
 //    });
 //};
 function fnSuccess(res) {
-    var xxxx = res;
-    var x = "";
+    if (res !== undefined && res !== null) {
+        toastr.success("Cài đặt quét thành công");
+    }
 }

@@ -32,8 +32,8 @@ function fnSuccess(rspn) {
                 '<td>' + obj.idNFT + '</td>' +
                 '<td>' + obj.class + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
-                '<td>' + obj.usd + '</td>' +//giá tau
                 '<td>' + obj.tau + '</td>' +//giá tau chưa quy đổi dc
+                '<td>' + obj.usd + '</td>' +
                 '<td>' + obj.addressWallet + '</td>' +
                 '<td>' + TT + '</td>' +
                 '<td>' + HD + '</td>' +
@@ -158,4 +158,37 @@ function RandomPri(min, max) {
 
 function onSelectSuccess(rs) {
     var xxxxx = rs;
+    //if (rs !== undefined && rs !== null) {
+    //    toastr.success("Bán thành công");
+    //    setTimeout(function () {
+    //        onSearch();
+    //    }, 2000);
+    //}
+
+    //for (var i = 0; i < rs.length; i++) {
+    //    var obj = rs[i];
+    //    input = {
+    //        'IdNFT': obj.idNFT,
+    //        'Class': obj.class,
+    //        'rarity': obj.rarity,
+    //        'AddressWallet': obj.addressWallet,
+    //        'USD': obj.usd,
+    //        'Is_Selling': obj.is_Selling,
+    //        'Token_Id': obj.token_Id,
+    //        'priceNFT': obj.priceNFT,
+    //    }
+    //    callApi_userservice(
+    //        apiConfig.api.sells.controller,
+    //        apiConfig.api.sells.action.updateNFT.path,
+    //        apiConfig.api.sells.action.updateNFT.method,
+    //        input, 'SuccessSell', 'msgError');
+    //}
+}
+function SuccessSell(rs) {
+    if (rs !== undefined && rs !== null) {
+        toastr.success("Bán thành công");
+        setTimeout(function () {
+            onSearch();
+        }, 2000);
+    }
 }

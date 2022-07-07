@@ -49,7 +49,7 @@ namespace testPj.Tool.ControllerTool
                             result = null;
                         }
                         var tetNFT = buyNFT.GetDataHero(result);
-                        await Task.Delay(1000 * 5);
+                        await Task.Delay(1000 * 30);
                     }
                 }
             }
