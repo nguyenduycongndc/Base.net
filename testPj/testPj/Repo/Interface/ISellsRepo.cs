@@ -12,6 +12,6 @@ namespace testPj.Repo.Interface
         Task<bool> CreateTransactionHistory(TransactionHistory transactionHistory);
         Task<bool> UpdateHistory(TransactionHistory transactionHistory);
         List<TransactionHistory> GetAllSell();
-        public TransactionHistory GetHTDetail(int id);
+        TransactionHistory GetHTDetail(int id);
     }
 }

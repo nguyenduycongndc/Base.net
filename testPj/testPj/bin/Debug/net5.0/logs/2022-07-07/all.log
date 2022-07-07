@@ -1,0 +1,156 @@
+2022-07-07 21:03:23.1505|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 21:03:24.9292|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 21:03:27.1561|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:30.1846|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:30.3844|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:31.9611|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:32.0700|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:47.3688|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:51.1643|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:03:53.0180|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 21:04:05.7266|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:04:06.3198|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:04:08.0121|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:04:13.6199|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:04:23.0192|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 21:04:53.0410|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 21:05:23.0551|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 21:05:24.3215|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:05:34.2435|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 21:06:01.0821|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2022-07-07 21:06:23.1544|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2022-07-07 21:06:53.1480|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Index was out of range. Must be non-negative and less than the size of the collection. (Parameter 'index')
+2022-07-07 21:07:34.1958|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 21:07:52.7722|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-07 21:07:52.8033|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2022-07-07 21:08:49.1803|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:09:33.4651|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:09:34.6038|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:09:58.8065|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:14:58.6326|ERROR|testPj.Services.SellsService|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 21:14:59.9128|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+2022-07-07 21:16:16.9626|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-07 21:16:17.0872|ERROR|testPj.Services.SellsService|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 21:17:17.5402|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:25:06.0100|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:33:26.3539|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 21:33:35.0569|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:34:08.5867|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:34:43.3548|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:38:25.9786|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 21:38:29.0322|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:38:33.1985|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:38:34.5258|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:38:42.7485|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:47:22.3883|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 21:48:50.5111|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:48:54.4016|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:48:55.6196|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:49:17.2724|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 21:50:01.4907|ERROR|Microsoft.EntityFrameworkCore.Query|An exception occurred while iterating over the results of a query for context type 'testPj.Data.SqlDbContext'.
+System.InvalidOperationException: A second operation was started on this context before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+2022-07-07 21:50:01.6632|ERROR|Microsoft.EntityFrameworkCore.Database.Transaction|An error occurred using a transaction.
+2022-07-07 21:50:01.9114|ERROR|testPj.Services.SellsService|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 21:51:11.5080|ERROR|testPj.Services.SellsService|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 22:19:50.8555|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:19:53.5853|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:19:56.3852|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:19:57.7017|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:20:03.9763|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:21:05.5566|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:21:08.9296|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:21:34.7282|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:21:35.9139|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:22:00.8543|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:24:56.0963|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:26:28.6651|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:26:33.1029|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:26:34.6172|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:26:41.5692|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:29:21.5383|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:29:29.2442|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:29:32.1487|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:29:33.5876|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:29:40.3673|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:30:28.1639|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 22:30:29.1514|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:30:31.1637|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:30:33.7577|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:30:41.6181|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:30:42.9184|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 22:31:43.7398|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Value cannot be null. (Parameter 'source')
+2022-07-07 22:31:44.5425|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:31:53.3534|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:55.5112|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:55.6321|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:55.7108|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:55.7108|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:56.4616|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:56.4776|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:57.2942|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:31:57.4494|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:32:00.1119|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:32:01.1948|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:32:04.9959|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:32:12.6051|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:32:22.0928|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 22:36:14.2688|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:36:14.3994|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:36:14.4798|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:36:14.4928|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:36:15.0752|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:36:15.0752|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:38:16.7900|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:38:53.3250|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:38:57.2461|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 22:39:41.2934|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:39:42.3725|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:39:54.9793|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:39:55.8677|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:39:56.1687|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:39:56.3405|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:40:53.4445|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:40:54.2895|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:41:22.2781|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:41:54.3047|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:41:54.5443|ERROR|testPj.Tool.ServicerTool.BuyNFTServive|Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'SqlDbContext'.
+2022-07-07 22:42:32.1800|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:42:34.0286|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:42:38.0701|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:42:39.0708|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:44:16.4799|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 22:44:18.6349|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:45:06.4962|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:45:08.3041|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:46:18.4759|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:47:20.3990|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 22:49:22.2745|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 23:06:02.0134|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect.
+2022-07-07 23:06:13.8982|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:16.9297|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:17.0588|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:18.8303|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:18.9502|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:18.9776|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:18.9776|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:19.6950|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:19.6950|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:21.5080|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!
+2022-07-07 23:06:23.0392|INFO|testPj.Attributes.BaseAuthorize|admin: logon into api successfully!

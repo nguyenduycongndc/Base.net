@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using testPj.Models;
+using testPj.Services;
 using testPj.Services.Interface;
 using testPj.Tool.ServicerTool.CheckBuys.ModelCheckBuys;
 using testPj.Tool.ServicerTool.InterfaceSellNFT;
@@ -19,11 +22,13 @@ namespace testPj.Tool.ServicerTool
     public class SellNFTService: ISellNFT
     {
         private readonly ISellsService _sellsService;
+        private readonly IServiceScopeFactory _serviceScopeFactory;
         private readonly ILogger<SellNFTService> _logger;
-        public SellNFTService(ILogger<SellNFTService> logger, ISellsService sellsService)
+        public SellNFTService(ILogger<SellNFTService> logger, ISellsService sellsService, IServiceScopeFactory serviceScopeFactory)
         {
             _logger = logger;
             _sellsService = sellsService;
+            _serviceScopeFactory = serviceScopeFactory;
         }
         public static string BRIGDE_CHECKSUM_KEY { get; } = "R026jm8BNZdUyMYria";
         public long UnixTimeNow()
@@ -150,8 +155,13 @@ namespace testPj.Tool.ServicerTool
                             _sellsactive.Token_Id = result.data.tokenId;
                             _sellsactive.priceNFT = checkSellModel.priceNFT;
                             //var cre = UpdateNFT(_sellsactive);
-                            var cre = await _sellsService.UpdateHistory(_sellsactive);
-                            if (!cre) return null;
+                            using (var scope = _serviceScopeFactory.CreateScope())
+                            {
+                                var sellServicesNew = scope.ServiceProvider.GetService<ISellsService>();
+
+                                var cre = await sellServicesNew.UpdateHistory(_sellsactive);
+                                if (!cre) return null;
+                            }
                         }
                     }
                     #endregion
