@@ -1,0 +1,220 @@
+﻿@{
+    Layout = "_Layout";
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+@*<script src="/js/jquery/jquery/jquery.min.js"></script>*@
+<script src="~/js/select2/js/select2.js"></script>
+
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/jsApp/sellstype.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card" id="view">
+            <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
+                Bán NFT
+            </div>
+            <div class="card-body card-custom">
+                <form id="formView" action="javascript:void(0)">
+                    <div class="col-md-12 row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2" for="type">
+                                    Phân loại
+                                </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" id="type">
+                                        <option value="-1">Tất cả</option>
+                                        <option value="Hero">Hero</option>
+                                        <option value="Trứng">Trứng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2" for="rarity">
+                                    Độ hiếm
+                                </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" id="rarity">
+                                        <option value="-1">Tất cả</option>
+                                        <option value="Common">Common</option>
+                                        <option value="UnCommon">UnCommon</option>
+                                        <option value="Rare">Rare</option>
+                                        <option value="Epic">Epic</option>
+                                        <option value="Lengend">Lengend</option>
+                                        <option value="Mythic">Mythic</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2" for="IsActive">
+                                    Trạng thái
+                                </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" id="IsActive">
+                                        <option value="-1">Tất cả</option>
+                                        <option value="1">Túi</option>
+                                        <option value="0">Chợ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2" for="Wallet">
+                                    Ví
+                                </label>
+                                <div class="col-lg-10">
+                                    <select class="form-control" id="Wallet">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3 btn-search-custom">
+                        <div style="text-align:center; ">
+                            <a href="javascript:void(0)" class="btn btn-info" onclick="onSearch()">Tìm kiếm</a>
+                        </div>
+                    </div>
+                    @*</div>*@
+                </form>
+                <div class="table-responsive custom-table-scroll">
+                    <table id="sellTable" class="table table-striped table-bordered zero-configuration" style="width: 100%; border: 1px solid #dee2e6 !important">
+                        <thead class="contain-header-custom m-gray">
+                            <tr>
+                                <th class="sorting" style="text-align: center">STT</th>
+                                <th class="sorting" style="text-align: center">ID</th>
+                                <th class="sorting" style="text-align: center">Phân loại</th>
+                                <th class="sorting" style="text-align: center">Độ hiếm</th>
+                                <th class="sorting" style="text-align: center">Giá(TAU)</th>
+                                <th class="sorting" style="text-align: center">Giá($)</th>
+                                <th class="sorting" style="text-align: center">Ví</th>
+                                <th class="sorting" style="text-align: center">Trạng thái</th>
+                                <th class="sorting" style="text-align: center">Hoạt động</th>
+                                <th class="sorting" style="text-align: center">Giá Bán (TAU)</th>
+                                <th scope="col" style="width: 50px; text-align: center"><input id="checkAll" type="checkbox" name="checkAll"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="contain-tbody-custom">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <partial name="_Pagination" />
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5" style="text-align: right;">
+                        <div style="width: 24%; display: inline-flex; flex-direction: row; justify-content: center; align-items: flex-start; padding: 0 5px 0 5px; ">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalContent" onclick="SellNFT()" style="width: 100%">Bán</button>
+                        </div>
+                        <div style="width: 24%; display: inline-flex; flex-direction: row; justify-content: center; align-items: flex-start; padding: 0 5px 0 5px; ">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalContent" onclick="DeleteSellNFT()" style="width: 100%">Hủy bán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Bán 1 *@
+<div class="modal hide fade" id="modalContent" role="dialog" aria-labelledby="modalContentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="examplemodalSubmitContent">Bán</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="one" class="form-valide" action="#" method="post" style="margin-top: 20px;">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFT" name="priceNFT" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                @* Bán nhiều *@
+                <form id="muntill" class="form-valide" action="#" method="post" style="margin-top: 20px; display: none">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá Min</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFTMin" name="priceNFTMin" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group row">
+                                <label for="PersonBrowse" class="col-sm-3 col-form-label">Giá Max</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="priceNFTMax" name="priceNFTMax" onkeypress="validatePrice(event)"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:void(0);" class="btn btn-success" onclick="onclickSubmit()">Bán</a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //window.onload = function LoadWallet() {
+    //    var obj = {
+    //        'Id': parseInt($('#IdUser').val()),
+    //        'page_size': parseInt($("#cbPageSize").val()),
+    //        'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
+    //    }
+    //    callApi_userservice(
+    //        apiConfig.api.wallet.controller,
+    //        apiConfig.api.wallet.action.search.path,
+    //        apiConfig.api.wallet.action.search.method,
+    //        obj, '', 'msgError');
+    //}
+    callApi_oneselect("Wallet", "Chọn ví...",
+        apiConfig.api.host_user_service,
+        apiConfig.api.sells.controller,
+        apiConfig.api.sells.action.dropdown.path);
+    $("#checkAll").click(function () {
+        $('.checkitem').not(this).prop('checked', this.checked);
+    });
+    function validatePrice(evt) {
+        var theEvent = evt || window.event;
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /^[0-9]+$/;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+</script>

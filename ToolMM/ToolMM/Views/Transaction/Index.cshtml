@@ -1,0 +1,241 @@
+﻿@{
+    Layout = "_Layout";
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+@*<script src="/js/jquery/jquery/jquery.min.js"></script>*@
+<script src="~/js/select2/js/select2.js"></script>
+
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/jsApp/transactiontype.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card" id="view">
+            <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
+                Market Place
+            </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="Hero-tab" data-toggle="tab" href="#Hero" role="tab" aria-controls="Hero" aria-selected="true">Hero</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Item-tab" data-toggle="tab" href="#Item" role="tab" aria-controls="Item" aria-selected="false">Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Ticket-tab" data-toggle="tab" href="#Ticket" role="tab" aria-controls="Ticket" aria-selected="false">Ticket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Pack-tab" data-toggle="tab" href="#Pack" role="tab" aria-controls="Pack" aria-selected="false">Pack</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="Egg-tab" data-toggle="tab" href="#Egg" role="tab" aria-controls="Egg" aria-selected="false">Egg</a>
+                </li>
+            </ul>
+            <div class="col-md-12 row mt-4">
+                <div class="col-md-4 mb-3">
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2" for="fromD">
+                            Từ
+                        </label>
+                        <div class="col-lg-10">
+                            <input type="date" class="form-control" id="fromD" name="fromD">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-2" for="toD">
+                            Đến
+                        </label>
+                        <div class="col-lg-10">
+                            <input type="date" class="form-control" id="toD" name="toD">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div style="text-align:center; ">
+                        <a href="javascript:void(0)" class="btn btn-success" onclick="ExportTransaction()">Export to Excel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-3 btn-search-custom">
+                <div style="text-align:center; ">
+                    <a href="javascript:void(0)" class="btn btn-info" onclick="onSearch()">Tìm kiếm</a>
+                </div>
+            </div>
+            @*</div>*@
+        <div class="tab-content">
+            <div class="tab-pane active" id="CountAll" role="tabpanel" aria-labelledby="CountAll-tab">
+                @*<input type="hidden" id="Id" name="Id" value="0" />*@
+                <div class="form-group row" id="CountWallet">
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable1" class="col-sm-12 col-form-label">Total NFT:</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable2" class="col-sm-12 col-form-label">Hero:</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable3" class="col-sm-12 col-form-label">Ticket:</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable4" class="col-sm-12 col-form-label">Packet:</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable5" class="col-sm-12 col-form-label">Egg:</label>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <label for="lable6" class="col-sm-12 col-form-label">Item:</label>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="Hero" role="tabpanel" aria-labelledby="Hero-tab">
+                    <div id="accordionHero">
+                        <div class="table-responsive custom-table-scroll">
+                            <table id="showListHeroTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                <thead class="contain-header-custom m-gray">
+                                    <tr>
+                                        <th class="sorting" style="text-align: center">STT</th>
+                                        <th class="sorting" style="text-align: center">ID</th>
+                                        <th class="sorting" style="text-align: center">RARITY</th>
+                                        <th class="sorting" style="text-align: center">LV</th>
+                                        <th class="sorting" style="text-align: center">ELEMENT</th>
+                                        <th class="sorting" style="text-align: center">GENDERS</th>
+                                        <th class="sorting" style="text-align: center">Giá</th>
+                                        <th class="sorting" style="text-align: center">Phí</th>
+                                        <th class="sorting" style="text-align: center">TIME</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="contain-tbody-custom">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-5">
+                                <partial name="_Pagination" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Item" role="tabpanel" aria-labelledby="Item-tab">
+                    <div id="accordionItem">
+                        <div class="table-responsive custom-table-scroll">
+                            <table id="showListItemTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                <thead class="contain-header-custom m-gray">
+                                    <tr>
+                                        <th class="sorting" style="text-align: center">STT</th>
+                                        <th class="sorting" style="text-align: center">ID</th>
+                                        <th class="sorting" style="text-align: center">RARITY</th>
+                                        <th class="sorting" style="text-align: center">LV</th>
+                                        <th class="sorting" style="text-align: center">Giá</th>
+                                        <th class="sorting" style="text-align: center">Phí</th>
+                                        <th class="sorting" style="text-align: center">TIME</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="contain-tbody-custom">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-5">
+                                <partial name="_Pagination" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Ticket" role="tabpanel" aria-labelledby="Ticket-tab">
+                    <div id="accordionTicket">
+                        <div class="table-responsive custom-table-scroll">
+                            <table id="showListTicketTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                <thead class="contain-header-custom m-gray">
+                                    <tr>
+                                        <th class="sorting" style="text-align: center">STT</th>
+                                        <th class="sorting" style="text-align: center">ID</th>
+                                        <th class="sorting" style="text-align: center">RARITY</th>
+                                        <th class="sorting" style="text-align: center">Giá</th>
+                                        <th class="sorting" style="text-align: center">Phí</th>
+                                        <th class="sorting" style="text-align: center">TIME</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="contain-tbody-custom">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-5">
+                                <partial name="_Pagination" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Pack" role="tabpanel" aria-labelledby="Pack-tab">
+                    <div id="accordionPack">
+                        <div class="table-responsive custom-table-scroll">
+                            <table id="showListPackTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                <thead class="contain-header-custom m-gray">
+                                    <tr>
+                                        <th class="sorting" style="text-align: center">STT</th>
+                                        <th class="sorting" style="text-align: center">ID</th>
+                                        <th class="sorting" style="text-align: center">Loại</th>
+                                        <th class="sorting" style="text-align: center">Giá</th>
+                                        <th class="sorting" style="text-align: center">Phí</th>
+                                        <th class="sorting" style="text-align: center">TIME</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="contain-tbody-custom">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-5">
+                                <partial name="_Pagination" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="Egg" role="tabpanel" aria-labelledby="Egg-tab">
+                    <div id="accordionEgg">
+                        <div class="table-responsive custom-table-scroll">
+                            <table id="showListEggTable" class="table table-striped table-bordered zero-configuration" style="width: 100%; border: 1px solid #dee2e6 !important">
+                                <thead class="contain-header-custom m-gray">
+                                    <tr>
+                                        <th class="sorting" style="text-align: center">STT</th>
+                                        <th class="sorting" style="text-align: center">ID</th>
+                                        <th class="sorting" style="text-align: center">Loại</th>
+                                        <th class="sorting" style="text-align: center">Giá</th>
+                                        <th class="sorting" style="text-align: center">Phí</th>
+                                        <th class="sorting" style="text-align: center">TIME</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="contain-tbody-custom">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7"></div>
+                            <div class="col-md-5">
+                                <partial name="_Pagination" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+</div>
+@*<script>
+    callApi_oneselect("Wallet", "Chọn ví...",
+        apiConfig.api.host_user_service,
+        apiConfig.api.sells.controller,
+        apiConfig.api.sells.action.dropdown.path);
+</script>*@
