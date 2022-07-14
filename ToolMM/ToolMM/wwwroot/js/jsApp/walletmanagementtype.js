@@ -24,15 +24,17 @@ function fnLoadSuccess(rs) {
     }
 }
 function CreateWallet() {
-    if ($('#PrivateKey').val() == "") {
-        toastr.error("Private key không được để trống");
-    } else if ($('#AddressWallet').val() == "") {
-        toastr.error("Đại chỉ ví không được để trống");
-    } else if ($('#PrivateKey').val() != "" && $('#AddressWallet').val() != "") {
-        var input = {
-            'PrivateKey': $('#PrivateKey').val().trim(),
-            'AddressWallet': $('#AddressWallet').val().trim(),
-        }
+    //if ($('#PrivateKey').val() == "") {
+    //    toastr.error("Private key không được để trống");
+    //} else if ($('#AddressWallet').val() == "") {
+    //    toastr.error("Đại chỉ ví không được để trống");
+    //} else if ($('#PrivateKey').val() != "" && $('#AddressWallet').val() != "") {
+    //}
+    var input = {
+        'PrivateKey': $('#PrivateKey').val().trim(),
+        'AddressWallet': $('#AddressWallet').val().trim(),
+    }
+    if (validateRequired('#formCreate')) {
         callApi_userservice(
             apiConfig.api.wallet.controller,
             apiConfig.api.wallet.action.inforWallet.path,
@@ -50,7 +52,7 @@ function fnSuccess(rs) {
     }
 }
 function fnLoadSc() {
-//function onSearch() {
+    //function onSearch() {
     fnSearch(true);
 }
 function fnSearch(rs) {

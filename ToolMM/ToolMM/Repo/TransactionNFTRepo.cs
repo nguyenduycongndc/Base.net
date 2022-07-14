@@ -7,17 +7,21 @@ using ToolMM.Repo.Interface;
 
 namespace ToolMM.Repo
 {
-    public class TransactionHeroRepo : ITransactionHeroRepo
+    public class TransactionNFTRepo : ITransactionNFTRepo
     {
         private readonly SqlDbContext _context;
 
-        public TransactionHeroRepo(SqlDbContext context)
+        public TransactionNFTRepo(SqlDbContext context)
         {
             _context = context;
         }
-        public List<TransactionHistory> GetAllHeroRepo()
+        public List<TransactionHistory> GetAllRepo()
         {
             return _context.TransactionHistory.ToList();
         }
+        //public List<TransactionHistory> GetAllHeroRepo()
+        //{
+        //    return _context.TransactionHistory.ToList();
+        //}
     }
 }

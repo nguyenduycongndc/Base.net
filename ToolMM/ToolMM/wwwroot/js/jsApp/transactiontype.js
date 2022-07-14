@@ -8,8 +8,8 @@ function onSearch() {
     if (Hero_Tab == "true")//hero
     {
         var obj = {
-            'FromDate': $('#fromD').val(),
-            'ToDate': $('#toD').val(),
+            'start_date': $('#fromD').val(),
+            'end_date': $('#toD').val(),
             'page_size': parseInt($("#cbPageSize").val()),
             'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
@@ -21,8 +21,8 @@ function onSearch() {
     } else if (Item_Tab == "true")//item
     {
         var obj = {
-            'FromDate': $('#fromD').val(),
-            'ToDate': $('#toD').val(),
+            'start_date': $('#fromD').val(),
+            'end_date': $('#toD').val(),
             'page_size': parseInt($("#cbPageSize").val()),
             'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
@@ -34,8 +34,8 @@ function onSearch() {
     } else if (Ticket_Tab == "true")//ticket
     {
         var obj = {
-            'FromDate': $('#fromD').val(),
-            'ToDate': $('#toD').val(),
+            'start_date': $('#fromD').val(),
+            'end_date': $('#toD').val(),
             'page_size': parseInt($("#cbPageSize").val()),
             'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
@@ -47,8 +47,8 @@ function onSearch() {
     } else if (Pack_Tab == "true")//pack
     {
         var obj = {
-            'FromDate': $('#fromD').val(),
-            'ToDate': $('#toD').val(),
+            'start_date': $('#fromD').val(),
+            'end_date': $('#toD').val(),
             'page_size': parseInt($("#cbPageSize").val()),
             'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
@@ -60,8 +60,8 @@ function onSearch() {
     } else if (Egg_Tab == "true")//egg
     {
         var obj = {
-            'FromDate': $('#fromD').val(),
-            'ToDate': $('#toD').val(),
+            'start_date': $('#fromD').val(),
+            'end_date': $('#toD').val(),
             'page_size': parseInt($("#cbPageSize").val()),
             'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
         }
@@ -75,6 +75,30 @@ function onSearch() {
 }
 function fnSearchHeroSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn.data.length > 0) {
+
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
+
+
         var tbBody = $('#showListHeroTable tbody');
         $("#showListHeroTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -82,14 +106,14 @@ function fnSearchHeroSuccess(rspn) {
             var obj = rspn.data[i];
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.id_nft + '</td>' +
+                '<td>' + obj.idHero + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
                 '<td>' + obj.level + '</td>' +
-                '<td>' + obj.elemental + '</td>' +
-                '<td>' + obj.sex + '</td>' +
-                '<td>' + obj.Sell_TAU + '</td>' +
+                '<td>' + obj.element + '</td>' +
+                '<td>' + obj.genders + '</td>' +
+                '<td>' + obj.price + '</td>' +
                 '<td>' + obj.fee + '</td>' +
-                '<td>' + obj.Time + '</td>' +
+                '<td>' + obj.time + '</td>' +
                 '</tr>';
             tbBody.append(html);
         }
@@ -130,6 +154,27 @@ function fnSearchHeroSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListHeroTable tbody');
         $("#showListHeroTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -173,6 +218,27 @@ function fnSearchHeroSuccess(rspn) {
 }
 function fnSearchItemSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn.data.length > 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListItemTable tbody');
         $("#showListItemTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -180,12 +246,12 @@ function fnSearchItemSuccess(rspn) {
             var obj = rspn.data[i];
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.id_nft + '</td>' +
+                '<td>' + obj.idItem + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
                 '<td>' + obj.level + '</td>' +
-                '<td>' + obj.Sell_TAU + '</td>' +
+                '<td>' + obj.price + '</td>' +
                 '<td>' + obj.fee + '</td>' +
-                '<td>' + obj.Time + '</td>' +
+                '<td>' + obj.time + '</td>' +
                 '</tr>';
             tbBody.append(html);
         }
@@ -226,6 +292,27 @@ function fnSearchItemSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListItemTable tbody');
         $("#showListItemTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -269,6 +356,27 @@ function fnSearchItemSuccess(rspn) {
 }
 function fnSearchTicketSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn.data.length > 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListTicketTable tbody');
         $("#showListTicketTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -276,11 +384,11 @@ function fnSearchTicketSuccess(rspn) {
             var obj = rspn.data[i];
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.id_nft + '</td>' +
+                '<td>' + obj.idTicket + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
-                '<td>' + obj.Sell_TAU + '</td>' +
+                '<td>' + obj.price + '</td>' +
                 '<td>' + obj.fee + '</td>' +
-                '<td>' + obj.Time + '</td>' +
+                '<td>' + obj.time + '</td>' +
                 '</tr>';
             tbBody.append(html);
         }
@@ -321,6 +429,27 @@ function fnSearchTicketSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListTicketTable tbody');
         $("#showListTicketTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -364,6 +493,27 @@ function fnSearchTicketSuccess(rspn) {
 }
 function fnSearchPackSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn.data.length > 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListPackTable tbody');
         $("#showListPackTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -371,11 +521,11 @@ function fnSearchPackSuccess(rspn) {
             var obj = rspn.data[i];
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.id_nft + '</td>' +
+                '<td>' + obj.idPack + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
-                '<td>' + obj.Sell_TAU + '</td>' +
+                '<td>' + obj.price + '</td>' +
                 '<td>' + obj.fee + '</td>' +
-                '<td>' + obj.Time + '</td>' +
+                '<td>' + obj.time + '</td>' +
                 '</tr>';
             tbBody.append(html);
         }
@@ -416,6 +566,27 @@ function fnSearchPackSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListPackTable tbody');
         $("#showListPackTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -459,6 +630,27 @@ function fnSearchPackSuccess(rspn) {
 }
 function fnSearchEggSuccess(rspn) {
     if (rspn !== undefined && rspn !== null && rspn.data.length > 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListEggTable tbody');
         $("#showListEggTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -466,11 +658,11 @@ function fnSearchEggSuccess(rspn) {
             var obj = rspn.data[i];
             var html = '<tr>' +
                 '<td class="text-center"></td>' +
-                '<td>' + obj.id_nft + '</td>' +
+                '<td>' + obj.idEgg + '</td>' +
                 '<td>' + obj.rarity + '</td>' +
-                '<td>' + obj.Sell_TAU + '</td>' +
+                '<td>' + obj.price + '</td>' +
                 '<td>' + obj.fee + '</td>' +
-                '<td>' + obj.Time + '</td>' +
+                '<td>' + obj.time + '</td>' +
                 '</tr>';
             tbBody.append(html);
         }
@@ -511,6 +703,27 @@ function fnSearchEggSuccess(rspn) {
         viewBtnActionPage();
         hideLoading();
     } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+        var viewcounthtml = $('#CountWallet');
+        viewcounthtml.html('');
+        var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable1" class="col-sm-12 col-form-label">' + "Total NFT: " + rspn.total_NFT + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable2" class="col-sm-12 col-form-label">' + "Hero: " + rspn.count_Hero + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable3" class="col-sm-12 col-form-label">' + "Ticket: " + rspn.count_Ticket + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable4" class="col-sm-12 col-form-label">' + "Packet: " + rspn.count_Packet + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable5" class="col-sm-12 col-form-label">' + "Egg: " + rspn.count_Egg + '</label>' +
+            '</div>' +
+            '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
+            '<label for="lable6" class="col-sm-12 col-form-label">' + "Item: " + rspn.count_Item + '</label>' +
+            '</div>';
+        viewcounthtml.append(htmlCout);
         var tbBody = $('#showListEggTable tbody');
         $("#showListEggTable").dataTable().fnDestroy();
         tbBody.html('');
@@ -560,8 +773,8 @@ function ExportTransaction() {
     var Pack_Tab = $('#Pack-tab').on('show')[0].ariaSelected;
     var Egg_Tab = $('#Egg-tab').on('show')[0].ariaSelected;
     var obj = {
-        'FromDate': $('#fromD').val(),
-        'ToDate': $('#toD').val(),
+        'start_date': $('#fromD').val(),
+        'end_date': $('#toD').val(),
         'page_size': parseInt($("#cbPageSize").val()),
         'start_number': (parseInt($("#txtCurrentPage").val()) - 1) * parseInt($("#cbPageSize").val())
     }

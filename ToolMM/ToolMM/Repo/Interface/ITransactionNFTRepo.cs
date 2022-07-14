@@ -6,8 +6,9 @@ using ToolMM.Data;
 
 namespace ToolMM.Repo.Interface
 {
-    public interface ITransactionHeroRepo
+    public interface ITransactionNFTRepo
     {
-        List<TransactionHistory> GetAllHeroRepo();
+        List<TransactionHistory> GetAllRepo();
+        //List<TransactionHistory> GetAllHeroRepo();
     }
 }

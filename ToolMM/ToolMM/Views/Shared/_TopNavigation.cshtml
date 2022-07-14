@@ -8,10 +8,10 @@
 <script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
 
 @*<div class="nav-control">
-    <div class="hamburger">
-        <span class="toggle-icon"><i class="fas fa-angle-double-left" style="font-size: 25px; color: #544f90;"></i></span>
-    </div>
-</div>*@
+        <div class="hamburger">
+            <span class="toggle-icon"><i class="fas fa-angle-double-left" style="font-size: 25px; color: #544f90;"></i></span>
+        </div>
+    </div>*@
 <div class="header">
     <div class="header-left">
         <div class="menu-icon dw dw-menu"></div>
@@ -45,30 +45,33 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group row">
-                    <label for="UserName" class="col-sm-3 col-form-label">Tài khoản</label>
-                    <label for="UserName" class="col-sm-9 col-form-label">@currentuser.FullName</label>
-                </div>
-                <div class="form-group row">
-                    <label for="PassWordOld" class="col-sm-3 col-form-label">Mật khẩu cũ</label>
-                    <div class="col-sm-9">
-                        <input type="password" class="form-control" id="PassWordOld" aria-label="PassWordOld" aria-describedby="basic-addon1">
+                <form id="formChangePassWord" class="form-valide" action="#" method="post" style="margin-top: 20px;">
+                    <input type="hidden" id="Id" name="Id" value="0" />
+                    <div class="form-group row">
+                        <label for="UserName" class="col-sm-3 col-form-label">Tài khoản</label>
+                        <label for="UserName" class="col-sm-9 col-form-label">@currentuser.FullName</label>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label for="PassWordNew" class="col-sm-3 col-form-label">Mật khẩu mới</label>
-                    <div class="col-sm-9">
-                        <input type="password" class="form-control" id="PassWordNew" aria-label="PassWordNew" aria-describedby="basic-addon1" onkeypress='validateSLEdit(event)'>
+                    <div class="form-group row">
+                        <label for="PassWordOld" class="col-sm-3 col-form-label">Mật khẩu cũ<span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control required" id="PassWordOld" aria-label="PassWordOld" aria-describedby="basic-addon1">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" for="ConfirmPassWordNew">
-                        Xác nhận mật khẩu
-                    </label>
-                    <div class="col-sm-9">
-                        <input type="password" class="form-control" id="ConfirmPassWordNew" aria-label="ConfirmPassWordNew" aria-describedby="basic-addon1" onkeypress='validateSLEdit(event)'>
+                    <div class="form-group row">
+                        <label for="PassWordNew" class="col-sm-3 col-form-label">Mật khẩu mới<span class="text-danger">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control required" id="PassWordNew" aria-label="PassWordNew" aria-describedby="basic-addon1" onkeypress='validateSLEdit(event)'>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="ConfirmPassWordNew">
+                            Xác nhận mật khẩu<span class="text-danger">*</span>
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control required" id="ConfirmPassWordNew" aria-label="ConfirmPassWordNew" aria-describedby="basic-addon1" onkeypress='validateSLEdit(event)'>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <a href="javascript:void(0);" class="btn btn-info" onclick="SaveClick(@currentuser.Id)">Lưu</a>
@@ -102,24 +105,26 @@
         }
     }
     function SaveClick() {
-        if ($("#PassWordNew").val().length < 6 || $("#ConfirmPassWordNew").val().length < 6) {
-            toastr.error("Mật khẩu ít nhất 6 ký tự");
-            return false;
-        } else if ($("#PassWordNew").val() != $("#ConfirmPassWordNew").val()) {
-            toastr.error("Xác nhận mật khẩu không đúng");
-            return false;
-        }
         var obj = {
             'Id': @currentuser.Id,
             'PassWordOld': $('#PassWordOld').val().trim(),
             'PassWordNew': $('#PassWordNew').val().trim(),
             'ConfirmPassWordNew': $('#ConfirmPassWordNew').val().trim(),
         }
+        if (validateRequired('#formChangePassWord')) {
+            if ($("#PassWordNew").val().length < 6 || $("#ConfirmPassWordNew").val().length < 6) {
+                toastr.error("Mật khẩu ít nhất 6 ký tự");
+                return false;
+            } else if ($("#PassWordNew").val() != $("#ConfirmPassWordNew").val()) {
+                toastr.error("Xác nhận mật khẩu không đúng");
+                return false;
+            }
         callApi_userservice(
             apiConfig.api.user.controller,
             apiConfig.api.user.action.changepassword.path,
             apiConfig.api.user.action.changepassword.method,
             obj, 'changePassWordSuccess', 'msgError');
+        }
     }
 
     function changePassWordSuccess(data) {

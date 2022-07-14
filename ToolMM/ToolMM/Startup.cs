@@ -63,8 +63,8 @@ namespace ToolMM
             services.AddScoped<IStatisticalService, StatisticalService>();
             services.AddScoped<IStatisticalRepo, StatisticalRepo>();
 
-            services.AddScoped<ITransactionHeroService, TransactionHeroService>();
-            services.AddScoped<ITransactionHeroRepo, TransactionHeroRepo>();
+            services.AddScoped<ITransactionNFTService, TransactionNFTService>();
+            services.AddScoped<ITransactionNFTRepo, TransactionNFTRepo>();
 
             services.AddScoped<ISellsService, SellsService>();
             services.AddScoped<ISellsRepo, SellsRepo>();
