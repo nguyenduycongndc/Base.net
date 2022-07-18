@@ -41,7 +41,7 @@
                             </a>
                             <ul class="submenu">
                                 <li><a href="javascript:void(0);" onclick="openViewIndex()">CCU</a></li>
-                                <li><a href="javascript:void(0);" onclick="openViewIndex()">ACCOUNT</a></li>
+                                <li><a href="javascript:void(0);" onclick="openViewIndex(12)">ACCOUNT</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -96,7 +96,7 @@
                             </a>
                             <ul class="submenu">
                                 <li><a href="javascript:void(0);" onclick="openViewIndex()">CCU</a></li>
-                                <li><a href="javascript:void(0);" onclick="openViewIndex()">ACCOUNT</a></li>
+                                <li><a href="javascript:void(0);" onclick="openViewIndex(12)">ACCOUNT</a></li>
                             </ul>
                         </li>
                     }
@@ -244,6 +244,8 @@
             window.location.href = "/api/Breeding";
         } else if (menu === 11) {
             window.location.href = "/api/SellTicket";
+        } else if (menu === 12) {
+            window.location.href = "/api/Account";
         }
     }
 </script>

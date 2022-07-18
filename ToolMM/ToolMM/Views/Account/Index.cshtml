@@ -1,0 +1,457 @@
+﻿@{
+    Layout = "_Layout";
+    var currentuser = Context.Items["UserInfo"] as CurrentUserModel;
+}
+<script src="~/js/host.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/api.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/jsApp/accounttype.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/common.js" type="text/javascript" asp-append-version="true"></script>
+<script src="~/js/constant.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="main-container">
+    <div class="pd-ltr-20">
+        <div class="card" id="view">
+            <div class="card-header bg-primary text-white" style=" font-size: 1rem; ">
+                Account
+            </div>
+            <div class="card-body card-custom">
+                <form id="formView" action="javascript:void(0)">
+                    <div class="col-md-12 row">
+                        <div class="col-md-3 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label" for="CountUserName">
+                                    Tổng số tài khoản:
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label" for="txtSearch">
+                                    Tìm kiếm:
+                                </label>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control" id="txtSearch" name="txtSearch">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label" for="fromDate">
+                                    Từ
+                                </label>
+                                <div class="col-lg-10">
+                                    <input type="date" class="form-control" id="fromDate" name="fromDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="form-group row">
+                                <label class="col-form-label" for="toDate">
+                                    Đến
+                                </label>
+                                <div class="col-lg-10">
+                                    <input type="date" class="form-control" id="toDate" name="toDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3 btn-search-custom">
+                        <div style="text-align:center; ">
+                            <a href="javascript:void(0)" class="btn btn-info" onclick="onSearch()">Tìm kiếm</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive custom-table-scroll">
+                    <table id="accountTypeTable" class="table table-striped table-bordered zero-configuration" style="width: 100%; border: 1px solid #dee2e6 !important">
+                        <thead class="contain-header-custom m-gray">
+                            <tr>
+                                <th class="sorting" style="text-align: center">STT</th>
+                                <th class="sorting" style="text-align: center">Account name</th>
+                                <th class="sorting" style="text-align: center">Email</th>
+                                <th class="sorting" style="text-align: center">Address</th>
+                                <th class="sorting" style="text-align: center">Create date</th>
+                                <th style="text-align: center">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="contain-tbody-custom">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <partial name="_Pagination" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="detail" style="display: none">
+            <div class="card-header bg-primary text-white" id="frmHeaderDetail" style=" font-size: 1rem; ">
+                Chi tiết
+            </div>
+            <div class="card-body card-custom">
+                <form id="formDetail" class="form-valide" action="#" method="post" style="margin-top: 20px;">
+                    <input type="hidden" id="IdDetail" name="IdDetail" value="0" />
+                    <div class="row">
+                        <div class="col-md-12 row mb-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label class="col-form-label" for="CountUserNameDetail">
+                                        Tổng số tài khoản:
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label class="col-form-label" for="txtSearchDetail">
+                                        Tìm kiếm:
+                                    </label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" id="txtSearchDetail" name="txtSearchDetail">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12 btn-search-custom">
+                                <div style="text-align:center; ">
+                                    <a href="javascript:void(0)" class="btn btn-info" onclick="onSearch()">Tìm kiếm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row mb-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="NameDetail" class="col-form-label">Tên người dùng:</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="TimeDetail" class="col-form-label">Thời gian ONL gần nhất:</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="StatusDetail" class="col-form-label">Trạng thái:</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row mb-3">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="AccountNameDetail" class="col-form-label">Account Name:</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="EmailDetail" class="col-form-label">Email:</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div class="form-group row">
+                                    <label for="AddressDetail" class="col-form-label">Address:</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pd-10 card-box mb-3">
+                            <label class="col-md-12" style="text-align: center">WALLET</label>
+                            <div class="col-md-12 row">
+                                <div class="pd-10 card-box mb-3 col-md-3">
+                                    <label class="card-img-top" style="text-align: center">INGAME</label>
+                                    <label class="card-body col-md-6">TAU:</label>
+                                    <label class="card-body col-md-5">GOLD:</label>
+                                    <label class="card-body col-md-12">AUM:</label>
+                                </div>
+                                <div class="pd-10 card-box mb-3 col-md-2">
+                                    <label class="card-img-top" style="text-align: center">REWARD</label>
+                                    <label class="card-body col-md-12">TAU:</label>
+                                    <label class="card-body col-md-12">AUM:</label>
+                                </div>
+                                <div class="pd-10 card-box mb-3 col-md-3">
+                                    <label class="card-img-top" style="text-align: center">REWARD WALLET</label>
+                                    <label class="card-body">AUM:</label>
+                                </div>
+                                <div class="pd-10 card-box mb-3 col-md-2">
+                                    <label class="card-img-top" style="text-align: center">KOL WALLET</label>
+                                    <label class="card-body">AUM:</label>
+                                </div>
+                                <div class="pd-10 card-box mb-3 col-md-2">
+                                    <label class="card-img-top" style="text-align: center">HOLD</label>
+                                    <label class="card-body">TAU:</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
+                            <div class="pd-20 card-box">
+                                <div class="tab">
+                                    <div class="row clearfix">
+                                        <div class="col-md-3 col-sm-12">
+                                            <ul class="nav flex-column vtabs nav-tabs customtab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="hero-tab" data-toggle="tab" href="#hero" role="tab" aria-selected="true">HERO</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="item-tab" data-toggle="tab" href="#item" role="tab" aria-selected="false">ITEM</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="ticket-tab" data-toggle="tab" href="#ticket" role="tab" aria-selected="false">TICKET</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="pack-tab" data-toggle="tab" href="#pack" role="tab" aria-selected="false">PACK</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="egg-tab" data-toggle="tab" href="#egg" role="tab" aria-selected="false">EGG</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="shard-tab" data-toggle="tab" href="#shard" role="tab" aria-selected="false">SHARD</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="Ref-tab" data-toggle="tab" href="#Ref" role="tab" aria-selected="false">Danh sách REF</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-9 col-sm-12">
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade show active" id="hero" role="tabpanel" aria-labelledby="hero-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbHero">
+                                                            <div class="form-group row" id="CountHero">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Hero:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="heroTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">LV</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">STAR</th>
+                                                                            <th class="sorting" style="text-align: center">STATUS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="item" role="tabpanel" aria-labelledby="item-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbItem">
+                                                            <div class="form-group row" id="CountItem">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Item:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="itemTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">LV</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">STAR</th>
+                                                                            <th class="sorting" style="text-align: center">STATUS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="ticket" role="tabpanel" aria-labelledby="ticket-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbTicket">
+                                                            <div class="form-group row" id="CountTicket">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Ticket:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="ticketTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">STATUS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="pack" role="tabpanel" aria-labelledby="pack-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbPack">
+                                                            <div class="form-group row" id="CountPack">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Pack:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="packTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">STATUS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="egg" role="tabpanel" aria-labelledby="egg-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbEgg">
+                                                            <div class="form-group row" id="CountEgg">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Egg:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="eggTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">STATUS</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="shard" role="tabpanel" aria-labelledby="shard-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbShard">
+                                                            <div class="form-group row" id="CountShard">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Shard:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="shardTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ID</th>
+                                                                            <th class="sorting" style="text-align: center">RARITY</th>
+                                                                            <th class="sorting" style="text-align: center">AMOUNT</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="Ref" role="tabpanel" aria-labelledby="Ref-tab">
+                                                    <div class="pd-20">
+                                                        <div id="tbRef">
+                                                            <div class="form-group row" id="CountRef">
+                                                                <div class="col-xl-2 col-lg-2 col-md-2 col-12">
+                                                                    <label for="lable1" class="col-sm-12 col-form-label">Total Ref:</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="table-responsive custom-table-scroll">
+                                                                <table id="refTable" class="table table-striped table-bordered zero-configuration" style="width:100%; border: 1px solid #dee2e6 !important">
+                                                                    <thead class="contain-header-custom m-gray">
+                                                                        <tr>
+                                                                            <th class="sorting" style="text-align: center">STT</th>
+                                                                            <th class="sorting" style="text-align: center">ACCOUNT NAME</th>
+                                                                            <th class="sorting" style="text-align: center">ĐỊA CHỈ VÍ</th>
+                                                                            <th class="sorting" style="text-align: center">NGÀY TẠO TÀI KHOẢN</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="contain-tbody-custom">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-7"></div>
+                                                                <div class="col-md-5">
+                                                                    <partial name="_Pagination" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row " style="display: inline-flex; flex-direction: row; justify-content: end; align-items: flex-start; width: 100%;">
+                            <div style="width: 50%; display: inline-flex; flex-direction: row; justify-content: end; align-items: flex-start;">
+                                <div style="display: inline-flex; flex-direction: row; justify-content: center; align-items: flex-start; padding: 0 5px 0 5px; ">
+                                    <button type="button" class="btn btn-secondary" style="width: 100%" onclick="openView(0,0)">Trở lại</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //onSearch();
+    openView(0,0);
+</script>

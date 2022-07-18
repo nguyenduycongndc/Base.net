@@ -181,6 +181,48 @@ var apiConfig = {
                     "path": "/ExportEgg"
                 }
             }
+        },
+        "account": {
+            "controller": "/api/Account",
+            "action": {
+                "searchaccount": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccount"
+                },"searchaccounthero": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountHero"
+                },"searchaccountitem": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountItem"
+                },"searchaccountticket": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountTicket"
+                },"searchaccountpack": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountPack"
+                },"searchaccountegg": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountEgg"
+                },"searchaccountshard": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountShard"
+                },"searchaccountref": {
+                    //function support get items by search condition
+                    "method": "POST",
+                    "path": "/SearchAccountRef"
+                },
+                "getItem": {
+                    "method": "GET",
+                    "path": "/Detail"
+                }
+            }
         }
     },
 };

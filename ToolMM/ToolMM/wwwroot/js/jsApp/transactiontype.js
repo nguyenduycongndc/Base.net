@@ -18,7 +18,8 @@ function onSearch() {
             apiConfig.api.transaction.action.searchhero.path,
             apiConfig.api.transaction.action.searchhero.method,
             obj, 'fnSearchHeroSuccess', 'msgError');
-    } else if (Item_Tab == "true")//item
+    }
+    else if (Item_Tab == "true")//item
     {
         var obj = {
             'start_date': $('#fromD').val(),
@@ -31,7 +32,8 @@ function onSearch() {
             apiConfig.api.transaction.action.searchitem.path,
             apiConfig.api.transaction.action.searchitem.method,
             obj, 'fnSearchItemSuccess', 'msgError');
-    } else if (Ticket_Tab == "true")//ticket
+    }
+    else if (Ticket_Tab == "true")//ticket
     {
         var obj = {
             'start_date': $('#fromD').val(),
@@ -44,7 +46,8 @@ function onSearch() {
             apiConfig.api.transaction.action.searchticket.path,
             apiConfig.api.transaction.action.searchticket.method,
             obj, 'fnSearchTicketSuccess', 'msgError');
-    } else if (Pack_Tab == "true")//pack
+    }
+    else if (Pack_Tab == "true")//pack
     {
         var obj = {
             'start_date': $('#fromD').val(),
@@ -57,7 +60,8 @@ function onSearch() {
             apiConfig.api.transaction.action.searchpack.path,
             apiConfig.api.transaction.action.searchpack.method,
             obj, 'fnSearchPackSuccess', 'msgError');
-    } else if (Egg_Tab == "true")//egg
+    }
+    else if (Egg_Tab == "true")//egg
     {
         var obj = {
             'start_date': $('#fromD').val(),
@@ -153,7 +157,8 @@ function fnSearchHeroSuccess(rspn) {
         reCalculatPagesCustom(rspn.count);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+    }
+    else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
         var viewcounthtml = $('#CountWallet');
         viewcounthtml.html('');
         var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
@@ -291,7 +296,8 @@ function fnSearchItemSuccess(rspn) {
         reCalculatPagesCustom(rspn.count);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+    }
+    else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
         var viewcounthtml = $('#CountWallet');
         viewcounthtml.html('');
         var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
@@ -428,7 +434,8 @@ function fnSearchTicketSuccess(rspn) {
         reCalculatPagesCustom(rspn.count);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+    }
+    else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
         var viewcounthtml = $('#CountWallet');
         viewcounthtml.html('');
         var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
@@ -565,7 +572,8 @@ function fnSearchPackSuccess(rspn) {
         reCalculatPagesCustom(rspn.count);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+    }
+    else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
         var viewcounthtml = $('#CountWallet');
         viewcounthtml.html('');
         var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +
@@ -702,7 +710,8 @@ function fnSearchEggSuccess(rspn) {
         reCalculatPagesCustom(rspn.count);
         viewBtnActionPage();
         hideLoading();
-    } else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
+    }
+    else if (rspn == "" || rspn == null || rspn == undefined || rspn.data.length == 0) {
         var viewcounthtml = $('#CountWallet');
         viewcounthtml.html('');
         var htmlCout = '<div class="col-xl-2 col-lg-2 col-md-2 col-2">' +

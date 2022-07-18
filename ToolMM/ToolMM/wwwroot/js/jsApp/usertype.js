@@ -144,7 +144,7 @@ function fnSearchSuccess(rspn) {
                     '<a type="button" class="btn icon-disabled btn-action-custom" ><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true" ></i></a>')
                 +
                 //'<a type="button" class="btn icon-delete btn-action-custom" onclick="Delete(' + obj.id + ')"><i data-toggle="tooltip" title="Xóa" class="fa fa-trash" aria-hidden="true"></i></a>' +
-                //'</td>' +
+                '</td>' +
                 '</tr>';
             tbBody.append(html);
         }

@@ -91,6 +91,7 @@
 <script>
     function openModal() {
         $('#modalCreateWallet').modal('show');
+        clearMsgInvalid();
         $('#PrivateKey').val("");
         $('#AddressWallet').val("");
     }
