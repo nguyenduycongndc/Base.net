@@ -66,12 +66,13 @@ namespace ToolMM.Services
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
             DateTime jwtDate = DateTime.UtcNow;
-
+            //Header
             //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(GlobalSetting.Secret));
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+            //Header
             var expires = DateTime.UtcNow.AddHours(24);
-
+            //Payload
             var token = new JwtSecurityToken(
                 issuer: "http://::80",
                 audience: "http://::80",
@@ -80,7 +81,7 @@ namespace ToolMM.Services
                 expires: expires,
                 signingCredentials: creds
             );
-
+            //Payload
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
         private CurrentUserModel AuthenticateUser(InputLoginModel inputModel)
